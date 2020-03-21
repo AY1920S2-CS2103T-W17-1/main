@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">FlashSpeed</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>FlashSpeed - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>AY1920S2-CS2103T-W17-1</code>      Since: <code>Feb 2020</code>      Licence: <code>MIT</code></p>
+<p>By: <code>FlashSpeed Foundation</code>      Since: <code>Feb 2020</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -13,17 +13,11 @@
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#listing-all-decks-code-list-code">3.2. Listing all decks : <code>list</code></a></li>
-<li><a href="#creating-a-deck-code-create-code-code-coming-in-v2-0-code">3.3. Creating a deck : <code>create</code> <code>[coming in v2.0]</code></a></li>
-<li><a href="#adding-a-card-code-add-code">3.4. Adding a card : <code>add</code></a></li>
-<li><a href="#showing-all-cards-in-a-deck-code-show-code-code-coming-in-v2-0-code">3.5. Showing all cards in a deck : <code>show</code> <code>[coming in v2.0]</code></a></li>
-<li><a href="#editing-a-card-code-edit-code">3.6. Editing a card : <code>edit</code></a></li>
-<li><a href="#deleting-a-deck-card-code-delete-code">3.7. Deleting a deck / card : <code>delete</code></a></li>
-<li><a href="#clearing-all-decks-cards-code-clear-code">3.8. Clearing all decks / cards : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.9. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.10. Saving the data</a></li>
-<li><a href="#studying-a-deck-code-coming-in-v2-0-code">3.11. Studying a deck <code>[coming in v2.0]</code></a></li>
+<li><a href="#general">3.1. General</a></li>
+<li><a href="#library-view">3.2. Library view</a></li>
+<li><a href="#deck-view">3.3. Deck view</a></li>
+<li><a href="#play-view">3.4. Play view</a></li>
+<li><a href="#saving-the-data">3.5. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -71,13 +65,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong> : lists all decks</p>
+<p><strong><code>create</code></strong><code>Japanese 1</code> : creates a deck named <code>Japanese 1</code> in the library</p>
 </li>
 <li>
-<p><strong><code>create</code></strong><code>Japanese 1</code> : creates a deck named <code>Japanese 1</code> in the FlashSpeed library.</p>
-</li>
-<li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd deck shown in the deck list</p>
+<p><strong><code>remove</code></strong><code>3</code> : removes the 3rd deck shown in the decks list</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -110,21 +101,89 @@ e.g. in <code>create &lt;deck&gt;</code>, <code>&lt;deck&gt;</code> is a paramet
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p><strong>Different Views</strong></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="listing-all-decks-code-list-code"><a class="link" href="#listing-all-decks-code-list-code">3.2. Listing all decks : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all decks in the library.<br>
-Format: <code>list</code></p>
+<p>FlashSpeed can be in one of 3 different views, namely:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Library view: when no deck is selected and no cards are shown</p>
+</li>
+<li>
+<p>Deck view: when a deck has been selected and its cards are shown</p>
+</li>
+<li>
+<p>Play view: when in a study session of a deck</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note that some commands may only be valid in certain views.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="creating-a-deck-code-create-code-code-coming-in-v2-0-code"><a class="link" href="#creating-a-deck-code-create-code-code-coming-in-v2-0-code">3.3. Creating a deck : <code>create</code> <code>[coming in v2.0]</code></a></h3>
+<h3 id="general"><a class="link" href="#general">3.1. General</a></h3>
+<div class="sect3">
+<h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1.1. Viewing help : <code>help</code></a></h4>
+<div class="paragraph">
+<p>Shows this user guide in a new window.<br>
+Format: <code>help</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.1.2. Exiting the program : <code>exit</code></a></h4>
+<div class="paragraph">
+<p>Exits the FlashSpeed program.<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="resetting-the-library-code-reset-code"><a class="link" href="#resetting-the-library-code-reset-code">3.1.3. Resetting the library : <code>reset</code></a></h4>
+<div class="paragraph">
+<p>Resets the library by deleting all cards and decks.<br>
+Format: <code>reset</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="library-view"><a class="link" href="#library-view">3.2. Library view</a></h3>
+<div class="sect3">
+<h4 id="selecting-a-deck-code-select-code"><a class="link" href="#selecting-a-deck-code-select-code">3.2.1. Selecting a deck : <code>select</code></a></h4>
+<div class="paragraph">
+<p>Selects a deck and shows all its cards.<br>
+Format: <code>select &lt;index&gt;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Selects and shows all cards in the deck at the specified <code>index</code>. The index refers to the index number shown in the displayed decks list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>select 2</code><br>
+Selects and shows all cards in the 2nd deck.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="creating-a-deck-code-create-code"><a class="link" href="#creating-a-deck-code-create-code">3.2.2. Creating a deck : <code>create</code></a></h4>
 <div class="paragraph">
 <p>Creates a new deck in the library.<br>
 Format: <code>create &lt;deck&gt;</code></p>
@@ -143,18 +202,18 @@ Format: <code>create &lt;deck&gt;</code></p>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="adding-a-card-code-add-code"><a class="link" href="#adding-a-card-code-add-code">3.4. Adding a card : <code>add</code></a></h3>
+<div class="sect3">
+<h4 id="removing-a-deck-code-remove-code"><a class="link" href="#removing-a-deck-code-remove-code">3.2.3. Removing a deck : <code>remove</code></a></h4>
 <div class="paragraph">
-<p>Adds a new card to a deck.<br>
-Format: <code>add &lt;index&gt; &lt;front&gt;:&lt;back&gt;</code></p>
+<p>Removes a deck from the library.<br>
+Format: <code>remove &lt;index&gt;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Adds a card to the deck at the specified <code>index</code>. The index refers to the index number shown in the displayed decks list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Removes the deck in the library at the specified <code>index</code>. The index refers to the index number shown in the displayed decks list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
@@ -166,58 +225,113 @@ Format: <code>add &lt;index&gt; &lt;front&gt;:&lt;back&gt;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add 1 ありがとう:thanks</code></p>
-</li>
-<li>
-<p><code>add 2 いい[お]てんきですね。:Nice weather, isn&#8217;t it?</code></p>
+<p><code>remove 2</code><br>
+Removes the 2nd deck from the library.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="showing-all-cards-in-a-deck-code-show-code-code-coming-in-v2-0-code"><a class="link" href="#showing-all-cards-in-a-deck-code-show-code-code-coming-in-v2-0-code">3.5. Showing all cards in a deck : <code>show</code> <code>[coming in v2.0]</code></a></h3>
+<div class="sect3">
+<h4 id="renaming-a-deck-code-rename-code"><a class="link" href="#renaming-a-deck-code-rename-code">3.2.4. Renaming a deck : <code>rename</code></a></h4>
 <div class="paragraph">
-<p>Shows all cards in a deck.<br>
-Format: <code>show &lt;index&gt;</code></p>
+<p>Renames a deck in the library.<br>
+Format: <code>rename &lt;index&gt; &lt;deck&gt;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Shows all cards in the deck at the specified <code>index</code>. The index refers to the index number shown in the displayed decks list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Renames the deck in the library at the specified <code>index</code>. The index refers to the index number shown in the displayed decks list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>show 2</code><br>
-Shows all cards in the 2nd deck.</p>
+<p><code>rename 2 Japanese Verbs</code><br>
+Renames the 2nd deck in the library to "Japanese Verbs".</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="editing-a-card-code-edit-code"><a class="link" href="#editing-a-card-code-edit-code">3.6. Editing a card : <code>edit</code></a></h3>
+<div class="sect3">
+<h4 id="playing-a-deck-code-play-code"><a class="link" href="#playing-a-deck-code-play-code">3.2.5. Playing a deck : <code>play</code></a></h4>
 <div class="paragraph">
-<p>Edits an existing card in a deck.<br>
-Format: <code>edit &lt;index&gt; &lt;front&gt;:&lt;back&gt;</code> or <code>edit &lt;index&gt; :&lt;back&gt;</code> or <code>edit &lt;index&gt; &lt;front&gt;:</code></p>
+<p>Starts a review session with a deck. We "play" it because learning can be fun!<br>
+Format: <code>play &lt;index&gt;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the card in a deck at the specified <code>index</code>. The index refers to the index number shown in the displayed cards list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Starts a review session with the deck in the library at the specified <code>index</code>. The index refers to the index number shown in the displayed decks list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>play 2</code><br>
+Starts a review session with the 2nd deck in the library.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deck-view"><a class="link" href="#deck-view">3.3. Deck view</a></h3>
+<div class="sect3">
+<h4 id="adding-a-card-code-add-code"><a class="link" href="#adding-a-card-code-add-code">3.3.1. Adding a card : <code>add</code></a></h4>
+<div class="paragraph">
+<p>Adds a new card to the current deck.<br>
+Format: <code>add &lt;front&gt;:&lt;back&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add ありがとう:thanks</code></p>
 </li>
 <li>
-<p>Existing values will be updated to the input values.</p>
+<p><code>add いい[お]てんきですね。:Nice weather, isn&#8217;t it?</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-card-code-edit-code"><a class="link" href="#editing-a-card-code-edit-code">3.3.2. Editing a card : <code>edit</code></a></h4>
+<div class="paragraph">
+<p>Edits the front and/or back values of an existing card in the current deck.<br>
+Format 1: <code>edit &lt;index&gt; &lt;front&gt;:&lt;back&gt;</code><br>
+Format 2: <code>edit &lt;index&gt; :&lt;back&gt;</code><br>
+Format 3: <code>edit &lt;index&gt; &lt;front&gt;:</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the card in the current deck at the specified <code>index</code>. The index refers to the index number shown in the displayed cards list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>Existing values will be updated to the given values.</p>
+</li>
+<li>
+<p>Empty values for the <code>front</code> or <code>back</code> will leave the associated values intact.</p>
 </li>
 </ul>
 </div>
@@ -243,10 +357,10 @@ Edits the front value of the 1st card in the deck to be <code>ありがとう</c
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-deck-card-code-delete-code"><a class="link" href="#deleting-a-deck-card-code-delete-code">3.7. Deleting a deck / card : <code>delete</code></a></h3>
+<div class="sect3">
+<h4 id="deleting-a-card-code-delete-code"><a class="link" href="#deleting-a-card-code-delete-code">3.3.3. Deleting a card : <code>delete</code></a></h4>
 <div class="paragraph">
-<p>Deletes the specified deck from the library when in List mode, or deletes the specified card from a deck when in Show mode.<br>
+<p>Deletes a card from the current deck.<br>
 Format: <code>delete &lt;index&gt;</code></p>
 </div>
 <div class="sidebarblock">
@@ -254,13 +368,7 @@ Format: <code>delete &lt;index&gt;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the deck / card at the specified <code>index</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed deck / card list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Deletes the card in the current deck at the specified <code>index</code>. The index refers to the index number shown in the displayed cards list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
@@ -272,43 +380,49 @@ Format: <code>delete &lt;index&gt;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd deck in the library.</p>
-</li>
-<li>
-<p><code>show 2</code><br>
-<code>delete 1</code><br>
-Deletes the 1st card in the 2nd deck.</p>
+<p><code>delete 2</code><br>
+Deletes the 2nd card in the current deck.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="clearing-all-decks-cards-code-clear-code"><a class="link" href="#clearing-all-decks-cards-code-clear-code">3.8. Clearing all decks / cards : <code>clear</code></a></h3>
+<div class="sect3">
+<h4 id="returning-to-the-library-code-return-code"><a class="link" href="#returning-to-the-library-code-return-code">3.3.4. Returning to the library : <code>return</code></a></h4>
 <div class="paragraph">
-<p>Clears all decks when in List mode, or clears all cards in a deck when in Show mode.<br>
-Format: <code>clear</code></p>
+<p>Goes out of the current deck and returns to the library, i.e. no deck is selected.<br>
+Format: <code>return</code></p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.9. Exiting the program : <code>exit</code></a></h3>
+<h3 id="play-view"><a class="link" href="#play-view">3.4. Play view</a></h3>
+<div class="sect3">
+<h4 id="flipping-a-card-code-flip-code"><a class="link" href="#flipping-a-card-code-flip-code">3.4.1. Flipping a card : <code>flip</code></a></h4>
 <div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
+<p>Flips the current card to reveal its back value.<br>
+Format: <code>flip</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="answering-yes-code-yes-code"><a class="link" href="#answering-yes-code-yes-code">3.4.2. Answering "yes" : <code>yes</code></a></h4>
+<div class="paragraph">
+<p>Submits a "yes" answer when asked if you could remember the back face of a card. This is to be done after flipping the card.<br>
+Format: <code>yes</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="answering-no-code-no-code"><a class="link" href="#answering-no-code-no-code">3.4.3. Answering "no" : <code>no</code></a></h4>
+<div class="paragraph">
+<p>Submits a "no" answer when asked if you could remember the back face of a card. This is to be done after flipping the card.<br>
+Format: <code>no</code></p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.10. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.5. Saving the data</a></h3>
 <div class="paragraph">
 <p>All data in FlashSpeed (e.g. decks, cards) are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="studying-a-deck-code-coming-in-v2-0-code"><a class="link" href="#studying-a-deck-code-coming-in-v2-0-code">3.11. Studying a deck <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{explain how the user can study a deck in Play mode}</em></p>
 </div>
 </div>
 </div>
@@ -317,8 +431,8 @@ There is no need to save manually.</p>
 <h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous FlashSpeed folder.</p>
+<p><strong>Q</strong>: How do I transfer my data to another computer?<br>
+<strong>A</strong>: Install FlashSpeed in the other computer and overwrite the data folder it creates with your current data folder.</p>
 </div>
 </div>
 </div>
@@ -328,22 +442,37 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Help</strong> : <code>help</code></p>
+<p><strong>Help</strong> : <code>help</code><br></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list</code></p>
+<p><strong>Exit</strong> : <code>exit</code><br></p>
+</li>
+<li>
+<p><strong>Reset</strong> : <code>reset</code></p>
+</li>
+<li>
+<p><strong>Select</strong> : <code>select &lt;index&gt;</code><br>
+e.g. <code>select 2</code></p>
 </li>
 <li>
 <p><strong>Create</strong> : <code>create &lt;deck&gt;</code><br>
 e.g. <code>create Japanese 1</code></p>
 </li>
 <li>
-<p><strong>Add</strong> <code>add &lt;index&gt; &lt;front&gt;:&lt;back&gt;</code><br>
-e.g. <code>add 1 ありがとう:thanks</code></p>
+<p><strong>Remove</strong> : <code>remove &lt;index&gt;</code><br>
+e.g. <code>remove 2</code></p>
 </li>
 <li>
-<p><strong>Show</strong> <code>show &lt;index&gt;</code><br>
-e.g. <code>show 2</code></p>
+<p><strong>Rename</strong> : <code>rename &lt;index&gt; &lt;deck&gt;</code><br>
+e.g. <code>rename 2 Japanese Verbs</code></p>
+</li>
+<li>
+<p><strong>Play</strong> : <code>play &lt;index&gt;</code><br>
+e.g. <code>play 2</code></p>
+</li>
+<li>
+<p><strong>Add</strong> <code>add &lt;front&gt;:&lt;back&gt;</code><br>
+e.g. <code>add ありがとう:thanks</code></p>
 </li>
 <li>
 <p><strong>Edit</strong> : <code>edit &lt;index&gt; &lt;front&gt;:&lt;back&gt;</code> or <code>edit &lt;index&gt; :&lt;back&gt;</code> or <code>edit &lt;index&gt; &lt;front&gt;:</code><br>
@@ -354,12 +483,18 @@ e.g. <code>edit 1 ありがとう:thanks</code> or <code>edit 1 :thanks</code> o
 e.g. <code>delete 3</code></p>
 </li>
 <li>
-<p><strong>Clear</strong> : <code>clear</code></p>
+<p><strong>Return</strong> : <code>return</code></p>
 </li>
 <li>
-<p><strong>Exit</strong> : <code>exit</code></p>
+<p><strong>Flip</strong> : <code>flip</code></p>
+</li>
+<li>
+<p><strong>Yes</strong> : <code>yes</code></p>
+</li>
+<li>
+<p><strong>No</strong> : <code>no</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-20 17:32:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-21 13:58:53 UTC</div></div></div></body></html>
