@@ -22,10 +22,11 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#shortcut-editing-of-card-face-values">3.1. Shortcut editing of Card face values</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#select-to-view-a-deck">3.1. Select to view a Deck</a></li>
+<li><a href="#shortcut-editing-of-card-face-values">3.2. Shortcut editing of Card face values</a></li>
+<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -330,9 +331,36 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="shortcut-editing-of-card-face-values"><a class="link" href="#shortcut-editing-of-card-face-values">3.1. Shortcut editing of Card face values</a></h3>
+<h3 id="select-to-view-a-deck"><a class="link" href="#select-to-view-a-deck">3.1. Select to view a Deck</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>select</code> command allows user to view the Card content of a Deck. The following syntax is accepted:</p>
+</div>
+<div class="paragraph">
+<p><code>select INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>This functionality is implemented by getting the Deck based on the index provided. Subsequently, the Card(s) that belongs to the selected Deck will be displayed on the right panel via a <code>TableView</code>.</p>
+</div>
+<div class="paragraph">
+<p>The validation of the arguments in the <code>select</code> command is performed in <code>SelectDeckCommandParser#parse()</code>. It ensures that the user has entered a valid index (valid data type and range). This is also used for separation of parsing
+logic and model management logic.</p>
+</div>
+<div class="paragraph">
+<p>In <code>SelectDeckCommandParser#parse()</code>, the <code>INDEX</code> of the selected Deck is extracted
+from the arguments in the <code>select</code> command. The <code>INDEX</code> is converted to an Index object. An <code>SelectCardCommand</code>
+object is then constructed with the Index as its parameter.</p>
+</div>
+<div class="paragraph">
+<p>When <code>SelectDeckCommand#execute()</code> is executed a list of currently available Deck is requested from the <code>ModelManager#getFilteredDeckList()</code> method. The <code>ModelManager#selectDeck()</code> command will be invoked to update the variable that keeps track of the current Deck. After that, <code>ModelManager#setSelectedDeck()</code> method will be called to update the UI and display the Deck content on the right panel. Lastly, the name of the selected Deck will be displayed together with the <code>MESSAGE_SUCCESS</code> on the <code>ResultDisplay</code> panel.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="shortcut-editing-of-card-face-values"><a class="link" href="#shortcut-editing-of-card-face-values">3.2. Shortcut editing of Card face values</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>edit</code> command allows for the values of a Card&#8217;s face(s) to be changed. There are 3 command formats
 accepted:</p>
@@ -396,7 +424,7 @@ which was expected from using the shortcut formats of the <code>edit</code> comm
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-replacement-card-is-formed-during-the-start-of-execution"><a class="link" href="#aspect-how-the-replacement-card-is-formed-during-the-start-of-execution">Aspect: How the replacement Card is formed during the start of execution</a></h5>
 <div class="ulist">
@@ -433,20 +461,20 @@ which was expected from using the shortcut formats of the <code>edit</code> comm
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -477,7 +505,7 @@ which was expected from using the shortcut formats of the <code>edit</code> comm
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1305,4 +1333,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-24 03:34:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-24 12:14:09 UTC</div></div></div></body></html>
