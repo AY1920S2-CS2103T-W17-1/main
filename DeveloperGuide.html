@@ -23,10 +23,12 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#select-to-view-a-deck">3.1. Select to view a Deck</a></li>
-<li><a href="#shortcut-editing-of-card-face-values">3.2. Shortcut editing of Card face values</a></li>
-<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#create-a-new-deck">3.2. Create A new Deck</a></li>
+<li><a href="#create-a-new-card">3.3. Create A new Card</a></li>
+<li><a href="#shortcut-editing-of-card-face-values">3.4. Shortcut editing of Card face values</a></li>
+<li><a href="#proposed-data-encryption">3.5. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -358,9 +360,113 @@ object is then constructed with the Index as its parameter.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="shortcut-editing-of-card-face-values"><a class="link" href="#shortcut-editing-of-card-face-values">3.2. Shortcut editing of Card face values</a></h3>
+<h3 id="create-a-new-deck"><a class="link" href="#create-a-new-deck">3.2. Create A new Deck</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>create</code> command allows user to create a new Deck in the current Library. The following syntax is accepted:</p>
+</div>
+<div class="paragraph">
+<p><code>create DECK_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>This functionality is implemented by getting the Deck based on the index provided. Subsequently, the Card(s) that belongs to the selected Deck will be displayed on the right panel via a <code>TableView</code>.</p>
+</div>
+<div class="paragraph">
+<p>The validation of the arguments in the <code>create</code> command is performed in <code>CreateDeckCommandParser#parse()</code>. It ensures
+that the user has entered a non-null deck name.</p>
+</div>
+<div class="paragraph">
+<p>In <code>CreateDeckCommandParser#parse()</code>, the <code>DECK_NAME</code> of is extracted
+from the arguments in the <code>create</code> command. The <code>DECK_NAME</code> is converted to a Name object. An <code>CreateDeckCommand</code>
+object is then constructed with the Deck name as its parameter.</p>
+</div>
+<div class="paragraph">
+<p>When <code>CreateDeckCommand#execute()</code> is executed, an empty Deck with the Name parsed in the <code>CreateDeckCommand</code> will be
+created when the Model Manager invokes the <code>ModelManager#selectDeck()</code> command.
+After that, <code>ModelManager#setSelectedDeck()</code> method will be called to update the UI and display the Deck content
+on the right panel. Lastly, the name of the selected Deck will be displayed together with the
+<code>MESSAGE_SUCCESS</code> on the <code>ResultDisplay</code> panel.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Anchor-1"><a class="link" href="#Anchor-1">3.2.2. Design Considerations: Alternative</a></h4>
+<div class="paragraph">
+<p>Initially, both <code>CreateDeckCommand</code> and <code>AddCardCommand</code> share the same keyword, which is the <code>add</code> keyword.
+In order to distinguish these two commands from each other,
+the Model Manager will check if any deck is currently selected.
+If there is, <code>AddCardCommandParser#parse()</code> will be called to parse the arguments.
+Otherwise, <code>CreateDeckCommandParser#parse()</code> will be called.</p>
+</div>
+<div class="paragraph">
+<p>The benefit of this design is that it results in fewer number of command words.
+This helps the user on the navigability of the application due to a few number of command words to remember.</p>
+</div>
+<div class="paragraph">
+<p>However, the glaring disadvantage is that unexpected outcomes are more likely to occur.
+For example, assume that the user wants to create a new deck. So, he/she types in the following command:</p>
+</div>
+<div class="paragraph">
+<p><code>create Deck 2</code></p>
+</div>
+<div class="paragraph">
+<p>However, the user has forgotten that a deck is currently being selected.
+Therefore, the <code>AddCardCommandParser#parse()</code> will be invoked.
+This is certainly not the expected outcome that the user has expected.</p>
+</div>
+<div class="paragraph">
+<p>And so, our team has decided to implement the current approach,
+which is to assign different keywords to these two different feature.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="create-a-new-card"><a class="link" href="#create-a-new-card">3.3. Create A new Card</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>add</code> command allows user to create a new Card in the current Deck. The following syntax is accepted:</p>
+</div>
+<div class="paragraph">
+<p><code>add FRONT_VALUE:BACK_VALUE</code></p>
+</div>
+<div class="paragraph">
+<p>This functionality is implemented by getting the Deck based on the current deck selected.
+The Model Manager will be responsible of keeping track of the current deck.
+Subsequently, the Model Manager creates a new card  adds it to the current Deck.
+The display on the right panel will be updated via updating the <code>TableView</code>.</p>
+</div>
+<div class="paragraph">
+<p>The validation of the arguments in the <code>add</code> command is performed in <code>AddCardCommandParser#parse()</code>. It ensures
+that the user has entered a non-null front value as well as a non-null back value.
+The lack thereof will cause an <code>InvalidFaceValueException</code> to be thrown.</p>
+</div>
+<div class="paragraph">
+<p>In <code>AddCardCommandParser#parse()</code>, the <code>FRONT_VALUE</code> and the <code>BACK_VALUE</code> are extracted
+from the arguments in the <code>add</code> command.
+Both values will be converted to a <code>FrontFace</code> object and a <code>BackFace</code> object respectively.
+A <code>AddCardCommand</code> object is then constructed with the 'FrontFace' and 'BackFace' objects as its parameters.</p>
+</div>
+<div class="paragraph">
+<p>When <code>AddCardCommand#execute()</code> is called, a <code>Card</code> object with the <code>FrontFace</code> and <code>BackFace</code>
+parsed in the <code>CreateDeckCommand</code> will be
+created when the Model Manager invokes the <code>ModelManager#addCard()</code> command.
+After that, <code>ModelManager#setSelectedDeck()</code> method will be called to update the UI and display the Deck content
+on the right panel. Lastly, the name of the selected Deck will be displayed together with the
+<code>MESSAGE_SUCCESS</code> on the <code>ResultDisplay</code> panel.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-alternative"><a class="link" href="#design-considerations-alternative">3.3.2. Design Considerations: Alternative</a></h4>
+<div class="paragraph">
+<p>See <a href="#Anchor-1">3.2.2</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="shortcut-editing-of-card-face-values"><a class="link" href="#shortcut-editing-of-card-face-values">3.4. Shortcut editing of Card face values</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>edit</code> command allows for the values of a Card&#8217;s face(s) to be changed. There are 3 command formats
 accepted:</p>
@@ -424,7 +530,7 @@ which was expected from using the shortcut formats of the <code>edit</code> comm
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-replacement-card-is-formed-during-the-start-of-execution"><a class="link" href="#aspect-how-the-replacement-card-is-formed-during-the-start-of-execution">Aspect: How the replacement Card is formed during the start of execution</a></h5>
 <div class="ulist">
@@ -461,20 +567,20 @@ which was expected from using the shortcut formats of the <code>edit</code> comm
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.5. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -505,7 +611,7 @@ which was expected from using the shortcut formats of the <code>edit</code> comm
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1333,4 +1439,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-24 15:40:02 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 03:46:58 UTC</div></div></div></body></html>
