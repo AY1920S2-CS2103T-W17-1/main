@@ -9,34 +9,41 @@
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#setting-up">1. Setting up</a></li>
-<li><a href="#design">2. Design</a>
+<li><a href="#introduction">1. Introduction</a>
 <ul class="sectlevel2">
-<li><a href="#Design-Architecture">2.1. Architecture</a></li>
-<li><a href="#Design-Ui">2.2. UI component</a></li>
-<li><a href="#Design-Logic">2.3. Logic component</a></li>
-<li><a href="#Design-Model">2.4. Model component</a></li>
-<li><a href="#Design-Storage">2.5. Storage component</a></li>
-<li><a href="#Design-Commons">2.6. Common classes</a></li>
+<li><a href="#Purpose">1.1. Purpose</a></li>
+<li><a href="#audience">1.2. Audience</a></li>
+<li><a href="#how-to-use">1.3. How to use</a></li>
 </ul>
 </li>
-<li><a href="#implementation">3. Implementation</a>
+<li><a href="#setting-up">2. Setting up</a></li>
+<li><a href="#design">3. Design</a>
 <ul class="sectlevel2">
-<li><a href="#select-to-view-a-deck">3.1. Select to view a Deck</a></li>
-<li><a href="#create-a-new-deck">3.2. Create A new Deck</a></li>
-<li><a href="#create-a-new-card">3.3. Create A new Card</a></li>
-<li><a href="#shortcut-editing-of-card-face-values">3.4. Shortcut editing of Card face values</a></li>
-<li><a href="#play-mode-create-a-new-session-with-a-specific-deck">3.5. Play mode: create a new session with a specific deck</a></li>
-<li><a href="#flip-cards-in-the-deck">3.6. Flip cards in the deck</a></li>
-<li><a href="#answer-to-the-card">3.7. Answer to the card</a></li>
-<li><a href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
+<li><a href="#Design-Architecture">3.1. Architecture</a></li>
+<li><a href="#Design-Ui">3.2. UI component</a></li>
+<li><a href="#Design-Logic">3.3. Logic component</a></li>
+<li><a href="#Design-Model">3.4. Model component</a></li>
+<li><a href="#Design-Storage">3.5. Storage component</a></li>
+<li><a href="#Design-Commons">3.6. Common classes</a></li>
 </ul>
 </li>
-<li><a href="#documentation">4. Documentation</a></li>
-<li><a href="#testing">5. Testing</a></li>
-<li><a href="#dev-ops">6. Dev Ops</a></li>
+<li><a href="#implementation">4. Implementation</a>
+<ul class="sectlevel2">
+<li><a href="#select-to-view-a-deck">4.1. Select to view a Deck</a></li>
+<li><a href="#create-a-new-deck">4.2. Create A new Deck</a></li>
+<li><a href="#create-a-new-card">4.3. Create A new Card</a></li>
+<li><a href="#shortcut-editing-of-card-face-values">4.4. Shortcut editing of Card face values</a></li>
+<li><a href="#play-mode-create-a-new-session-with-a-specific-deck">4.5. Play mode: create a new session with a specific deck</a></li>
+<li><a href="#flip-cards-in-the-deck">4.6. Flip cards in the deck</a></li>
+<li><a href="#answer-to-the-card">4.7. Answer to the card</a></li>
+<li><a href="#proposed-data-encryption">4.8. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">4.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
+</ul>
+</li>
+<li><a href="#documentation">5. Documentation</a></li>
+<li><a href="#testing">6. Testing</a></li>
+<li><a href="#dev-ops">7. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a></li>
@@ -54,7 +61,82 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-up"><a class="link" href="#setting-up">1. Setting up</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FlashSpeed is a text-based flashcard application specifically designed for university students who are learning a foreign language.</p>
+</div>
+<div class="paragraph">
+<p>FlashSpeed enhances the revision process by adopting the <a href="#spaced-repetition-system">Space Repetition System</a> (SRS) in its design. Users will be tested more frequently on new words, or words that they have gotten wrong in previous sessions.</p>
+</div>
+<div class="paragraph">
+<p>The main features of FlashSpeed allows users to</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>create their own <a href="#deck">decks</a> of flashcards (or <a href="#card">cards</a>)</p>
+</li>
+<li>
+<p>choose a deck to revise (or <a href="#play">play</a>) which uses the SRS design mentioned above.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="Purpose"><a class="link" href="#Purpose">1.1. Purpose</a></h3>
+<div class="paragraph">
+<p>This document specifies architecture, software design decisions and implementation for the flashcard app, FlashSpeed.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="audience"><a class="link" href="#audience">1.2. Audience</a></h3>
+<div class="paragraph">
+<p>This document is intended for anyone who wants to understand the system architecture, design and implementation of FlashSpeed.</p>
+</div>
+<div class="paragraph">
+<p>The following groups are in particular the intended audience of this document.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>FlashSpeed developers</p>
+</li>
+<li>
+<p>FlashSpeed features enhancement team members</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="how-to-use"><a class="link" href="#how-to-use">1.3. How to use</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Section 3 - Design contains information about the main components of FlashSpeed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>First, refer to <a href="#Design-Architecture">3.1 Architecture</a> section to learn more about the overall architecture.</p>
+</li>
+<li>
+<p>Then proceed to further sections 3.2 - 3.6 to learn more about each individual components of the architecture.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Section 4 - Implementation contains information about the main commands and the implementation of each command used in FlashSpeed.</p>
+</li>
+<li>
+<p>Appendix Section - Any miscellaneous information that is not essential for the implementation of FlashSpeed but is good to know.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setting-up"><a class="link" href="#setting-up">2. Setting up</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="SettingUp.html">here</a>.</p>
@@ -62,10 +144,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="design"><a class="link" href="#design">2. Design</a></h2>
+<h2 id="design"><a class="link" href="#design">3. Design</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
+<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">3.1. Architecture</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
@@ -153,7 +235,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="title">Figure 2. Class Diagram of the Logic Component</div>
 </div>
-<h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
+<h4 id="3-1-1-how-the-architecture-components-interact-with-each-other" class="discrete">3.1.1 How the architecture components interact with each other</h4>
 <div class="paragraph">
 <p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 2</code>.</p>
 </div>
@@ -168,7 +250,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
@@ -199,7 +281,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
@@ -252,7 +334,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
@@ -274,19 +356,16 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>stores the Library data.</p>
 </li>
 <li>
-<p>stores a <code>GameManager</code> object that represents one game session.</p>
+<p>stores and manipulates a <code>GameManager</code> object that represents one game session.</p>
 </li>
 <li>
-<p>stores a <code>Deck</code> object that represents the deck that the user is viewing when user is in deck view.</p>
+<p>stores and manipulates a <code>Deck</code> object that represents the deck that the user is viewing when user is in <a href="#deck-view">deck view</a>.</p>
 </li>
 <li>
-<p>stores a <code>Card</code> object that represents the card that the user is playing with when user is in play mode.</p>
+<p>stores and manipulates a  <code>Card</code> object that represents the card that the user is playing with when user is in <a href="#play">play view</a>.</p>
 </li>
 <li>
-<p>stores a <code>View</code> object that represents the view that the user is currently in.</p>
-</li>
-<li>
-<p>stores a <code>Mode</code> object that represents the mode that the user is currently in.</p>
+<p>stores and manipulates <code>View</code> object that represents the <a href="#view">view</a> that the user is currently in.</p>
 </li>
 <li>
 <p>exposes an unmodifiable <code>ObservableList&lt;Deck&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
@@ -298,7 +377,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
@@ -323,23 +402,23 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common classes</a></h3>
 <div class="paragraph">
-<p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
+<p>Classes used by multiple components are in the <code>seedu.address.commons</code> package.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
+<h2 id="implementation"><a class="link" href="#implementation">4. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="select-to-view-a-deck"><a class="link" href="#select-to-view-a-deck">3.1. Select to view a Deck</a></h3>
+<h3 id="select-to-view-a-deck"><a class="link" href="#select-to-view-a-deck">4.1. Select to view a Deck</a></h3>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>select</code> command allows user to view the Card content of a Deck. The following syntax is accepted:</p>
 </div>
@@ -363,16 +442,16 @@ object is then constructed with the Index as its parameter.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p>The UI will have to be constantly updated when we select to view a deck, and other decks might be selected afterward. As a result, an <code>ObservableValue&lt;Deck&gt;</code> variable will have to be updated constantly via the <code>ModelManager#setSelectedDeck()</code> method. Various event listeners are implemented in the UI classes (e.g <code>CardListPanel</code>, <code>DeckListPanel</code>) in order to instantly react if there is any changes to the selected deck.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="create-a-new-deck"><a class="link" href="#create-a-new-deck">3.2. Create A new Deck</a></h3>
+<h3 id="create-a-new-deck"><a class="link" href="#create-a-new-deck">4.2. Create A new Deck</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>create</code> command allows user to create a new Deck in the current Library. The following syntax is accepted:</p>
 </div>
@@ -400,7 +479,7 @@ on the right panel. Lastly, the name of the selected Deck will be displayed toge
 </div>
 </div>
 <div class="sect3">
-<h4 id="Anchor-1"><a class="link" href="#Anchor-1">3.2.2. Design Considerations: Alternative</a></h4>
+<h4 id="Anchor-1"><a class="link" href="#Anchor-1">4.2.2. Design Considerations: Alternative</a></h4>
 <div class="paragraph">
 <p>Initially, both <code>CreateDeckCommand</code> and <code>AddCardCommand</code> share the same keyword, which is the <code>add</code> keyword.
 In order to distinguish these two commands from each other,
@@ -431,9 +510,9 @@ which is to assign different keywords to these two different feature.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="create-a-new-card"><a class="link" href="#create-a-new-card">3.3. Create A new Card</a></h3>
+<h3 id="create-a-new-card"><a class="link" href="#create-a-new-card">4.3. Create A new Card</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>add</code> command allows user to create a new Card in the current Deck. The following syntax is accepted:</p>
 </div>
@@ -449,7 +528,7 @@ The display on the right panel will be updated via updating the <code>TableView<
 <div class="paragraph">
 <p>The validation of the arguments in the <code>add</code> command is performed in <code>AddCardCommandParser#parse()</code>. It ensures
 that the user has entered a non-null front value as well as a non-null back value.
-The lack thereof will cause an <code>InvalidFaceValueException</code> to be thrown.</p>
+The lack thereof will cause a <code>InvalidFaceValueException</code> to be thrown.</p>
 </div>
 <div class="paragraph">
 <p>In <code>AddCardCommandParser#parse()</code>, the <code>FRONT_VALUE</code> and the <code>BACK_VALUE</code> are extracted
@@ -467,16 +546,16 @@ on the right panel. Lastly, the name of the selected Deck will be displayed toge
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-alternative"><a class="link" href="#design-considerations-alternative">3.3.2. Design Considerations: Alternative</a></h4>
+<h4 id="design-considerations-alternative"><a class="link" href="#design-considerations-alternative">4.3.2. Design Considerations: Alternative</a></h4>
 <div class="paragraph">
 <p>See <a href="#Anchor-1">3.2.2</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="shortcut-editing-of-card-face-values"><a class="link" href="#shortcut-editing-of-card-face-values">3.4. Shortcut editing of Card face values</a></h3>
+<h3 id="shortcut-editing-of-card-face-values"><a class="link" href="#shortcut-editing-of-card-face-values">4.4. Shortcut editing of Card face values</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>edit</code> command allows for the values of a Card&#8217;s face(s) to be changed. There are 3 command formats
 accepted:</p>
@@ -540,7 +619,7 @@ which was expected from using the shortcut formats of the <code>edit</code> comm
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-replacement-card-is-formed-during-the-start-of-execution"><a class="link" href="#aspect-how-the-replacement-card-is-formed-during-the-start-of-execution">Aspect: How the replacement Card is formed during the start of execution</a></h5>
 <div class="ulist">
@@ -577,9 +656,9 @@ which was expected from using the shortcut formats of the <code>edit</code> comm
 </div>
 </div>
 <div class="sect2">
-<h3 id="play-mode-create-a-new-session-with-a-specific-deck"><a class="link" href="#play-mode-create-a-new-session-with-a-specific-deck">3.5. Play mode: create a new session with a specific deck</a></h3>
+<h3 id="play-mode-create-a-new-session-with-a-specific-deck"><a class="link" href="#play-mode-create-a-new-session-with-a-specific-deck">4.5. Play mode: create a new session with a specific deck</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>play</code> command creates a new session to play with a specific deck. The format of the <code>play</code> command:
 <code>play INDEX</code></p>
@@ -602,7 +681,7 @@ This validation firstly checks if the given <code>INDEX</code> argument is a non
 there is any card currently in the selected deck by checking if the <code>FRONT</code> face and <code>BACK</code> face of the card returned by <code>ModelManager#play()</code> are both empty.</p>
 </div>
 <div class="paragraph">
-<p>A valid <code>play</code> command will change the <code>MODE</code> of the <code>ModelManager</code> to <code>PLAY</code> mode and an <code>GameManager</code> object will be constructed in <code>ModelManager</code>.
+<p>A valid <code>play</code> command will change the <code>MODE</code> of the <code>ModelManager</code> to <code>PLAY</code> mode and a <code>GameManager</code> object will be constructed in <code>ModelManager</code>.
 The first card of the selected deck is obtained using <code>deck#asUnmodifiableObservableList().get(0)</code> and returned to UI. The <code>FRONT</code> face of the first card will be displayed to the user.</p>
 </div>
 <div class="paragraph">
@@ -616,9 +695,9 @@ The first card of the selected deck is obtained using <code>deck#asUnmodifiableO
 </div>
 </div>
 <div class="sect2">
-<h3 id="flip-cards-in-the-deck"><a class="link" href="#flip-cards-in-the-deck">3.6. Flip cards in the deck</a></h3>
+<h3 id="flip-cards-in-the-deck"><a class="link" href="#flip-cards-in-the-deck">4.6. Flip cards in the deck</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>flip</code> command flips a card in the selected deck to view the <code>BACK</code> face of the card. The format of the <code>flip</code> command:
 <code>flip</code></p>
@@ -648,9 +727,9 @@ by checking if the returned <code>BACK</code> face of the card is empty since a 
 </div>
 </div>
 <div class="sect2">
-<h3 id="answer-to-the-card"><a class="link" href="#answer-to-the-card">3.7. Answer to the card</a></h3>
+<h3 id="answer-to-the-card"><a class="link" href="#answer-to-the-card">4.7. Answer to the card</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>User answers to the card that he or she is currently playing with using <code>yes</code> or <code>no</code> command. The formats of the commands are <code>yes</code> and <code>no</code> respectively.</p>
 </div>
@@ -686,20 +765,20 @@ if the returned card is empty.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.8. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.8. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -730,7 +809,7 @@ if the returned card is empty.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -738,7 +817,7 @@ if the returned card is empty.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
+<h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Documentation.html">here</a>.</p>
@@ -746,7 +825,7 @@ if the returned card is empty.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
+<h2 id="testing"><a class="link" href="#testing">6. Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Testing.html">here</a>.</p>
@@ -754,7 +833,7 @@ if the returned card is empty.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">6. Dev Ops</a></h2>
+<h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="DevOps.html">here</a>.</p>
@@ -1404,9 +1483,38 @@ if the returned card is empty.</p>
 <dd>
 <p>A Card has two faces. One side for prompting the user and the other side for the content the user wants to memorize</p>
 </dd>
-<dt class="hdlist1"><a id="spaced-repetition-system"></a> Spaced-repetition System</dt>
+<dt class="hdlist1"><a id="spaced-repetition-system"></a> Space Repetition System</dt>
 <dd>
 <p>Spaced repetition is an evidence-based learning technique that is usually performed with flashcards. Newly introduced and more difficult flashcards are shown more frequently while older and less difficult flashcards are shown less frequently in order to exploit the psychological spacing effect</p>
+</dd>
+<dt class="hdlist1"><a id="view"></a> View</dt>
+<dd>
+<p>There are three different views in FlashSpeed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#library-view">Library View</a></p>
+</li>
+<li>
+<p><a href="#deck-view">Deck View</a></p>
+</li>
+<li>
+<p><a href="#play">Play View</a></p>
+</li>
+</ul>
+</div>
+</dd>
+<dt class="hdlist1"><a id="library-view"></a> Library View</dt>
+<dd>
+<p>The current screen where FlashSpeed shows the list of decks.</p>
+</dd>
+<dt class="hdlist1"><a id="deck-view"></a> Deck View</dt>
+<dd>
+<p>The current screen where FlashSpeed shows the list of cards in a selected deck.</p>
+</dd>
+<dt class="hdlist1"><a id="play"></a> Play View (Play)</dt>
+<dd>
+<p>Enters the play view (mode) of FlashSpeed. In this mode, users will be able to take advantage of the SRS to revise/memorise their flashcards.</p>
 </dd>
 </dl>
 </div>
@@ -1558,4 +1666,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-01 15:36:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-01 15:37:58 UTC</div></div></div></body></html>
