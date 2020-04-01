@@ -17,7 +17,7 @@
 <li><a href="#library-view">3.2. Library view</a></li>
 <li><a href="#deckViewAnchor">3.3. Deck view</a></li>
 <li><a href="#play-view">3.4. Play view</a></li>
-<li><a href="#saving-the-data">3.5. Saving the data</a></li>
+<li><a href="#save-data">3.5. Save data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -32,7 +32,7 @@
 <p>FlashSpeed is a text-based flashcard application specifically designed for university students who are learning a foreign language. University students often have hectic schedules. With this in mind, FlashSpeed was created to allow students to be able to study and revise foreign vocabulary on the fly. With a single command, you can start a quick study session on FlashSpeed whenever!</p>
 </div>
 <div class="paragraph">
-<p>FlashSpeed enhances the revision process by adopting the Space Repetition System (SRS) in its design. Users will be tested more frequently on new words, or words that they have gotten wrong in previous sessions. This system benefits from the psychological spacing effect. SRS has been scientifically proven to increase the rate of learning and memorisation [1]. By using FlashSpeed, you will learn faster and remember for longer!</p>
+<p>Keeping, flipping, and tracking physical flashcards can be a pain. FlashSpeed enhances the studying process by having virtual flashcards and a smarter review system. Users will be tested more frequently on flashcards that they had trouble memorizing previously. By using FlashSpeed, you will learn faster and remember for longer!</p>
 </div>
 <div class="paragraph">
 <p>We hope you enjoy using our app. Happy FlashSpeeding!</p>
@@ -42,23 +42,26 @@
 <div class="sect1">
 <h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Getting FlashSpeed up and running is fast and easy. Follow these simple steps to get started!</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
+<p>Ensure you have Java <code>11</code> or above installed in your computer.</p>
 </li>
 <li>
-<p>Download the latest <code>flashspeed.jar</code> <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/releases">here</a>.</p>
+<p>Download the latest <code>flashspeed.jar</code> file <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/releases">here</a>. This is the entire FlashSpeed app in one convenient package.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for FlashSpeed.</p>
+<p>Copy <code>flashspeed.jar</code> to a folder of your choice. This will be FlashSpeed&#8217;s home folder. All files created by FlashSpeed will be automatically stored here.</p>
 </li>
 <li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+<p>Double-click <code>flashspeed.jar</code> to start it. FlashSpeed will appear in a few seconds.</p>
 </li>
 <li>
-<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
-e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
+<p>Type a command in the command box and press <kbd>Enter</kbd> to execute it.<br>
+e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the Help window.</p>
 </li>
 <li>
 <p>Some example commands you can try:</p>
@@ -95,7 +98,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <ul>
 <li>
 <p>Words in <code>&lt;&gt;</code> are the parameters to be supplied by the user.<br>
-e.g. in <code>create &lt;deck&gt;</code>, <code>&lt;deck&gt;</code> is a parameter which can be used as <code>create Japanese 1</code>.</p>
+e.g. in <code>create &lt;deck&gt;</code>, <code>&lt;deck&gt;</code> is a parameter which can be used such as <code>create Japanese 1</code>.</p>
 </li>
 </ul>
 </div>
@@ -106,13 +109,25 @@ e.g. in <code>create &lt;deck&gt;</code>, <code>&lt;deck&gt;</code> is a paramet
 <div class="paragraph">
 <p><strong>Different Views</strong></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Some commands only work in certain views, but don&#8217;t worry, this guide will tell you all you need to know!
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>FlashSpeed can be in one of 3 different views, namely:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Library view: when no deck is selected and no cards are shown</p>
+<p><strong>Library</strong> view: when no deck is selected and no cards are shown</p>
 </li>
 </ul>
 </div>
@@ -120,12 +135,15 @@ e.g. in <code>create &lt;deck&gt;</code>, <code>&lt;deck&gt;</code> is a paramet
 <div class="content">
 <img src="images/library.png" alt="library">
 </div>
-<div class="title">Figure 1. Library view</div>
+<div class="title">Figure 1. In Library view. No deck is selected.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Deck view: when a deck has been selected and its cards are shown</p>
+<p><strong>Deck</strong> view: when a deck has been selected and its cards are shown</p>
 </li>
 </ul>
 </div>
@@ -133,12 +151,15 @@ e.g. in <code>create &lt;deck&gt;</code>, <code>&lt;deck&gt;</code> is a paramet
 <div class="content">
 <img src="images/Ui.png" alt="Ui">
 </div>
-<div class="title">Figure 2. Deck view</div>
+<div class="title">Figure 2. In Deck view. A deck has been selected.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Play view: when in a study session of a deck</p>
+<p><strong>Play</strong> view: when in a study session of a deck</p>
 </li>
 </ul>
 </div>
@@ -146,129 +167,139 @@ e.g. in <code>create &lt;deck&gt;</code>, <code>&lt;deck&gt;</code> is a paramet
 <div class="content">
 <img src="images/Ui2.png" alt="Ui2">
 </div>
-<div class="title">Figure 3. Play view</div>
+<div class="title">Figure 3. In Play view. A deck is being studied.</div>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>Note that some commands may only be valid in certain views.</p>
-</div>
-</div>
+<p><br></p>
 </div>
 <div class="sect2">
 <h3 id="general"><a class="link" href="#general">3.1. General</a></h3>
+<div class="paragraph">
+<p><br></p>
+</div>
 <div class="sect3">
 <h4 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1.1. Viewing help : <code>help</code></a></h4>
 <div class="paragraph">
+<p>Format: <code>help</code></p>
+</div>
+<div class="paragraph">
 <p>You can get the link to this user guide in a new window by
-typing <code>help</code> in the input box and pressing Enter.<br>
-Format: <code>help</code></p>
+typing <code>help</code> in the input box and pressing <kbd>Enter</kbd>.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/help.png" alt="help">
 </div>
-<div class="title">Figure 4. Help Window</div>
+<div class="title">Figure 4. The helpful Help window.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.1.2. Exiting the program : <code>exit</code></a></h4>
 <div class="paragraph">
+<p>Format: <code>exit</code></p>
+</div>
+<div class="paragraph">
 <p>You can exit FlashSpeed by typing <code>exit</code> in the input box
-and pressing Enter.<br>
-Format: <code>exit</code></p>
+and pressing <kbd>Enter</kbd>.<br></p>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="resetting-the-library-code-reset-code"><a class="link" href="#resetting-the-library-code-reset-code">3.1.3. Resetting the library : <code>reset</code></a></h4>
 <div class="paragraph">
-<p>If you want to delete everything in the library to start fresh,
-you can choose to reset the library.
-You can do so by typing <code>reset</code> in the input
-and pressing Enter.<br>
-Format: <code>reset</code></p>
+<p>Format: <code>reset</code></p>
+</div>
+<div class="paragraph">
+<p>If you want to delete everything in the library to start fresh, you can choose to reset the library.
+You can do so by typing <code>reset</code> in the input and pressing <kbd>Enter</kbd>.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/reset.png" alt="reset">
 </div>
-<div class="title">Figure 5. After resetting</div>
+<div class="title">Figure 5. After resetting. A new start!</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="library-view"><a class="link" href="#library-view">3.2. Library view</a></h3>
+<div class="paragraph">
+<p><br></p>
+</div>
 <div class="sect3">
 <h4 id="creating-a-deck-code-create-code"><a class="link" href="#creating-a-deck-code-create-code">3.2.1. Creating a deck : <code>create</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>create &lt;deck&gt;</code></p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Formal definition</strong>: Creates a deck with the deck name specified by the user. The deck name canont be null.</p>
+<p><strong>Formal definition</strong>: Creates a deck with the deck name specified by the user. The deck name cannot be empty.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Format: <code>create &lt;deck&gt;</code></p>
-</div>
-<div class="paragraph">
 <p>After downloading and setting up FlashSpeed, you&#8217;re all set to go!
 But before anything else, you will have to first <strong>create a deck</strong>.
-The process of creating a deck in FlashSpeed is very straightforward.</p>
+The process of creating a deck in FlashSpeed is very simple.</p>
 </div>
 <div class="paragraph">
-<p>Let&#8217;s say you want to create a deck to revise on some Japanese verbs
-to prepare for you upcoming Japanese assessment.
+<p>Let&#8217;s say you want to create a deck to revise some Japanese verbs
+to prepare for you upcoming Japanese test.
 To do so:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>First, type <code>create</code> followed by the deck name into the input box.</p>
+<p>Firstly, type <code>create</code> followed by the deck name into the input box.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>create Japanese Verbs</code></p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
+<p>e.g. <code>create Japanese Verbs</code></p>
 <div class="imageblock">
 <div class="content">
 <img src="images/create1.png" alt="create1">
 </div>
-<div class="title">Figure 6. Typing in a command to create the Japanese Verbs deck"</div>
+<div class="title">Figure 6. Typing in the command to create the Japanese Verbs deck.</div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
+</ul>
+</div>
+</li>
 <li>
-<p>Hit Enter.</p>
+<p>Press <kbd>Enter</kbd>.</p>
 </li>
 <li>
 <p>Voila!</p>
-</li>
-</ol>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/create2.png" alt="create2">
 </div>
-<div class="title">Figure 7. Creating Japanese Verbs deck"</div>
+<div class="title">Figure 7. After creating the Japanese Verbs deck.</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="selectDeck"><a class="link" href="#selectDeck">3.2.2. Selecting a deck : <code>select</code></a></h4>
-<div class="paragraph">
-<p>If you want to view the cards in a particular deck or make some changes to it, you can use the
-<code>select</code> keyword with the deck&#8217;s index number. After selecting a certain deck, FlashSpeed will enter the Deck view, and
-the right panel will show all the cards in the deck.<br></p>
-</div>
-<div class="paragraph">
-<p>In the Deck view, you can use any of the Deck mode commands listed in <a href="#deckViewAnchor">3.3</a>.</p>
-</div>
 <div class="paragraph">
 <p>Format: <code>select &lt;index&gt;</code></p>
 </div>
@@ -286,6 +317,15 @@ The index refers to the index number shown in the displayed decks list. The inde
 </div>
 </div>
 <div class="paragraph">
+<p>If you want to view the cards in a particular deck, you can use <code>select</code> followed by the deck&#8217;s index number.
+The index number is the number to the left of its name!
+After selecting a certain deck, FlashSpeed will enter the Deck view and
+show all the cards in that deck.<br></p>
+</div>
+<div class="paragraph">
+<p>In the Deck view, you can use any of the Deck mode commands listed in <a href="#deckViewAnchor">3.3. Deck view</a>.</p>
+</div>
+<div class="paragraph">
 <p>Example:</p>
 </div>
 <div class="ulist">
@@ -300,14 +340,14 @@ Selects and shows all cards in the 2nd deck.</p>
 <div class="content">
 <img src="images/Ui.png" alt="Ui">
 </div>
-<div class="title">Figure 8. Selecting a deck</div>
+<div class="title">Figure 8. Selecting a deck and showing its cards.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="removing-a-deck-code-remove-code"><a class="link" href="#removing-a-deck-code-remove-code">3.2.3. Removing a deck : <code>remove</code></a></h4>
-<div class="paragraph">
-<p>Similarly, you can remove a deck in the library using the <code>remove</code> command and the index number of the deck.</p>
-</div>
 <div class="paragraph">
 <p>Format: <code>remove &lt;index&gt;</code></p>
 </div>
@@ -325,6 +365,9 @@ The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p
 </div>
 </div>
 <div class="paragraph">
+<p>Similarly, you can remove a deck in the library using <code>remove</code> followed by the index number of that deck. Bye bye, deck!</p>
+</div>
+<div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
@@ -339,26 +382,33 @@ Removes the 2nd deck from the library.</p>
 <div class="content">
 <img src="images/remove.png" alt="remove">
 </div>
-<div class="title">Figure 9. Remove Japanese Verbs deck"</div>
+<div class="title">Figure 9. After removing the Japanese Verbs deck.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="renaming-a-deck-code-rename-code"><a class="link" href="#renaming-a-deck-code-rename-code">3.2.4. Renaming a deck : <code>rename</code></a></h4>
 <div class="paragraph">
-<p>You can rename a deck in the library using the <code>rename</code> command with the index number of the deck and the new name of the deck.
-Note that the name of the deck cannot be empty.<br>
-Format: <code>rename &lt;index&gt; &lt;deck&gt;</code></p>
+<p>Format: <code>rename &lt;index&gt; &lt;deck&gt;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Renames the deck in the library at the specified <code>index</code>. The index refers to the index number shown in the displayed decks list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p><strong>Formal definition</strong>: Renames the deck in the library at the specified <code>index</code>. The index refers to the index number shown in the displayed decks list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>The deck name cannot by empty.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>You can rename a deck in the library using <code>rename</code> followed by the index number of the deck and the new name of the deck.<br></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -375,15 +425,14 @@ Renames the 2nd deck in the library to "Japanese Verbs".</p>
 <div class="content">
 <img src="images/rename.png" alt="rename">
 </div>
-<div class="title">Figure 10. Rename Korean deck to Japanese Verbs"</div>
+<div class="title">Figure 10. After renaming a deck from "Korean" to "Japanese Verbs". Wow.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="playing-a-deck-code-play-code"><a class="link" href="#playing-a-deck-code-play-code">3.2.5. Playing a deck : <code>play</code></a></h4>
-<div class="paragraph">
-<p>Here comes the single most important command in FlashSpeed. In order to start playing with a certain deck,
-you can use the <code>play</code> command to start a game session with a deck. We "play" it because learning can be fun!<br></p>
-</div>
 <div class="paragraph">
 <p>Format: <code>play &lt;index&gt;</code></p>
 </div>
@@ -392,11 +441,16 @@ you can use the <code>play</code> command to start a game session with a deck. W
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Formal definition</strong>: Starts a game session with the deck in the library at the specified <code>index</code>. The index refers to the index number shown in the displayed decks list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p><strong>Formal definition</strong>: Starts a study session with the deck in the library at the specified <code>index</code>. The index refers to the index number shown in the displayed decks list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Alright, this may be what you&#8217;ve been waiting for! In order to start a study session with a certain deck,
+you can use <code>play</code> followed by the deck&#8217;s index number. Good luck!<br>
+(FYI, we "play" a deck because learning is fun!)<br></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -405,7 +459,7 @@ you can use the <code>play</code> command to start a game session with a deck. W
 <ul>
 <li>
 <p><code>play 1</code><br>
-Starts a game session with the first deck in the library.</p>
+Starts a study session with the first deck in the library.</p>
 </li>
 </ul>
 </div>
@@ -413,134 +467,153 @@ Starts a game session with the first deck in the library.</p>
 <div class="content">
 <img src="images/Ui2.png" alt="Ui2">
 </div>
-<div class="title">Figure 11. Playing the Japanese deck</div>
+<div class="title">Figure 11. Studying/Playing the Japanese deck.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="deckViewAnchor"><a class="link" href="#deckViewAnchor">3.3. Deck view</a></h3>
-<div class="paragraph">
-<p><strong>Important: All commands in this section can only be used in Deck view.</strong>
-<strong>To enter Deck view, you must <a href="#selectDeck">select a deck</a>.</strong></p>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Important: All commands in this section can only be used in Deck view.</strong>
+<strong>To enter Deck view, you must <a href="#selectDeck">select a deck</a>.</strong>
+</td>
+</tr>
+</table>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui">
 </div>
-<div class="title">Figure 12. Selecting a deck</div>
+<div class="title">Figure 12. Selecting a deck. You&#8217;re now in Deck view.</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 <div class="sect3">
 <h4 id="adding-a-card-code-add-code"><a class="link" href="#adding-a-card-code-add-code">3.3.1. Adding a card : <code>add</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>add &lt;front&gt;:&lt;back&gt;</code></p>
+</div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Formal definition</strong>: Creates a card and adds it into a deck,
+<p><strong>Formal definition</strong>: Creates a card and adds it to a deck,
 with the front and back values of the card being specified by the user.
-Both the front and back values canont be null.</p>
+Both the front and back values cannot be empty.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>Format: <code>add &lt;front&gt;:&lt;back&gt;</code></p>
+<p>Alright, after creating a new deck and giving it a great name, what&#8217;s next?
+<strong>Adding cards</strong> into that deck, of course!</p>
 </div>
 <div class="paragraph">
-<p>Alright, you have now created a new and have given it the perfect name. What&#8217;s next?
-<strong>Adding cards</strong> into the deck, of course!</p>
-</div>
-<div class="paragraph">
-<p>Once again, the process is easy as a piece of cake:</p>
+<p>Once again, the process is easy:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>Select the deck to which you want to add cards, with the <code>select</code> command.</p>
-</li>
-</ol>
-</div>
 <div class="paragraph">
-<p>Example: <code>select 1</code></p>
+<p>e.g. <code>select 1</code></p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>Inside the input box, type:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>the keyword <code>add</code> into the input box,</p>
+<p><code>add</code>, followed by</p>
 </li>
 <li>
-<p>the word/phrase that you would want to show on the front face of the card,</p>
+<p>the word/sentence that you want as the front of the card, then</p>
 </li>
 <li>
-<p>a colon(:) right after, and</p>
+<p>a colon ":" right after, and finally</p>
 </li>
 <li>
-<p>the word/phrase that you would want to show on the back face of the card,</p>
-<div class="literalblock">
-<div class="content">
-<pre>Example:
-* `add ありがとう:thanks`</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>*INSERT THE SCREENSHOT HERE*</pre>
-</div>
+<p>the word/sentence that you want as the back of the card.</p>
+<div class="paragraph">
+<p>e.g. <code>add ありがとう:thanks</code></p>
 </div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Hit Enter.</p>
+<p>Press <kbd>Enter</kbd>.</p>
 </li>
 <li>
 <p>Voila!</p>
-</li>
-</ol>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/add.png" alt="add">
 </div>
-<div class="title">Figure 13. Adding a new card into the Japanese deck</div>
+<div class="title">Figure 13. Adding a new card into the Japanese deck.</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="editing-a-card-code-edit-code"><a class="link" href="#editing-a-card-code-edit-code">3.3.2. Editing a card : <code>edit</code></a></h4>
 <div class="paragraph">
-<p>You can edit the front and/or back values of any cards in the current deck.<br></p>
-</div>
-<div class="paragraph">
 <p>Format 1: <code>edit &lt;index&gt; &lt;front&gt;:&lt;back&gt;</code><br>
 Format 2: <code>edit &lt;index&gt; :&lt;back&gt;</code><br>
 Format 3: <code>edit &lt;index&gt; &lt;front&gt;:</code></p>
-</div>
-<div class="paragraph">
-<p>Note that you don&#8217;t have to supply both front and back values of a card,
-i.e. if you only wish to change the back of a card, the front can be left blank, and vice versa.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the card in the current deck at the specified <code>index</code>. The index refers to the index number shown in the displayed cards list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p><strong>Formal definition</strong>: Edits the card in the current deck at the specified <code>index</code>. The index refers to the index number shown in the displayed cards list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p>Existing values will be updated to the given values.</p>
 </li>
 <li>
-<p>Empty values for the <code>front</code> or <code>back</code> will leave the associated values intact.</p>
+<p>Empty values for the <code>front</code> or <code>back</code> will leave the original <code>front</code> or <code>back</code> intact.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>You can edit the front and/or back values of any card in the current deck.<br></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Note that you don&#8217;t have to supply both front and back values of a card,
+i.e. if you only wish to change the back of a card, the front can be left blank, and vice versa.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -565,14 +638,14 @@ Edits the front value of the 1st card in the deck to be <code>ありがとう</c
 <div class="content">
 <img src="images/edit.png" alt="edit">
 </div>
-<div class="title">Figure 14. Editing the second card back face from "thank you" to "thanks"</div>
+<div class="title">Figure 14. Editing the second card&#8217;s back value from "thank you" to "thanks".</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="deleting-a-card-code-delete-code"><a class="link" href="#deleting-a-card-code-delete-code">3.3.3. Deleting a card : <code>delete</code></a></h4>
-<div class="paragraph">
-<p>You can delete a card from the selected deck by using the <code>delete</code> command and the index number of the card.<br></p>
-</div>
 <div class="paragraph">
 <p>Format: <code>delete &lt;index&gt;</code></p>
 </div>
@@ -581,11 +654,14 @@ Edits the front value of the 1st card in the deck to be <code>ありがとう</c
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the card in the current deck at the specified <code>index</code>. The index refers to the index number shown in the displayed cards list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p><strong>Formal definition</strong>: Deletes the card in the current deck at the specified <code>index</code>. The index refers to the index number shown in the displayed cards list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>You can delete a card from the selected deck by using <code>delete</code> followed by the index number of that card.<br></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -602,71 +678,107 @@ Deletes the 3rd card in the current deck.</p>
 <div class="content">
 <img src="images/delete.png" alt="delete">
 </div>
-<div class="title">Figure 15. Deleting the 3rd card in the current deck</div>
+<div class="title">Figure 15. After deleting the 3rd card in the selected deck.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="returning-to-the-library-code-return-code"><a class="link" href="#returning-to-the-library-code-return-code">3.3.4. Returning to the library : <code>return</code></a></h4>
 <div class="paragraph">
-<p>Once you&#8217;re done modifying the selected deck,
-you can return back to the library with the <code>return</code> command, i.e. no deck will be selected.<br></p>
+<p>Format: <code>return</code></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>return</code></p>
+<p>Once you&#8217;re done modifying the selected deck,
+you can return back to the Library view with <code>return</code>, i.e. no deck will be selected.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/library.png" alt="library">
 </div>
-<div class="title">Figure 16. Returning to Library view</div>
+<div class="title">Figure 16. Returned to the Library view. No deck selected!</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="play-view"><a class="link" href="#play-view">3.4. Play view</a></h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Time to start testing yourself! When playing a deck, each card will initially show only its front face to allow you to recall its back face. (It&#8217;s to test you, after all!)</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui2.png" alt="Ui2">
 </div>
-<div class="title">Figure 17. Playing the Japanese deck</div>
+<div class="title">Figure 17. Playing the Japanese deck. Ganbatte kudasai!</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 <div class="sect3">
 <h4 id="flipping-a-card-code-flip-code"><a class="link" href="#flipping-a-card-code-flip-code">3.4.1. Flipping a card : <code>flip</code></a></h4>
 <div class="paragraph">
-<p>To flip a card in Play view to see the back of a card, simply type <code>flip</code> into the input box
-and press Enter.+</p>
+<p>Format: <code>flip</code></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>flip</code></p>
+<p>Are you ready? To flip a card to see its back face, simply type <code>flip</code> into the input box
+and press <kbd>Enter</kbd>.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/flip.png" alt="flip">
 </div>
-<div class="title">Figure 18. Flipping to reveal the back face of the card</div>
+<div class="title">Figure 18. Flipping to reveal the back face of the card.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="answering-yes-no-code-yes-code-code-no-code"><a class="link" href="#answering-yes-no-code-yes-code-code-no-code">3.4.2. Answering "yes/no" : <code>yes</code>/<code>no</code></a></h4>
-<div class="paragraph">
-<p>If you could remember the back face of a card, type <code>yes</code> into the input box and press Enter. On the other hand, if you could not remember the back face of a card, type <code>no</code> into the input box and press Enter. Note that you can only do this after flipping the card.<br></p>
-</div>
+<h4 id="answering-yes-or-no-code-yes-code-code-no-code"><a class="link" href="#answering-yes-or-no-code-yes-code-code-no-code">3.4.2. Answering "yes" or "no" : <code>yes</code>/<code>no</code></a></h4>
 <div class="paragraph">
 <p>Format: <code>yes</code> or <code>no</code></p>
+</div>
+<div class="paragraph">
+<p>Were you able to recall the back face of the card?<br>
+If you could, type <code>yes</code> into the input box and press <kbd>Enter</kbd>.<br>
+If not, type <code>no</code> into the input box and press <kbd>Enter</kbd>. (Don&#8217;t give up!)<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can only do this after flipping the card.
+</td>
+</tr>
+</table>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/yes.png" alt="yes">
 </div>
-<div class="title">Figure 19. Showing the next card after answering "yes"</div>
+<div class="title">Figure 19. The next card (if any) will be immediately shown after answering.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.5. Saving the data</a></h3>
+<h3 id="save-data"><a class="link" href="#save-data">3.5. Save data</a></h3>
 <div class="paragraph">
-<p>All data in FlashSpeed (e.g. decks, cards) are saved in the hard disk automatically after any command that changes the data.<br>
-You dont have to save your decks and cards manually!</p>
+<p>All data in FlashSpeed (e.g. decks, cards) is saved automatically. It is all neatly placed in the folder you put FlashSpeed in.<br>
+You don&#8217;t have to save your precious flashcards manually!</p>
 </div>
 </div>
 </div>
@@ -676,7 +788,7 @@ You dont have to save your decks and cards manually!</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another computer?<br>
-<strong>A</strong>: Install FlashSpeed in the other computer and overwrite the data folder it creates with your current data folder.</p>
+<strong>A</strong>: Copy the <code>data</code> folder in FlashSpeed&#8217;s home folder over to the home folder in the other computer.</p>
 </div>
 </div>
 </div>
@@ -741,4 +853,4 @@ e.g. <code>delete 3</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-01 17:19:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-01 19:02:31 UTC</div></div></div></body></html>
