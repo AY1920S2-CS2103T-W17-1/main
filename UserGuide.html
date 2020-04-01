@@ -197,7 +197,70 @@ Format: <code>reset</code></p>
 <div class="sect2">
 <h3 id="library-view"><a class="link" href="#library-view">3.2. Library view</a></h3>
 <div class="sect3">
-<h4 id="selectDeck"><a class="link" href="#selectDeck">3.2.1. Selecting a deck : <code>select</code></a></h4>
+<h4 id="creating-a-deck-code-create-code"><a class="link" href="#creating-a-deck-code-create-code">3.2.1. Creating a deck : <code>create</code></a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Formal definition</strong>: Creates a deck with the deck name specified by the user. The deck name canont be null.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code>create &lt;deck&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>After downloading and setting up FlashSpeed, you&#8217;re all set to go!
+But before anything else, you will have to first <strong>create a deck</strong>.
+The process of creating a deck in FlashSpeed is very straightforward.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s say you want to create a deck to revise on some Japanese verbs
+to prepare for you upcoming Japanese assessment.
+To do so:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, type <code>create</code> followed by the deck name into the input box.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>create Japanese Verbs</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/create1.png" alt="create1">
+</div>
+<div class="title">Figure 6. Typing in a command to create the Japanese Verbs deck"</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Hit Enter.</p>
+</li>
+<li>
+<p>Voila!</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/create2.png" alt="create2">
+</div>
+<div class="title">Figure 7. Creating Japanese Verbs deck"</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="selectDeck"><a class="link" href="#selectDeck">3.2.2. Selecting a deck : <code>select</code></a></h4>
 <div class="paragraph">
 <p>If you want to view the cards in a particular deck or make some changes to it, you can use the
 <code>select</code> keyword with the deck&#8217;s index number. After selecting a certain deck, FlashSpeed will enter the Deck view, and
@@ -237,36 +300,7 @@ Selects and shows all cards in the 2nd deck.</p>
 <div class="content">
 <img src="images/Ui.png" alt="Ui">
 </div>
-<div class="title">Figure 6. Selecting a deck</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="creating-a-deck-code-create-code"><a class="link" href="#creating-a-deck-code-create-code">3.2.2. Creating a deck : <code>create</code></a></h4>
-<div class="paragraph">
-<p>You can create a new deck in the library by using the <code>create</code> command with the name of the new deck.
-Note that you can use this commmand in both the Deck view and Library view.+</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>create &lt;deck&gt;</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>create Japanese 1</code></p>
-</li>
-<li>
-<p><code>create Japanese Verbs</code></p>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/create.png" alt="create">
-</div>
-<div class="title">Figure 7. Creating Japanese Verbs deck"</div>
+<div class="title">Figure 8. Selecting a deck</div>
 </div>
 </div>
 <div class="sect3">
@@ -305,7 +339,7 @@ Removes the 2nd deck from the library.</p>
 <div class="content">
 <img src="images/remove.png" alt="remove">
 </div>
-<div class="title">Figure 8. Remove Japanese Verbs deck"</div>
+<div class="title">Figure 9. Remove Japanese Verbs deck"</div>
 </div>
 </div>
 <div class="sect3">
@@ -341,7 +375,7 @@ Renames the 2nd deck in the library to "Japanese Verbs".</p>
 <div class="content">
 <img src="images/rename.png" alt="rename">
 </div>
-<div class="title">Figure 9. Rename Korean deck to Japanese Verbs"</div>
+<div class="title">Figure 10. Rename Korean deck to Japanese Verbs"</div>
 </div>
 </div>
 <div class="sect3">
@@ -379,7 +413,7 @@ Starts a game session with the first deck in the library.</p>
 <div class="content">
 <img src="images/Ui2.png" alt="Ui2">
 </div>
-<div class="title">Figure 10. Playing the Japanese deck</div>
+<div class="title">Figure 11. Playing the Japanese deck</div>
 </div>
 </div>
 </div>
@@ -393,35 +427,88 @@ Starts a game session with the first deck in the library.</p>
 <div class="content">
 <img src="images/Ui.png" alt="Ui">
 </div>
-<div class="title">Figure 11. Selecting a deck</div>
+<div class="title">Figure 12. Selecting a deck</div>
 </div>
 <div class="sect3">
 <h4 id="adding-a-card-code-add-code"><a class="link" href="#adding-a-card-code-add-code">3.3.1. Adding a card : <code>add</code></a></h4>
-<div class="paragraph">
-<p>You can add a new card to the selected deck by using the <code>add</code> command.<br>
-Note that the colon character (":") is used to separate the front value of the card with the back value.</p>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Formal definition</strong>: Creates a card and adds it into a deck,
+with the front and back values of the card being specified by the user.
+Both the front and back values canont be null.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Format: <code>add &lt;front&gt;:&lt;back&gt;</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Alright, you have now created a new and have given it the perfect name. What&#8217;s next?
+<strong>Adding cards</strong> into the deck, of course!</p>
 </div>
+<div class="paragraph">
+<p>Once again, the process is easy as a piece of cake:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select the deck to which you want to add cards, with the <code>select</code> command.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Example: <code>select 1</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inside the input box, type:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add ありがとう:thanks</code></p>
+<p>the keyword <code>add</code> into the input box,</p>
 </li>
 <li>
-<p><code>add いい[お]てんきですね。:Nice weather, isn&#8217;t it?</code></p>
+<p>the word/phrase that you would want to show on the front face of the card,</p>
+</li>
+<li>
+<p>a colon(:) right after, and</p>
+</li>
+<li>
+<p>the word/phrase that you would want to show on the back face of the card,</p>
+<div class="literalblock">
+<div class="content">
+<pre>Example:
+* `add ありがとう:thanks`</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>*INSERT THE SCREENSHOT HERE*</pre>
+</div>
+</div>
 </li>
 </ul>
+</div>
+</li>
+<li>
+<p>Hit Enter.</p>
+</li>
+<li>
+<p>Voila!</p>
+</li>
+</ol>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/add.png" alt="add">
 </div>
-<div class="title">Figure 12. Adding a new card into the Japanese deck</div>
+<div class="title">Figure 13. Adding a new card into the Japanese deck</div>
 </div>
 </div>
 <div class="sect3">
@@ -478,7 +565,7 @@ Edits the front value of the 1st card in the deck to be <code>ありがとう</c
 <div class="content">
 <img src="images/edit.png" alt="edit">
 </div>
-<div class="title">Figure 13. Editing the second card back face from "thank you" to "thanks"</div>
+<div class="title">Figure 14. Editing the second card back face from "thank you" to "thanks"</div>
 </div>
 </div>
 <div class="sect3">
@@ -515,7 +602,7 @@ Deletes the 3rd card in the current deck.</p>
 <div class="content">
 <img src="images/delete.png" alt="delete">
 </div>
-<div class="title">Figure 14. Deleting the 3rd card in the current deck</div>
+<div class="title">Figure 15. Deleting the 3rd card in the current deck</div>
 </div>
 </div>
 <div class="sect3">
@@ -531,7 +618,7 @@ you can return back to the library with the <code>return</code> command, i.e. no
 <div class="content">
 <img src="images/library.png" alt="library">
 </div>
-<div class="title">Figure 15. Returning to Library view</div>
+<div class="title">Figure 16. Returning to Library view</div>
 </div>
 </div>
 </div>
@@ -541,7 +628,7 @@ you can return back to the library with the <code>return</code> command, i.e. no
 <div class="content">
 <img src="images/Ui2.png" alt="Ui2">
 </div>
-<div class="title">Figure 16. Playing the Japanese deck</div>
+<div class="title">Figure 17. Playing the Japanese deck</div>
 </div>
 <div class="sect3">
 <h4 id="flipping-a-card-code-flip-code"><a class="link" href="#flipping-a-card-code-flip-code">3.4.1. Flipping a card : <code>flip</code></a></h4>
@@ -556,7 +643,7 @@ and press Enter.+</p>
 <div class="content">
 <img src="images/flip.png" alt="flip">
 </div>
-<div class="title">Figure 17. Flipping to reveal the back face of the card</div>
+<div class="title">Figure 18. Flipping to reveal the back face of the card</div>
 </div>
 </div>
 <div class="sect3">
@@ -571,7 +658,7 @@ and press Enter.+</p>
 <div class="content">
 <img src="images/yes.png" alt="yes">
 </div>
-<div class="title">Figure 18. Showing the next card after answering "yes"</div>
+<div class="title">Figure 19. Showing the next card after answering "yes"</div>
 </div>
 </div>
 </div>
@@ -654,4 +741,4 @@ e.g. <code>delete 3</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-01 13:45:06 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-01 15:36:47 UTC</div></div></div></body></html>
