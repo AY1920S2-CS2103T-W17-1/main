@@ -29,16 +29,15 @@
 </li>
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#select-to-view-a-deck">4.1. Select to view a Deck</a></li>
-<li><a href="#create-a-new-deck">4.2. Create A new Deck</a></li>
-<li><a href="#create-a-new-card">4.3. Create A new Card</a></li>
-<li><a href="#shortcut-editing-of-card-face-values">4.4. Shortcut editing of Card face values</a></li>
-<li><a href="#play-mode-create-a-new-session-with-a-specific-deck">4.5. Play mode: create a new session with a specific deck</a></li>
-<li><a href="#flip-cards-in-the-deck">4.6. Flip cards in the deck</a></li>
-<li><a href="#answer-to-the-card">4.7. Answer to the card</a></li>
-<li><a href="#proposed-data-encryption">4.8. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">4.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
+<li><a href="#selecting-a-deck">4.1. Selecting a Deck</a></li>
+<li><a href="#creating-a-deck">4.2. Creating a Deck</a></li>
+<li><a href="#creating-a-card">4.3. Creating a Card</a></li>
+<li><a href="#editing-a-card-shortcut-formats">4.4. Editing a Card: Shortcut Formats</a></li>
+<li><a href="#starting-a-play-session">4.5. Starting a play session</a></li>
+<li><a href="#flipping-a-card">4.6. Flipping a Card</a></li>
+<li><a href="#answering-in-a-play-session">4.7. Answering in a play session</a></li>
+<li><a href="#logging">4.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -148,14 +147,18 @@
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">3.1. Architecture</a></h3>
+<div class="paragraph">
+<p>FlashSpeed is mainly built on top of a few core components, runner components, and helper components. The core is where
+the bulk of the design decisions are made and data processing is performed.</p>
+</div>
+<div class="paragraph">
+<p>The <strong><em>Architecture Diagram</em></strong> below gives a high-level overview of the FlashSpeed App.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
 </div>
 <div class="title">Figure 1. Architecture Diagram</div>
-</div>
-<div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the FlashSpeed App. Given below is a quick overview of each component.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -171,45 +174,64 @@ Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how 
 </table>
 </div>
 <div class="paragraph">
+<p>Given below is a quick overview of each component.</p>
+</div>
+<div class="paragraph">
+<p><strong>The Runners:</strong><br></p>
+</div>
+<div class="paragraph">
 <p><code>Main</code> has two classes called <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
+<p>At launch: Initializes the core components in the correct sequence, sets up their initial states, and connects them up
+with each other.</p>
 </li>
 <li>
-<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
+<p>At exit: Performs cleanup of components where necessary and shuts down FlashSpeed.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><strong>The Helpers:</strong><br></p>
 </div>
 <div class="paragraph">
 <p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components.
-The following class plays an important role at the architecture level:</p>
+The following classes plays an important role at the architecture level:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
+<p><code>LogsCenter</code> : Writes log messages from many different running components to the FlashSpeed&#8217;s log file and console.</p>
+</li>
+<li>
+<p><code>Index</code> : Provides storage of index numbers and easy conversion between one- and zero-based indices.</p>
+</li>
+<li>
+<p><code>Messages</code> : Keeps many user-visible messages for invalid user actions.</p>
+</li>
+<li>
+<p><code>Exceptions</code> : Contains different types of specific exceptions which can occur due to invalid user actions.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The rest of the App consists of four components.</p>
+<p><strong>The Core:</strong><br></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: The UI of the App.</p>
+<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: The UI of FlashSpeed.</p>
 </li>
 <li>
 <p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>: The command executor.</p>
 </li>
 <li>
-<p><a href="#Design-Model"><strong><code>Model</code></strong></a>: Holds the data of the App in-memory.</p>
+<p><a href="#Design-Model"><strong><code>Model</code></strong></a>: Holds the data and current state of FlashSpeed in-memory.</p>
 </li>
 <li>
-<p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from, and writes data to, the hard disk.</p>
+<p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from and writes data to a data file on the hard disk.</p>
 </li>
 </ul>
 </div>
@@ -235,15 +257,15 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="title">Figure 2. Class Diagram of the Logic Component</div>
 </div>
-<h4 id="3-1-1-how-the-architecture-components-interact-with-each-other" class="discrete">3.1.1 How the architecture components interact with each other</h4>
+<h4 id="3-1-1-how-the-core-components-interact-with-each-other" class="discrete">3.1.1 How the core components interact with each other</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 2</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the core components interact with each other for the scenario where the user issues the command <code>remove 2</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 3. Component interactions for <code>delete 2</code> command</div>
+<div class="title">Figure 3. Component interactions for the <code>remove 2</code> command</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
@@ -312,13 +334,13 @@ The following class plays an important role at the architecture level:</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("remove 2")</code> API call.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 6. Interactions inside the Logic Component for the <code>remove 2</code> command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -327,7 +349,7 @@ The following class plays an important role at the architecture level:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The lifeline for <code>DeleteCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+The lifeline for <code>RemoveDeckCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </td>
 </tr>
 </table>
@@ -422,7 +444,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="select-to-view-a-deck"><a class="link" href="#select-to-view-a-deck">4.1. Select to view a Deck</a></h3>
+<h3 id="selecting-a-deck"><a class="link" href="#selecting-a-deck">4.1. Selecting a Deck</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -455,7 +477,7 @@ object is then constructed with the Index as its parameter.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="create-a-new-deck"><a class="link" href="#create-a-new-deck">4.2. Create A new Deck</a></h3>
+<h3 id="creating-a-deck"><a class="link" href="#creating-a-deck">4.2. Creating a Deck</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -516,7 +538,7 @@ which is to assign different keywords to these two different feature.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="create-a-new-card"><a class="link" href="#create-a-new-card">4.3. Create A new Card</a></h3>
+<h3 id="creating-a-card"><a class="link" href="#creating-a-card">4.3. Creating a Card</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -559,7 +581,7 @@ on the right panel. Lastly, the name of the selected Deck will be displayed toge
 </div>
 </div>
 <div class="sect2">
-<h3 id="shortcut-editing-of-card-face-values"><a class="link" href="#shortcut-editing-of-card-face-values">4.4. Shortcut editing of Card face values</a></h3>
+<h3 id="editing-a-card-shortcut-formats"><a class="link" href="#editing-a-card-shortcut-formats">4.4. Editing a Card: Shortcut Formats</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -587,8 +609,17 @@ value in the new Card will be a blank string (since either <code>FRONT</code> or
 blank value will be replaced by the associated value in the Card to be replaced.</p>
 </div>
 <div class="paragraph">
+<p>Below is a summary of the operations flow during the editing of a card.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditCardActivityDiagram.png" alt="EditCardActivityDiagram">
+</div>
+<div class="title">Figure 10. Operations flow during an Edit command.</div>
+</div>
+<div class="paragraph">
 <p>The validation of the arguments in the <code>edit</code> command is performed in <code>EditCommandParser#parse()</code>. Note that
-the validation only checks that the command is well-formed. It does not check for the validity of the command
+the validation only checks that the command is well-formed, i.e. understandable by FlashSpeed. It does not check for the validity of the command
 in the current environment (e.g. if we are currently in Deck view or not). This is for separation of parsing
 logic and model management logic.</p>
 </div>
@@ -606,22 +637,18 @@ the Index of the card to be edited is checked by ensuring it is in the range of 
 <div class="paragraph">
 <p>To perform a replacement of a Card in the current Deck, we need the old Card and the new Card. The old Card is required
 so we can know which Card is to be replaced via an equality check and also to know the face value which needs to be
-preserved (if needed). We can get the Card to be edited using <code>ModelManager#getCard()</code> with the provided Index. We can
-then perform the replacement using <code>ModelManager#replaceCard()</code> with the old Card and the new Card as the parameters.</p>
+preserved (if needed). We can get the Card to be edited using <code>ModelManager#getCard()</code> with the provided Index.
+The new Card can then be created.
+We can then perform the replacement using <code>ModelManager#replaceCard()</code> with the old Card and the new Card as the parameters.</p>
 </div>
 <div class="paragraph">
-<p><code>ModelManager#replaceCard()</code> will go through <code>Deck#replace()</code> and finally to <code>UniqueCardList#replace()</code>.
-In <code>UniqueCardList#replace()</code>, if the new Card has an empty string as its value in either face, the value is
-replaced with the face value of the Card in the current Deck to be replaced. This preserves the old face value
-which was expected from using the shortcut formats of the <code>edit</code> command.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the <code>edit</code> operation works:</p>
+<p>The following sequence diagram shows how the sequence of operations due to an <code>edit</code> command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/EditSequenceDiagram.png" alt="EditSequenceDiagram">
 </div>
+<div class="title">Figure 11. Operations performed for the <code>edit 1 fr:bk</code> command.</div>
 </div>
 </div>
 <div class="sect3">
@@ -662,7 +689,7 @@ which was expected from using the shortcut formats of the <code>edit</code> comm
 </div>
 </div>
 <div class="sect2">
-<h3 id="play-mode-create-a-new-session-with-a-specific-deck"><a class="link" href="#play-mode-create-a-new-session-with-a-specific-deck">4.5. Play mode: create a new session with a specific deck</a></h3>
+<h3 id="starting-a-play-session"><a class="link" href="#starting-a-play-session">4.5. Starting a play session</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -701,7 +728,7 @@ The first card of the selected deck is obtained using <code>deck#asUnmodifiableO
 </div>
 </div>
 <div class="sect2">
-<h3 id="flip-cards-in-the-deck"><a class="link" href="#flip-cards-in-the-deck">4.6. Flip cards in the deck</a></h3>
+<h3 id="flipping-a-card"><a class="link" href="#flipping-a-card">4.6. Flipping a Card</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -733,7 +760,7 @@ by checking if the returned <code>BACK</code> face of the card is empty since a 
 </div>
 </div>
 <div class="sect2">
-<h3 id="answer-to-the-card"><a class="link" href="#answer-to-the-card">4.7. Answer to the card</a></h3>
+<h3 id="answering-in-a-play-session"><a class="link" href="#answering-in-a-play-session">4.7. Answering in a play session</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.7.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -771,20 +798,14 @@ if the returned card is empty.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.8. [Proposed] Data Encryption</a></h3>
-<div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -815,7 +836,7 @@ if the returned card is empty.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1672,4 +1693,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 07:08:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 16:42:10 UTC</div></div></div></body></html>
