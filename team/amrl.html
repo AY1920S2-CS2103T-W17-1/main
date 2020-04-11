@@ -1,0 +1,714 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Amirul Ardy - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">FlashSpeed</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Amirul Ardy - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-flashspeed"><a class="link" href="#project-flashspeed">PROJECT: FlashSpeed</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FlashSpeed is a text-based flashcard application which enables users to store virtual flashcards, categorize them within
+decks, and launch review sessions of cards within those decks. It is designed for university students who are learning a
+foreign language or reading a language module.</p>
+</div>
+<div class="paragraph">
+<p>It was developed as a group project for the CS2103T Software Engineering module in the National University of Singapore
+(NUS). FlashSpeed was built on top of the AddressBook-Level3 project created by SE-EDU initiative at
+<a href="https://se-education.org" class="bare">https://se-education.org</a>. FlashSpeed is written in Java. Users interact with FlashSpeed using textual commands. FlashSpeed has a GUI created using JavaFX.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>My roles in this project includes team leader and in-charge of the User Guide. As team leader my responsibilities included
+ensuring the establishment of the week&#8217;s tasks, adherence to the proper development workflow, and quality checks on pull requests.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: Added the <strong>ability to edit cards and edit using shortened commands.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows the user to perform the editing of card values using any one of three different command formats, where two of the formats are shortened forms (i.e. edit INDEX FRONT:BACK, edit INDEX :BACK, edit INDEX FRONT:).</p>
+</li>
+<li>
+<p>Justification: This feature improves the product significantly because a user will be able to perform the editing of only the values they want to change, rather than having to retype the same value. This provides convenience and overall efficiency to the user. This functionality had the possibility to require a change in the entire logical chain but I decided that a reuse of existing functionality (e.g. add, delete, etc. to perform a Card replacement) would both reduce the possibility of logical bugs and code rewrite.</p>
+</li>
+<li>
+<p>Highlights: This is the only command in the application which can take in multiple formats. The implementation of this feature required design considerations across the entire model of the application (e.g. overwrite values in the Card or do a full replacement with a new Card, where should the new Card interface with the Deck to retrieve the unchanged values if any, etc.) In the end, the edit functionality fulfilled its responsibilities while being able to be treated as another standard command.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Added the implementations for the functional units of the application, i.e. Cards, Decks, and its UniqueCardList.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Highlights: These are the abstractions of data which makes FlashSpeed a flashcard application. They are built in such a way that developers of the higher level logic and model management can treat them as total black boxes. These are also the items which users will be mostly interacting with.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=amrl&amp;tabRepo=AY1920S2-CS2103T-W17-1%2Fmain%5Bmaster%5D">Functional code</a>] [<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=amrl&amp;tabRepo=AY1920S2-CS2103T-W17-1%2Fmain%5Bmaster%5D">Test code</a>]</p>
+<div class="ulist">
+<ul>
+<li>
+<p>&gt; 1.2k LoC</p>
+</li>
+<li>
+<p>&gt; 40 Pull Requests: <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pulls?q=author%3Aamrl">PRs</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Documentation contributed</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>User Guide:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>In-charge of document</p>
+</li>
+<li>
+<p>Wrote either fully or partially all sections</p>
+</li>
+<li>
+<p>Reformatted the structure and layout for ease of readability and navigability (e.g. topic headings, section spacing, etc.)</p>
+</li>
+<li>
+<p>Maintenance of document to be up-to-date with current application version</p>
+</li>
+<li>
+<p>Added all tips and notes, command summary table, etc.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Developer Guide:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote the <code>Design: Architecture</code> section and <code>Implementation: Editing a Card</code> section in the Developer Guide</p>
+</li>
+<li>
+<p>UML diagrams:
+<a href="https://github.com/AY1920S2-CS2103T-W17-1/main/blob/master/docs/images/ArchitectureDiagram.png">Architecture</a>,
+<a href="https://github.com/AY1920S2-CS2103T-W17-1/main/blob/master/docs/images/LogicClassDiagram.png">Logic Class</a>,
+<a href="https://github.com/AY1920S2-CS2103T-W17-1/main/blob/master/docs/images/ArchitectureSequenceDiagram.png">Architecture Sequence</a>,
+<a href="https://github.com/AY1920S2-CS2103T-W17-1/main/blob/master/docs/images/DeleteSequenceDiagram.png">Remove Sequence</a>,
+<a href="https://github.com/AY1920S2-CS2103T-W17-1/main/blob/master/docs/images/EditCardActivityDiagram.png">Edit Card Activity</a>,
+<a href="https://github.com/AY1920S2-CS2103T-W17-1/main/blob/master/docs/images/EditSequenceDiagram.png">Edit Sequence</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Others:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wrote the content in the README and site home page which includes our product description, marketing blurb, and target users</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed all releases <code>v1.1</code> - <code>v1.4</code> (6 releases) on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added functionality and methods in ModelManager which uses our Cards and Decks as functional units</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Review/mentoring contributions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed: <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/81">#81</a> <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/84">#84</a> <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/95">#95</a> etc.</p>
+</li>
+<li>
+<p>Bug fixes in team members' sections: <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/116">#116</a> <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/129">#129</a> <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/131">#131</a> <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/139">#139</a> <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/222">#222</a> etc.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Changes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Morphed product site to be in line with our FlashSpeed product and branding</p>
+</li>
+<li>
+<p>Morphed codebase to remove and replace all AddressBook-Level3 references to become FlashSpeed</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Set-up of Netlify</p>
+</li>
+<li>
+<p>Set-up and maintenance of GitHub issue tracker</p>
+</li>
+<li>
+<p>Maintenance of Travis according to project workflow</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FlashSpeed is a text-based flashcard application specifically designed for university students who are learning a foreign language. University students often have hectic schedules. With this in mind, FlashSpeed was created to allow students to be able to study and revise foreign vocabulary on the fly. With a single command, you can start a quick study session on FlashSpeed whenever!</p>
+</div>
+<div class="paragraph">
+<p>Keeping, flipping, and tracking physical flashcards can be a pain. FlashSpeed enhances the studying process by having virtual flashcards and a smarter review system. Users will be tested more frequently on flashcards that they had trouble memorizing previously. By using FlashSpeed, you will learn faster and remember for longer!</p>
+</div>
+<div class="paragraph">
+<p>This guide will walk you through the many exciting features of FlashSpeed as well as give step-by-step instructions on how to use them. Helpful tips and notes are also provided!<br></p>
+</div>
+<div class="paragraph">
+<p>We hope you enjoy using our app. Happy FlashSpeeding!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="language-support"><a class="link" href="#language-support">Language Support</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FlashSpeed can support almost every popular language and their associated script. You can even use emojis in your cards! 😍<br></p>
+</div>
+<div class="paragraph">
+<p>You can use FlashSpeed to study:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Japanese</p>
+</li>
+<li>
+<p>Korean</p>
+</li>
+<li>
+<p>French</p>
+</li>
+<li>
+<p>Spanish</p>
+</li>
+<li>
+<p>German</p>
+</li>
+<li>
+<p>Hindi</p>
+</li>
+<li>
+<p>Russian</p>
+</li>
+<li>
+<p>&#8230;&#8203;and many more!</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The display of the characters may be limited to your own operating systems&#8217;s language support. Please refer to
+your operating system&#8217;s manual or user guide to find out the languages and scripts supported.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Technical info: FlashSpeed, which is built on Java, supports the Unicode standard with UTF-16 character encoding for
+textual representation.
+</td>
+</tr>
+</table>
+</div>
+<hr>
+<div class="sect2">
+<h3 id="library-view"><a class="link" href="#library-view">Library view</a></h3>
+<div class="sidebarblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<strong>Even though the commands in this section are mainly library based, you can use them in both the Library view and Deck view!</strong>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/library.png" alt="library">
+</div>
+<div class="title">Figure 1. No deck selected. You&#8217;re now in Library view.</div>
+</div>
+</div>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="selectDeck"><a class="link" href="#selectDeck">Selecting a deck : <code>select</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>select &lt;index&gt;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Formal definition</strong>:
+Selects and shows all cards in the deck at the specified <code>index</code>.
+The <code>index</code> refers to the index number shown in the displayed decks list. The <code>index</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to view the cards in a particular deck, you can use <code>select</code> followed by the deck&#8217;s index number.
+The index number is the number to the left of its name!
+After selecting a certain deck, FlashSpeed will enter the Deck view and
+show all the cards in that deck.<br></p>
+</div>
+<div class="paragraph">
+<p>In the Deck view, you can use any of the Deck mode commands listed in <a href="#deckViewAnchor">3.3. Deck view</a>.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>select 2</code><br>
+Selects and shows all cards in the 2nd deck.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui">
+</div>
+<div class="title">Figure 2. Selecting a deck and showing its cards.</div>
+</div>
+<hr>
+<table class="tableblock frame-all grid-all" style="width: 60%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top" colspan="3">View</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Library</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deck</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Play</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>reset</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>create</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>remove</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rename</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>play</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>return</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>flip</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>yes</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>no</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stop</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">√</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">Architecture</a></h3>
+<div class="paragraph">
+<p>FlashSpeed is mainly built on top of a few core components, runner components, and helper components. The core is where
+the bulk of the design decisions are made and data processing is performed.</p>
+</div>
+<div class="paragraph">
+<p>The <strong><em>Architecture Diagram</em></strong> below gives a high-level overview of the FlashSpeed App.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
+</div>
+<div class="title">Figure 3. Architecture Diagram</div>
+</div>
+<div class="paragraph">
+<p>Given below is a quick overview of each component.</p>
+</div>
+<div class="paragraph">
+<p><strong>The Runners:</strong><br></p>
+</div>
+<div class="paragraph">
+<p><code>Main</code> has two classes called <a href="{repoURL}/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="{repoURL}/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>At launch: Initializes the core components in the correct sequence, sets up their initial states, and connects them up
+with each other.</p>
+</li>
+<li>
+<p>At exit: Performs cleanup of components where necessary and shuts down FlashSpeed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>The Helpers:</strong><br></p>
+</div>
+<div class="paragraph">
+<p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components.
+The following classes plays an important role at the architecture level:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LogsCenter</code> : Writes log messages from many different running components to the FlashSpeed&#8217;s log file and console.</p>
+</li>
+<li>
+<p><code>Index</code> : Provides storage of index numbers and easy conversion between one- and zero-based indices.</p>
+</li>
+<li>
+<p><code>Messages</code> : Keeps many user-visible messages for invalid user actions.</p>
+</li>
+<li>
+<p><code>Exceptions</code> : Contains different types of specific exceptions which can occur due to invalid user actions.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>The Core:</strong><br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: The UI of FlashSpeed.</p>
+</li>
+<li>
+<p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>: The command executor.</p>
+</li>
+<li>
+<p><a href="#Design-Model"><strong><code>Model</code></strong></a>: Holds the data and current state of FlashSpeed in-memory.</p>
+</li>
+<li>
+<p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from and writes data to a data file on the hard disk.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each of the four components</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Defines its <em>API</em> in an <code>interface</code> with the same name as the Component.</p>
+</li>
+<li>
+<p>Exposes its functionality using a <code>{Component Name}Manager</code> class.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, the <code>Logic</code> component (see the class diagram given below) defines it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LogicClassDiagram.png" alt="LogicClassDiagram">
+</div>
+<div class="title">Figure 4. Class Diagram of the Logic Component</div>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="editing-a-card-shortcut-formats"><a class="link" href="#editing-a-card-shortcut-formats">Editing a Card: Shortcut Formats</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>edit</code> command allows for the values of a Card&#8217;s face(s) to be changed. There are 3 command formats
+accepted:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit INDEX FRONT:BACK</code><br></p>
+</li>
+<li>
+<p><code>edit INDEX :BACK</code><br></p>
+</li>
+<li>
+<p><code>edit INDEX FRONT:</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This functionality is implemented by replacing the Card to be edited in the Deck with a new Card containing
+the new face values (<code>FRONT</code> and <code>BACK</code>). The shortcut versions of the command (second and third formats above) allows
+for one face value of the Card to be edited while preserving the other face value. In this situation, the unedited face
+value in the new Card will be a blank string (since either <code>FRONT</code> or <code>BACK</code> will be a blank string). Subsequently, this
+blank value will be replaced by the associated value in the Card to be replaced.</p>
+</div>
+<div class="paragraph">
+<p>Below is a summary of the operations flow during the editing of a card.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditCardActivityDiagram.png" alt="EditCardActivityDiagram">
+</div>
+<div class="title">Figure 5. Operations flow during an Edit command.</div>
+</div>
+<div class="paragraph">
+<p>The validation of the arguments in the <code>edit</code> command is performed in <code>EditCommandParser#parse()</code>. Note that
+the validation only checks that the command is well-formed, i.e. understandable by FlashSpeed. It does not check for the validity of the command
+in the current environment (e.g. if we are currently in Deck view or not). This is for separation of parsing
+logic and model management logic.</p>
+</div>
+<div class="paragraph">
+<p>In <code>EditCommandParser#parse()</code>, the <code>INDEX</code> of the card to be edited and the new face value(s) are extracted
+from the arguments in the <code>edit</code> command. The <code>INDEX</code> is converted to an Index object. An <code>EditCardCommand</code>
+object is then constructed with the Index and the new Card as its parameters.</p>
+</div>
+<div class="paragraph">
+<p>When <code>EditCardCommand#execute()</code> is executed, the environment is then checked. The <code>edit</code> command is only valid when
+we are currently in a Deck, thus a check on the current view is performed using <code>ModelManager#getView()</code>. Then
+the Index of the card to be edited is checked by ensuring it is in the range of [0, size of current Deck) using
+<code>ModelManager#getCurrentDeck().getSize()</code>.</p>
+</div>
+<div class="paragraph">
+<p>To perform a replacement of a Card in the current Deck, we need the old Card and the new Card. The old Card is required
+so we can know which Card is to be replaced via an equality check and also to know the face value which needs to be
+preserved (if needed). We can get the Card to be edited using <code>ModelManager#getCard()</code> with the provided Index.
+The new Card can then be created.
+We can then perform the replacement using <code>ModelManager#replaceCard()</code> with the old Card and the new Card as the parameters.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the sequence of operations due to an <code>edit</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditSequenceDiagram.png" alt="EditSequenceDiagram">
+</div>
+<div class="title">Figure 6. Operations performed for the <code>edit 1 fr:bk</code> command.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-the-replacement-card-is-formed-during-the-start-of-execution"><a class="link" href="#aspect-how-the-replacement-card-is-formed-during-the-start-of-execution">Aspect: How the replacement Card is formed during the start of execution</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> A blank string in a face of the new Card means we use the face value in the Card to be replaced.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement. Can use the extracted values in the arguments as is. Let the final step (<code>UniqueCardList#replace()</code>) handle the replacement logic.</p>
+</li>
+<li>
+<p>Cons: From <code>EditCardCommandParser</code> until the end of the command execution in <code>LogicManager</code>, there may exist a Card with a face containing a blank string. May not be a desirable object to have.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Get the Card to be edited directly in <code>EditCardCommandParser</code> so we can immediately produce the new Card with its final face values.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The Card to replace the old Card will be fully formed from the start.</p>
+</li>
+<li>
+<p>Cons: No separation of parsing and model management logic since we would need to do a view check and get a Card from the current Deck all while in the parser.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 15:58:33 UTC</div></div></div></body></html>
