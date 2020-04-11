@@ -91,10 +91,9 @@ public interface Model {
      */
     Deck getDeck(Index index);
 
-     /** Renames the deck at index in library.
-      *
-      * @return true if there is no deck with the same name, false otherwise
-      */
+    /** Renames the deck at index in library.
+     * @return true if there is no deck with the same name, false otherwise
+     */
     boolean renameDeck(Index targetIndex, Name name);
 
     /**
@@ -134,7 +133,6 @@ public interface Model {
 
     /**
      * Checks if a card with the same identity as {@code card} exists in the deck.
-     * 
      * @return true if {@code card} exists in the deck
      */
     boolean hasCard(Card card);
@@ -144,7 +142,7 @@ public interface Model {
      * {@code target} must exist in the deck.
      */
     void deleteCard(Card target);
-    
+
     /**
      * Adds the given card to the deck.
      * {@code card} must not already exist in the deck.
@@ -160,7 +158,6 @@ public interface Model {
 
     /**
      * Gets the current view of the model.
-     * 
      * @return The current view of the model.
      */
     View getView();
@@ -180,7 +177,6 @@ public interface Model {
 
     /**
      * Updates the filter of the filtered deck list to filter by the given {@code predicate}.
-     * 
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredDeckList(Predicate<Deck> predicate);
@@ -190,16 +186,34 @@ public interface Model {
      */
     void setSelectedDeck(Deck deck);
 
+    /**
+     * Sets the value of flipped in model manager.
+     */
     void setFlipped(Boolean value);
 
+    /**
+     * Sets the number of cards attempted.
+     */
     void setCardAttempted(int value);
 
+    /**
+     * Sets the number of remaining cards in a deck.
+     */
     void setCardRemaining(int value);
 
+    /**
+     * Sets the mode of the model manager.
+     */
     void setCurrentMode(Mode mode);
 
+    /**
+     * Sets the playing card.
+     */
     void setPlayingCard(Card card);
-    
+
+    /**
+     * Returns the card with the given index.
+     */
     Card getCard(Index index);
 
     /**
@@ -209,30 +223,29 @@ public interface Model {
 
     /**
      * Flips the card to the back face.
-     * 
      * @return true if the card has not been flipped, false otherwise
      */
     BackFace flip();
 
     /**
      * Returns the next card after user answers Yes.
-     * 
      * @return the next card or null if card list is empty
      */
     Card answerYes();
 
     /**
      * Returns the statistics report when user stop the game session.
-     *
      * @return the statistics object.
      */
     Statistics stop();
 
+    /**
+     * Returns the game manager object.
+     */
     GameManager getGame();
 
     /**
      * Returns the next card after user answers No.
-     * 
      * @return the next card or null if card list is empty
      */
     Card answerNo();

@@ -38,11 +38,6 @@ public class ModelManagerTest {
         assertEquals(new GuiSettings(), modelManager.getGuiSettings());
         assertEquals(new Library(), new Library(modelManager.getLibrary()));
         assertEquals(Optional.empty(), modelManager.getDeckIndex());
-        assertEquals(new SimpleObjectProperty<Deck>(), modelManager.selectedDeckProperty());
-        assertEquals(new SimpleObjectProperty<Card>(), modelManager.playingCardProperty());
-        assertEquals(new SimpleObjectProperty<Boolean>(), modelManager.flippedProperty());
-        assertEquals(new SimpleObjectProperty<Integer>(), modelManager.cardAttemptedProperty());
-        assertEquals(new SimpleObjectProperty<Integer>(), modelManager.cardRemainingProperty());
     }
 
     @Test
@@ -125,7 +120,7 @@ public class ModelManagerTest {
     public void getCurrentDeck_returnsCurrentDeck() throws ParseException{
         modelManager.createDeck(JAPANESE_DECK);
         try {
-            Index index = ParserUtil.parseIndex("0");
+            Index index = ParserUtil.parseIndex("1");
             modelManager.selectDeck(index);
             assertEquals(modelManager.getCurrentDeck(), JAPANESE_DECK);
         }  catch (ParseException pe) {
@@ -146,7 +141,7 @@ public class ModelManagerTest {
     public void hasCard_cardInDeck_returnsTrue() throws ParseException{
         modelManager.createDeck(JAPANESE_DECK);
         try {
-            Index index = ParserUtil.parseIndex("0");
+            Index index = ParserUtil.parseIndex("1");
             modelManager.selectDeck(index);
             assertTrue(modelManager.hasCard(JAP_CARD_1));
         } catch (ParseException pe) {
@@ -159,9 +154,9 @@ public class ModelManagerTest {
     public void getCard_returnsTrue() throws  ParseException {
         modelManager.createDeck(JAPANESE_DECK);
         try {
-            Index deckIndex = ParserUtil.parseIndex("0");
+            Index deckIndex = ParserUtil.parseIndex("1");
             modelManager.selectDeck(deckIndex);
-            Index cardIndex = ParserUtil.parseIndex("0");
+            Index cardIndex = ParserUtil.parseIndex("1");
             assertEquals(modelManager.getCard(cardIndex), JAP_CARD_1);
         } catch (ParseException pe) {
             throw new ParseException(
@@ -174,7 +169,7 @@ public class ModelManagerTest {
     public void hasCard_cardNotINDeck_afterDeleteCard_returnsFalse() throws ParseException {
         modelManager.createDeck(JAPANESE_DECK);
         try {
-            Index index = ParserUtil.parseIndex("0");
+            Index index = ParserUtil.parseIndex("1");
             modelManager.selectDeck(index);
             modelManager.deleteCard(JAP_CARD_1);
             assertFalse(modelManager.hasCard(JAP_CARD_1));
@@ -189,7 +184,7 @@ public class ModelManagerTest {
         modelManager.createDeck(JAPANESE_DECK);
         Card newCard = new CardBuilder().withFrontFace("newFront1").withBackFace("newBack1").build();
         try {
-            Index index = ParserUtil.parseIndex("0");
+            Index index = ParserUtil.parseIndex("1");
             modelManager.selectDeck(index);
             modelManager.replaceCard(JAP_CARD_2, newCard);
             assertFalse(modelManager.hasCard(JAP_CARD_2));
@@ -204,7 +199,7 @@ public class ModelManagerTest {
         modelManager.createDeck(JAPANESE_DECK);
         Card newCard = new CardBuilder().withFrontFace("newFront2").withBackFace("newBack2").build();
         try {
-            Index index = ParserUtil.parseIndex("0");
+            Index index = ParserUtil.parseIndex("1");
             modelManager.selectDeck(index);
             modelManager.replaceCard(JAP_CARD_3, newCard);
             assertTrue(modelManager.hasCard(newCard));
@@ -232,10 +227,10 @@ public class ModelManagerTest {
     public void gameCreated_afterPlay_returnsTrue() throws ParseException{
         modelManager.createDeck(JAPANESE_DECK);
         try {
-            Index index = ParserUtil.parseIndex("0");
+            Index index = ParserUtil.parseIndex("1");
             modelManager.selectDeck(index);
             Card card = modelManager.play(index);
-            assertEquals(modelManager.getGame(), new GameManager(JAPANESE_DECK));
+            assertFalse(modelManager.getGame() == null);
             assertEquals(modelManager.getMode(), Mode.PLAY);
             assertEquals(modelManager.playingCardProperty().getValue(), card);
             assertEquals(modelManager.flippedProperty().getValue(), false);
@@ -249,7 +244,7 @@ public class ModelManagerTest {
     public void getBackFace_afterFlip_returnsTrue() throws ParseException{
         modelManager.createDeck(JAPANESE_DECK);
         try {
-            Index index = ParserUtil.parseIndex("0");
+            Index index = ParserUtil.parseIndex("1");
             modelManager.selectDeck(index);
             Card card = modelManager.play(index);
             BackFace backFace = modelManager.flip();
@@ -265,7 +260,7 @@ public class ModelManagerTest {
     public void getNextCard_afterAnswerYes_returnsTrue() throws ParseException {
         modelManager.createDeck(JAPANESE_DECK);
         try {
-            Index index = ParserUtil.parseIndex("0");
+            Index index = ParserUtil.parseIndex("1");
             modelManager.selectDeck(index);
             modelManager.play(index);
             modelManager.flip();
@@ -282,7 +277,7 @@ public class ModelManagerTest {
     public void getNextCard_afterAnswerNo_returnsTrue() throws ParseException {
         modelManager.createDeck(JAPANESE_DECK);
         try {
-            Index index = ParserUtil.parseIndex("0");
+            Index index = ParserUtil.parseIndex("1");
             modelManager.selectDeck(index);
             modelManager.play(index);
             modelManager.flip();

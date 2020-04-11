@@ -9,6 +9,9 @@ import seedu.address.model.Model;
 import seedu.address.model.Statistics;
 import seedu.address.model.util.Mode;
 
+/**
+ * Stops the game session.
+ */
 public class StopCommand extends Command {
     public static final String COMMAND_WORD = "stop";
 
@@ -17,7 +20,8 @@ public class StopCommand extends Command {
     public static final String MESSAGE_SUCCESS = "Session stopped!";
     public static final String MESSAGE_NOT_PLAY_MODE = "You have not started a new game session";
 
-    Statistics statistics;
+    private Statistics statistics;
+
     /**
      * Creates an StopCommand
      */

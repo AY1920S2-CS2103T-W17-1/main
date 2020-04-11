@@ -375,7 +375,6 @@ public class ModelManager implements Model {
 
     /**
      * Flips the card to the back face.
-     * 
      * @return true if the card has not been flipped, false otherwise
      */
     @Override
@@ -386,25 +385,25 @@ public class ModelManager implements Model {
 
     /**
      * Returns the next card after user answers Yes.
-     * 
      * @return the next card or null if card list is empty
      */
     @Override
     public Card answerYes() {
         Card card = this.game.answerYes();
-        
         if (card == null) {
             //Statistics statistics = stop();
         }
-        
         setPlayingCard(card);
         setFlipped(false);
         setCardAttempted(game.getCardAttempted());
         setCardRemaining(game.getDeckSize());
-        
         return card;
     }
-    
+
+    /**
+     * Returns the game manager object.
+     * @return the game manager.
+     */
     public GameManager getGame() {
         return this.game;
     }
@@ -416,22 +415,18 @@ public class ModelManager implements Model {
     @Override
     public Card answerNo() {
         Card card = this.game.answerNo();
-        
         if (card == null) {
             //Statistics statistics = stop();
         }
-        
         setPlayingCard(card);
         setFlipped(false);
         setCardAttempted(game.getCardAttempted());
         setCardRemaining(game.getDeckSize());
-        
         return card;
     }
 
     /**
      * Stops the game session.
-     *
      * @return the statistics report.
      */
     @Override
