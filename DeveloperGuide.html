@@ -539,6 +539,12 @@ object is then constructed with the Index as its parameter.</p>
 <div class="paragraph">
 <p>The UI will have to be constantly updated when we select to view a deck, and other decks might be selected afterward. As a result, an <code>ObservableValue&lt;Deck&gt;</code> variable will have to be updated constantly via the <code>ModelManager#setSelectedDeck()</code> method. Various event listeners are implemented in the UI classes (e.g <code>CardListPanel</code>, <code>DeckListPanel</code>) in order to instantly react if there is any changes to the selected deck.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SelectDeckSequenceDiagram.png" alt="SelectDeckSequenceDiagram">
+</div>
+<div class="title">Figure 10. Interactions inside Model, Logic and UI components to reflect UI changes when selecting a deck</div>
+</div>
 <div class="paragraph">
 <p><br></p>
 </div>
@@ -722,7 +728,7 @@ blank value will be replaced by the associated value in the Card to be replaced.
 <div class="content">
 <img src="images/EditCardActivityDiagram.png" alt="EditCardActivityDiagram">
 </div>
-<div class="title">Figure 10. Operations flow during an Edit command.</div>
+<div class="title">Figure 11. Operations flow during an Edit command.</div>
 </div>
 <div class="paragraph">
 <p>The validation of the arguments in the <code>edit</code> command is performed in <code>EditCommandParser#parse()</code>. Note that
@@ -755,7 +761,7 @@ We can then perform the replacement using <code>ModelManager#replaceCard()</code
 <div class="content">
 <img src="images/EditSequenceDiagram.png" alt="EditSequenceDiagram">
 </div>
-<div class="title">Figure 11. Operations performed for the <code>edit 1 fr:bk</code> command.</div>
+<div class="title">Figure 12. Operations performed for the <code>edit 1 fr:bk</code> command.</div>
 </div>
 </div>
 <div class="sect3">
@@ -836,7 +842,7 @@ The first card of the selected deck is obtained using <code>deck#asUnmodifiableO
 <div class="content">
 <img src="images/PlaySequenceDiagram.png" alt="PlaySequenceDiagram">
 </div>
-<div class="title">Figure 12. Interactions inside Logic and Model components when <code>play 1</code> is executed</div>
+<div class="title">Figure 13. Interactions inside Logic and Model components when <code>play 1</code> is executed</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -874,7 +880,7 @@ by checking if the returned <code>BACK</code> face of the card is empty since a 
 <div class="content">
 <img src="images/FlipSequenceDiagram.png" alt="FlipSequenceDiagram">
 </div>
-<div class="title">Figure 13. Interactions inside Logic and Model components when <code>flip</code> is executed</div>
+<div class="title">Figure 14. Interactions inside Logic and Model components when <code>flip</code> is executed</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -914,13 +920,13 @@ if the returned card is empty.</p>
 <div class="content">
 <img src="images/AnswerYesSequenceDiagram.png" alt="AnswerYesSequenceDiagram">
 </div>
-<div class="title">Figure 14. Interactions inside Logic and Model components when <code>yes</code> is executed</div>
+<div class="title">Figure 15. Interactions inside Logic and Model components when <code>yes</code> is executed</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/AnswerNoSequenceDiagram.png" alt="AnswerNoSequenceDiagram">
 </div>
-<div class="title">Figure 15. Interactions inside Logic and Model components when <code>no</code> is executed</div>
+<div class="title">Figure 16. Interactions inside Logic and Model components when <code>no</code> is executed</div>
 </div>
 </div>
 <div class="sect3">
@@ -1871,7 +1877,7 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <div class="content">
 <img src="images/library.png" alt="library">
 </div>
-<div class="title">Figure 16. In Library view. No deck is selected.</div>
+<div class="title">Figure 17. In Library view. No deck is selected.</div>
 </div>
 <div class="dlist">
 <dl>
@@ -1885,7 +1891,7 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <div class="content">
 <img src="images/Ui.png" alt="Ui">
 </div>
-<div class="title">Figure 17. In Deck view. A deck has been selected.</div>
+<div class="title">Figure 18. In Deck view. A deck has been selected.</div>
 </div>
 <div class="dlist">
 <dl>
@@ -1899,7 +1905,7 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <div class="content">
 <img src="images/Ui2.png" alt="Ui2">
 </div>
-<div class="title">Figure 18. In Play view. A deck is being studied.</div>
+<div class="title">Figure 19. In Play view. A deck is being studied.</div>
 </div>
 </div>
 </div>
@@ -2386,4 +2392,4 @@ future meetings.</p>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:48:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:51:51 UTC</div></div></div></body></html>
