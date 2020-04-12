@@ -52,10 +52,14 @@
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#help-functionality">G.2. Help functionality</a></li>
+<li><a href="#deck-functionality">G.3. Deck functionality</a></li>
+<li><a href="#card-functionality">G.4. Card functionality</a></li>
+<li><a href="#game-play-functionality">G.5. Game-play functionality</a></li>
+<li><a href="#game-statistics">G.6. Game statistics</a></li>
 </ul>
 </li>
+<li><a href="#effort">Appendix H: Effort</a></li>
 </ul>
 </div>
 </div>
@@ -1321,7 +1325,7 @@ As the answers typed in mush exactly match the one on the card, it may result in
 <div class="paragraph">
 <p><br></p>
 </div>
-<h3 id="uc04-view-a-deck" class="discrete">UC04: View a deck</h3>
+<h3 id="uc04-view-a-deck-select" class="discrete">UC04: View a deck (select)</h3>
 <div class="paragraph">
 <p><strong>MSS:</strong></p>
 </div>
@@ -1637,7 +1641,155 @@ As the answers typed in mush exactly match the one on the card, it may result in
 <p>User case ends.</p>
 </div>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><br></p>
+</div>
+<h3 id="uc10-playing-a-deck" class="discrete">UC10: Playing a deck</h3>
+<div class="paragraph">
+<p><strong>MSS:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>FlashSpeed shows a list of all decks.</p>
+</li>
+<li>
+<p>User chooses a deck and requests to play that deck.</p>
+</li>
+<li>
+<p>FlashSpeed changes into game view and starts the game.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>2a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. FlashSpeed shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+<h3 id="uc10-playing-a-game" class="discrete">UC10: Playing a game.</h3>
+<div class="paragraph">
+<p><strong>MSS:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>FlashSpeed shows a list of all decks.</p>
+</li>
+<li>
+<p>User chooses a deck and requests to play that deck.</p>
+</li>
+<li>
+<p>FlashSpeed changes into game view and starts the game.</p>
+</li>
+<li>
+<p>FlashSpeed shows a card.</p>
+</li>
+<li>
+<p>User flips the card.</p>
+</li>
+<li>
+<p>FlashSpeed shows the other side of the card.</p>
+</li>
+<li>
+<p>User types in yes or no to indicate the correctness of their answer.</p>
+</li>
+<li>
+<p>FlashSpeed goes to next card.</p>
+</li>
+<li>
+<p>Use case repeats from step 4 to step 7 until all cards are answered and the game ends.</p>
+</li>
+<li>
+<p>FlashSpeed shows the statistics of game.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>2a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. FlashSpeed shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The deck is empty.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. FlashSpeed shows an error message.
+Use case ends.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>4a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>4a1. FlashSpeed shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1688,6 +1840,10 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <dd>
 <p>Spaced repetition is an evidence-based learning technique that is usually performed with flashcards. Newly introduced and more difficult flashcards are shown more frequently while older and less difficult flashcards are shown less frequently in order to exploit the psychological spacing effect</p>
 </dd>
+</dl>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1"><a id="view"></a> View</dt>
 <dd>
 <p>There are three different views in FlashSpeed.</p>
@@ -1707,7 +1863,7 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 </dd>
 <dt class="hdlist1"><a id="library-view"></a> Library View</dt>
 <dd>
-<p>The current screen where FlashSpeed shows the list of decks.</p>
+<p>When no deck is selected and no cards are shown</p>
 </dd>
 </dl>
 </div>
@@ -1721,7 +1877,7 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <dl>
 <dt class="hdlist1"><a id="deck-view"></a> Deck View</dt>
 <dd>
-<p>The current screen where FlashSpeed shows the list of cards in a selected deck.</p>
+<p>When a deck is selected and its cards are shown</p>
 </dd>
 </dl>
 </div>
@@ -1733,9 +1889,9 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><a id="play"></a> Play View (Play)</dt>
+<dt class="hdlist1"><a id="play"></a> Play View</dt>
 <dd>
-<p>Enters the play view (mode) of FlashSpeed. In this mode, users will be able to take advantage of the smarter review system to revise/memorise their flashcards.</p>
+<p>When in a study session of a deck</p>
 </dd>
 </dl>
 </div>
@@ -1751,10 +1907,10 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Product Name</strong></p>
+<p><strong>Anki</strong></p>
 </div>
 <div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
+<p>Author: Damien Elmes</p>
 </div>
 <div class="paragraph">
 <p>Pros:</p>
@@ -1762,10 +1918,7 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <div class="ulist">
 <ul>
 <li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
+<p>Study algorithm is useful for easily memorizing content.</p>
 </li>
 </ul>
 </div>
@@ -1775,10 +1928,10 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <div class="ulist">
 <ul>
 <li>
-<p>&#8230;&#8203;</p>
+<p>Not as appealing UI.</p>
 </li>
 <li>
-<p>&#8230;&#8203;</p>
+<p>Not friendly for fast typist to execute commands/tasks.</p>
 </li>
 </ul>
 </div>
@@ -1815,52 +1968,143 @@ These instructions only provide a starting point for testers to work on; testers
 </li>
 <li>
 <p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Saving window preferences</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
-</li>
-<li>
-<p>Re-launch the app by double-clicking the jar file.<br>
-Expected: The most recent window size and location is retained.</p>
+Expected: Shows the GUI with a set of sample decks and cards. The minimum optimum window size for the app is already set.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
+<h3 id="help-functionality"><a class="link" href="#help-functionality">G.2. Help functionality</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a person while all persons are listed</p>
+<p>Opening Help Window</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+<p>Prerequisites: None</p>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+<p>Test case: <code>help</code><br>
+Expected: Opens the help window</p>
 </li>
 <li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+<p>Test case: Pressing the <code>F1</code> key on the keyboard.<br>
+Expected: Opens the help window</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+<p>Closing the Help Window</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Help Window is opened</p>
+</li>
+<li>
+<p>Test case: Pressing the <code>Alt + F4</code> keys on the keyboard.<br>
+Expected: Closes the help window</p>
+</li>
+<li>
+<p>Test case: Pressing the <code>X</code> button on the help window.<br>
+Expected: Closes the help window</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Reading off from where you last left off.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Open the help window.</p>
+</li>
+<li>
+<p>Scroll down to any part of the User Guide to read.</p>
+</li>
+<li>
+<p>Close the help window.</p>
+</li>
+<li>
+<p>Re-launch the help window.<br>
+Expected: The help window opens to the page you last left off from.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deck-functionality"><a class="link" href="#deck-functionality">G.3. Deck functionality</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Creating a deck.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None</p>
+</li>
+<li>
+<p>Test case: <code>create Russian</code><br>
+Expected: Deck shows up on the deck list on the left panel and the (currently empty) card list is shown on the right panel.</p>
+</li>
+<li>
+<p>Test case: <code>create x</code> (where x is a deck name that already exists)<br>
+Expected: No new deck is created. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect create commands to try: <code>create</code>, `create  `
+Expected: Similar to previous</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting a deck from the deck list shown on the left panel.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Ensure that FlashSpeed contains at least 1 Deck, which can be seen on the left panel.</p>
+</li>
+<li>
+<p>Test case: <code>remove 1</code><br>
+Expected: First deck is deleted from the list. Name of the deleted deck is shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>remove 0</code><br>
+Expected: No deck is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>remove</code>, <code>remove x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Renaming a deck.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Ensure that FlashSpeed contains at least 1 Deck, which can be seen on the left panel.</p>
+</li>
+<li>
+<p>Test case: <code>rename 1 Russian</code><br>
+Expected: New deck name shows up on the deck list on the left panel.</p>
+</li>
+<li>
+<p>Test case: <code>rename 0 Russian</code><br>
+Expected: No deck is renamed. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect create commands to try: <code>rename Russian</code>, <code>rename</code>, <code>rename x Russian</code> (where x is larger than the list size),
+<code>rename 1 y</code> (where y is a deck name that already exists)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -1868,29 +2112,278 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
+<h3 id="card-functionality"><a class="link" href="#card-functionality">G.4. Card functionality</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Dealing with missing/corrupted data files</p>
+<p>Adding a card to a deck.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p>Prerequisites: A deck needs to be selected first via <code>select INDEX</code></p>
+</li>
+<li>
+<p>Test case: <code>add 아녕하세요 : hello</code><br>
+Expected: Card shows up on the card list on the right panel.</p>
+</li>
+<li>
+<p>Test case: <code>add 안녕:하세요:hello</code>
+Expected: No card is created. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect create commands to try: <code>add 안녕하세요: `, `add :hello</code><br>
+Expected: Similar to previous</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Deleting a card from the card list shown on the right panel.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: A deck needs to be selected first via <code>select INDEX</code></p>
+</li>
+<li>
+<p>Test case: <code>delete 1</code><br>
+Expected: First card is deleted from the list. Name of the deleted card is shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>delete 0</code><br>
+Expected: No card is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing a card.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: A deck needs to be selected first via <code>select INDEX</code></p>
+</li>
+<li>
+<p>Test case: <code>edit 1 안녕 : Hi!</code><br>
+Expected: New card information is reflected on the card list on the left panel.</p>
+</li>
+<li>
+<p>Test case: <code>edit 1 안녕:</code><br>
+Expected: New card information (the front side) is reflected on the card list on the left panel.</p>
+</li>
+<li>
+<p>Test case: <code>edit 1 : Hi!</code><br>
+Expected: New card information (the back side) is reflected on the card list on the left panel.</p>
+</li>
+<li>
+<p>Test case: <code>edit 0 안녕하세요: Hi!</code><br>
+Expected: No card is edited. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect create commands to try: <code>edit</code>, <code>edit test : test test</code>, <code>edit x Russian : 러시안어</code> (where x is larger than the list size),
+<code>rename 1 y</code> (where y is a card that already exists)<br>
+Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="game-play-functionality"><a class="link" href="#game-play-functionality">G.5. Game-play functionality</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Starting a game</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Ensure that FlashSpeed contains at least 1 Deck, which can be seen on the left panel.</p>
+</li>
+<li>
+<p>Test case: <code>play 1</code><br>
+Expected: First deck is chosen and play mode starts.</p>
+</li>
+<li>
+<p>Test case: <code>play 0</code><br>
+Expected: No deck chosen and played. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>play</code>, <code>play x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Flipping a card in game</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: FlashSpeed is in a game session and the current card has not been flipped yet.</p>
+</li>
+<li>
+<p>Test case: <code>flip</code><br>
+Expected: The back side of the card is shown.</p>
+</li>
+<li>
+<p>Test case: <code>flip</code> when the back side of the card is already shown<br>
+Expected: Nothing happens. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Answering yes or no in game</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: FlashSpeed is in a game session and the current card has already been flipped.</p>
+</li>
+<li>
+<p>Test case: <code>yes</code> or <code>no</code><br>
+Expected: The next card is shown or the game ends.</p>
+</li>
+<li>
+<p>Test case: <code>yes</code> or <code>no</code> when the card is not yet flipped.<br>
+Expected: Nothing happens. Error details shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Ending a game</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: FlashSpeed is in a game session.</p>
+</li>
+<li>
+<p>Test case: <code>flip</code> + <code>yes</code> until the game ends<br>
+Expected: A statistics screen will popup showing the statistics of the game.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="game-statistics"><a class="link" href="#game-statistics">G.6. Game statistics</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Display game statistics</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Ensure that FlashSpeed contains at least 1 Deck, which can be seen on the left panel.</p>
+</li>
+<li>
+<p>Test case:</p>
+<div class="olist upperalpha">
+<ol class="upperalpha" type="A">
+<li>
+<p>Start a game session with a deck.</p>
+</li>
+<li>
+<p>Cycle through <code>flip</code>, <code>yes</code> or <code>no</code>.</p>
+</li>
+<li>
+<p>Take note of the progress bar / counters / number of cards answered wrongly.</p>
+</li>
+<li>
+<p>When the game end, the statistics of your game will show up.</p>
+</li>
+<li>
+<p>Ensure that the numbers you have calculated / seen / taken note of tally up.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="effort"><a class="link" href="#effort">Appendix H: Effort</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Overview</strong>
+FlashSpeed, a flashcard application, is aimed specifically at helping University students with learning a new language.
+FlashSpeed is significantly different from Address Book 3 (AB3) although it is based off it. In additional to the features from AB3,
+we needed to add additional features that would complete our flashcard application. For example, the Play feature is a new feature
+introduced in FlashSpeed</p>
 </div>
 <div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+<p><strong>Challenges and Effort</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Card and Deck Model</strong><br>
+AB3 contained a <code>person</code> class, which we wanted to refactor into our <code>card</code> class since each card contained information that
+could be easily refactored from <code>person</code>. However, since we wanted it to be possible to have many cards in a deck and many decks in a library,
+there was a design consideration of how we should implement <code>deck</code>. After much discussion, we decided to implement it as what can
+be described as a "layered AB3" implementation, where in AB3, an addressbook contains persons, but now we have a bigger library that
+contains multiple addressbooks.</p>
+</li>
+<li>
+<p><strong>Play feature</strong><br>
+Since this was a brand new feature that was created from scratch, there were multiple suggestions from different members which was the
+best way to implement it. After much discussion and some compromise from each design, we came out with our final implementation. Additionally, since
+it was a new feature, even after we did the initial implementation, there were things that we did not foresee, such as how the UI would
+handle the different views depending on the state of the game and potentially how many bugs could have arose.</p>
+</li>
+<li>
+<p><strong>User Interface Design</strong><br>
+We were brainstorming for a good interface that could support the three views that we had: Library View, Deck View and Play View.
+We managed to create about 2-3 mock-ups that everyone thought looked really good. Then, we compared the User Experience (UX) advantages
+between the mock-ups and decided ultimately that the mock-up that was built on AB3&#8217;s design was the best for our flashcard purposes (in terms of UI/UX).</p>
+</li>
+<li>
+<p><strong>User Interface Implementation</strong><br>
+As none of our team were experienced with UI, our initial mock-up and vision of the UI proved too difficult for us to implement it at one go.
+However, Robert (our UI Lead) focused on building on the UI while the rest of the team focused on building the core functionality of FlashSpeed.
+Robert would ask us on input based off the UI that he had designed and improve it based on our suggestions.<br></p>
+</li>
+<li>
+<p><strong>Design Considerations</strong><br>
+For each major enhancement, there was always a few design alternatives to choose from. As each team member felt that their design was the best,
+in our first major enhancement meeting, we spent 2-3 hours deciding the final implementation. After that meeting, our team decided
+on a faster way to resolve such cases by spending a maximum of 30minutes discussion before casting a vote. It worked efficiently for the
+future meetings.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Achievements</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>We managed to create FlashSpeed to what we envisioned to be.</p>
+</li>
+<li>
+<p>Although we did not manage to implement all the user-stories that we brain-stormed, we implemented all the essential functionality of FlashSpeed</p>
+</li>
+<li>
+<p>FlashSpeed can safely support most available languages in the world, due to our stringent parser checks and language support from Java.</p>
+</li>
+<li>
+<p>We learnt what was important in software development (Good coding style, Github skills, Documentation Writing, Testing, etc&#8230;&#8203;)</p>
+</li>
+</ol>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:47:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:48:49 UTC</div></div></div></body></html>

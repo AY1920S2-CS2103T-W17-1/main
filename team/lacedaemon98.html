@@ -157,6 +157,112 @@
 </tr>
 </tbody>
 </table>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Different Views</strong></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Some commands only work in certain views, but don&#8217;t worry, this guide will tell you all you need to know!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>FlashSpeed can be in one of 3 different views, namely:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Library view:</strong> when no deck is selected and no cards are shown</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/library.png" alt="library">
+</div>
+<div class="title">Figure 2. In Library view. No deck is selected.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Deck view:</strong> when a deck is selected and its cards are shown</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui">
+</div>
+<div class="title">Figure 3. In Deck view. A deck has been selected.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Play view:</strong> when in a study session of a deck</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui2.png" alt="Ui2">
+</div>
+<div class="title">Figure 4. In Play view. A deck is being studied.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: Does this application require an Internet connection?<br>
+<strong>A</strong>: No, FlashSpeed does not require an Internet connection to use.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: What is the maximum length of text I can enter into a flashcard?<br>
+<strong>A</strong>: The flashcard method of studying benefits from succinct and concise flashcards.
+Even though FlashSpeed does not limit the maximum length of text that can be entered and stored,
+it will only show the text up to the size of the available display space.
+Therefore, we recommend keeping any text under <strong>60 characters</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: How do I save my data?<br>
+<strong>A</strong>: FlashSpeed automatically saves your data whenever you make a change. There is no need to save manually.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: Will my data be sent anywhere else or shared with third parties?<br>
+<strong>A</strong>: Your data is stored locally on your own computer. The application does not require any Internet connection so no data will be sent to any online servers.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another computer?<br>
+<strong>A</strong>: Simply copy the <code>data</code> folder in FlashSpeed&#8217;s home folder over to the home folder in the other computer.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: How do I update FlashSpeed to the latest version when there is an update?<br>
+<strong>A</strong>: You can check for any updates to FlashSpeed <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/releases">here</a>. Then, you can follow the same instructions as found in <a href="#Quick Start">[Quick Start]</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: I am not able to run this application. What can I do?<br>
+<strong>A</strong>: Refer to <a href="#Quick Start">[Quick Start]</a> for the installation guide. Ensure that your computer has Java 11 installed. FlashSpeed may not be able to run on other versions of Java.</p>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -172,11 +278,134 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">UI component</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UiClassDiagram.png" alt="UiClassDiagram">
+</div>
+<div class="title">Figure 5. Structure of the UI Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="{repoURL}/src/main/java/com/flashspeed/ui/Ui.java"><code>Ui.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>DeckListPanel</code>, <code>CardListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="{repoURL}/src/main/java/com/flashspeed/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="{repoURL}/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Executes user commands using the <code>Logic</code> component.</p>
+</li>
+<li>
+<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p><br></p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="selecting-a-deck"><a class="link" href="#selecting-a-deck">Selecting a Deck</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>select</code> command allows user to view the Card content of a Deck.</p>
+</div>
+<div class="paragraph">
+<p>Accepted syntax: <code>select INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>This functionality is implemented by getting the Deck based on the index provided. Subsequently, the Card(s) that belongs to the selected Deck will be displayed on the right panel via a <code>TableView</code>.</p>
+</div>
+<div class="paragraph">
+<p>The validation of the arguments in the <code>select</code> command is performed in <code>SelectDeckCommandParser#parse()</code>. It ensures that the user has entered a valid index (valid data type and range). This is also used for separation of parsing
+logic and model management logic.</p>
+</div>
+<div class="paragraph">
+<p>In <code>SelectDeckCommandParser#parse()</code>, the <code>INDEX</code> of the selected Deck is extracted
+from the arguments in the <code>select</code> command. The <code>INDEX</code> is converted to an Index object. An <code>SelectCardCommand</code>
+object is then constructed with the Index as its parameter.</p>
+</div>
+<div class="paragraph">
+<p>When <code>SelectDeckCommand#execute()</code> is executed a list of currently available Deck is requested from the <code>ModelManager#getFilteredDeckList()</code> method. The <code>ModelManager#selectDeck()</code> command will be invoked to update the variable that keeps track of the current Deck. After that, <code>ModelManager#setSelectedDeck()</code> method will be called to update the UI and display the Deck content on the right panel. Lastly, the name of the selected Deck will be displayed together with the <code>MESSAGE_SUCCESS</code> on the <code>ResultDisplay</code> panel.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p>The UI will have to be constantly updated when we select to view a deck, and other decks might be selected afterward. As a result, an <code>ObservableValue&lt;Deck&gt;</code> variable will have to be updated constantly via the <code>ModelManager#setSelectedDeck()</code> method. Various event listeners are implemented in the UI classes (e.g <code>CardListPanel</code>, <code>DeckListPanel</code>) in order to instantly react if there is any changes to the selected deck.</p>
+</div>
 <div class="paragraph">
 <p><br></p>
 </div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a id="view"></a> View</dt>
+<dd>
+<p>There are three different views in FlashSpeed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#library-view">Library View</a></p>
+</li>
+<li>
+<p><a href="#deck-view">Deck View</a></p>
+</li>
+<li>
+<p><a href="#play">Play View</a></p>
+</li>
+</ul>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:47:25 UTC</div></div></div></body></html>
+</dd>
+<dt class="hdlist1"><a id="library-view"></a> Library View</dt>
+<dd>
+<p>When no deck is selected and no cards are shown</p>
+</dd>
+</dl>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/library.png" alt="library">
+</div>
+<div class="title">Figure 6. In Library view. No deck is selected.</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a id="deck-view"></a> Deck View</dt>
+<dd>
+<p>When a deck is selected and its cards are shown</p>
+</dd>
+</dl>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui">
+</div>
+<div class="title">Figure 7. In Deck view. A deck has been selected.</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a id="play"></a> Play View</dt>
+<dd>
+<p>When in a study session of a deck</p>
+</dd>
+</dl>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui2.png" alt="Ui2">
+</div>
+<div class="title">Figure 8. In Play view. A deck is being studied.</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 11:48:49 UTC</div></div></div></body></html>
