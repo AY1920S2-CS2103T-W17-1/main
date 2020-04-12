@@ -367,10 +367,10 @@ Since a colon is used as the separator, there should not be any colons in the <c
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>create</code> command allows user to create a new Deck in the current Library. The following syntax is accepted:</p>
+<p>The <code>create</code> command allows user to create a new Deck in the current Library.</p>
 </div>
 <div class="paragraph">
-<p><code>create DECK_NAME</code></p>
+<p>Accepted syntax: <code>create DECK_NAME</code></p>
 </div>
 <div class="paragraph">
 <p>This functionality is implemented by getting the Deck based on the index provided. Subsequently, the Card(s) that belongs to the selected Deck will be displayed on the right panel via a <code>TableView</code>.</p>
@@ -393,7 +393,39 @@ on the right panel. Lastly, the name of the selected Deck will be displayed toge
 </div>
 </div>
 <div class="sect3">
-<h4 id="Anchor-1"><a class="link" href="#Anchor-1">Design Considerations: Alternative</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-if-the-user-is-already-viewing-another-deck-and-decides-to-create-a-new-deck-there-was-a-consideration-whether-to-switch-the-ui-for-the-user-view-to-the-new-deck-or-continue-to-let-the-user-view-the-current-deck"><a class="link" href="#aspect-if-the-user-is-already-viewing-another-deck-and-decides-to-create-a-new-deck-there-was-a-consideration-whether-to-switch-the-ui-for-the-user-view-to-the-new-deck-or-continue-to-let-the-user-view-the-current-deck">Aspect: If the user is already viewing another deck and decides to create a new deck, there was a consideration whether to switch the UI for the user view to the new deck or continue to let the user view the current deck.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Switch the view to the new Deck</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Able to use the new Deck immediately without typing an additional command to select it.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Keep the view at the current Deck</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Don&#8217;t have to type in an additional command to return back to the current Deck if a new Deck is created</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We chose Alternative 1 in the end as we believed that it will be more likely for the user to want to use the new deck immediately after creating it.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="Four-Two-Two"><a class="link" href="#Four-Two-Two">Aspect: Naming convention of command key words.</a></h5>
 <div class="paragraph">
 <p>Initially, both <code>CreateDeckCommand</code> and <code>AddCardCommand</code> share the same keyword, which is the <code>add</code> keyword.
 In order to distinguish these two commands from each other,
@@ -419,19 +451,16 @@ This is certainly not the expected outcome that the user has expected.</p>
 </div>
 <div class="paragraph">
 <p>And so, our team has decided to implement the current approach,
-which is to assign different keywords to these two different feature.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="creating-a-card"><a class="link" href="#creating-a-card">Creating a Card</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
-<div class="paragraph">
-<p>The <code>add</code> command allows user to create a new Card in the current Deck. The following syntax is accepted:</p>
+which is to assign different keywords to these two different feature.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; master
+=== Creating a Card
+==== Current Implementation</p>
 </div>
 <div class="paragraph">
-<p><code>add FRONT_VALUE:BACK_VALUE</code></p>
+<p>The <code>add</code> command allows user to create a new Card in the current Deck.</p>
+</div>
+<div class="paragraph">
+<p>Accepted syntax: <code>add FRONT_VALUE:BACK_VALUE</code></p>
 </div>
 <div class="paragraph">
 <p>This functionality is implemented by getting the Deck based on the current deck selected.
@@ -459,13 +488,14 @@ on the right panel. Lastly, the name of the selected Deck will be displayed toge
 <code>MESSAGE_SUCCESS</code> on the <code>ResultDisplay</code> panel.</p>
 </div>
 </div>
+</div>
 <div class="sect3">
-<h4 id="design-considerations-alternative"><a class="link" href="#design-considerations-alternative">Design Considerations: Alternative</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
 <div class="paragraph">
-<p>See <a href="#Anchor-1">3.2.2</a>.</p>
+<p>See <a href="#Four-Two-Two">4.2.2 - Design Considerations for creating a Deck - Aspect: Naming convention of command keywords</a>.</p>
 </div>
 <hr>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 08:59:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 09:27:50 UTC</div></div></div></body></html>

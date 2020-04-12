@@ -25,19 +25,19 @@
 <li><a href="#Design-Model">3.4. Model component</a></li>
 <li><a href="#Design-Storage">3.5. Storage component</a></li>
 <li><a href="#Design-Commons">3.6. Common classes</a></li>
+<li><a href="#logging">3.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#selecting-a-deck">4.1. Selecting a Deck</a></li>
 <li><a href="#creating-a-deck">4.2. Creating a Deck</a></li>
-<li><a href="#creating-a-card">4.3. Creating a Card</a></li>
-<li><a href="#editing-a-card-shortcut-formats">4.4. Editing a Card: Shortcut Formats</a></li>
-<li><a href="#starting-a-play-session">4.5. Starting a play session</a></li>
-<li><a href="#flipping-a-card">4.6. Flipping a Card</a></li>
-<li><a href="#answering-in-a-play-session">4.7. Answering in a play session</a></li>
-<li><a href="#logging">4.8. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
+<li><a href="#editing-a-card-shortcut-formats">4.3. Editing a Card: Shortcut Formats</a></li>
+<li><a href="#starting-a-play-session">4.4. Starting a play session</a></li>
+<li><a href="#flipping-a-card">4.5. Flipping a Card</a></li>
+<li><a href="#answering-in-a-play-session">4.6. Answering in a play session</a></li>
+<li><a href="#logging-2">4.7. Logging</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -66,7 +66,7 @@
 <p>FlashSpeed is a text-based flashcard application specifically designed for university students who are learning a foreign language.</p>
 </div>
 <div class="paragraph">
-<p>FlashSpeed enhances the revision process by adopting the <a href="#spaced-repetition-system">Space Repetition System</a> (SRS) in its design. Users will be tested more frequently on new words, or words that they have gotten wrong in previous sessions.</p>
+<p>FlashSpeed enhances the revision process by implementing a <a href="#smart-review-system">smarter review system</a> in its design. Users will be tested more frequently on words that they have gotten wrong in a game session.</p>
 </div>
 <div class="paragraph">
 <p>The main features of FlashSpeed allows users to</p>
@@ -244,6 +244,9 @@ The following classes plays an important role at the architecture level:</p>
 </div>
 <div class="title">Figure 2. Class Diagram of the Logic Component</div>
 </div>
+<div class="paragraph">
+<p><br></p>
+</div>
 <h4 id="3-1-1-how-the-core-components-interact-with-each-other" class="discrete">3.1.1 How the core components interact with each other</h4>
 <div class="paragraph">
 <p>The <em>Sequence Diagram</em> below shows how the core components interact with each other for the scenario where the user issues the command <code>remove 2</code>.</p>
@@ -256,6 +259,9 @@ The following classes plays an important role at the architecture level:</p>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 <div class="sect2">
@@ -287,6 +293,9 @@ The following classes plays an important role at the architecture level:</p>
 <p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 <div class="sect2">
@@ -341,6 +350,9 @@ The lifeline for <code>RemoveDeckCommandParser</code> should end at the destroy 
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p><br></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
@@ -349,6 +361,9 @@ The lifeline for <code>RemoveDeckCommandParser</code> should end at the destroy 
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
 <div class="title">Figure 7. Structure of the Model Component</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -368,7 +383,7 @@ The lifeline for <code>RemoveDeckCommandParser</code> should end at the destroy 
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Library data.</p>
+<p>stores the Library&#8217;s current state and data.</p>
 </li>
 <li>
 <p>stores and manipulates a <code>GameManager</code> object that represents one game session.</p>
@@ -389,6 +404,9 @@ The lifeline for <code>RemoveDeckCommandParser</code> should end at the destroy 
 <p>does not depend on any of the other three components.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 <div class="sect2">
@@ -415,11 +433,64 @@ The lifeline for <code>RemoveDeckCommandParser</code> should end at the destroy 
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><br></p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common classes</a></h3>
 <div class="paragraph">
-<p>Classes used by multiple components are in the <code>seedu.address.commons</code> package.</p>
+<p>Classes used by multiple components are in the <code>com.flashspeed.commons</code> package.</p>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
+<div class="paragraph">
+<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
+</li>
+<li>
+<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
+</li>
+<li>
+<p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Logging Levels</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination of the application</p>
+</li>
+<li>
+<p><code>WARNING</code> : Can continue, but with caution</p>
+</li>
+<li>
+<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
+</li>
+<li>
+<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
+<div class="paragraph">
+<p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 </div>
@@ -430,15 +501,18 @@ The lifeline for <code>RemoveDeckCommandParser</code> should end at the destroy 
 <div class="paragraph">
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
+<div class="paragraph">
+<p><br></p>
+</div>
 <div class="sect2">
 <h3 id="selecting-a-deck"><a class="link" href="#selecting-a-deck">4.1. Selecting a Deck</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>select</code> command allows user to view the Card content of a Deck. The following syntax is accepted:</p>
+<p>The <code>select</code> command allows user to view the Card content of a Deck.</p>
 </div>
 <div class="paragraph">
-<p><code>select INDEX</code></p>
+<p>Accepted syntax: <code>select INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>This functionality is implemented by getting the Deck based on the index provided. Subsequently, the Card(s) that belongs to the selected Deck will be displayed on the right panel via a <code>TableView</code>.</p>
@@ -461,6 +535,9 @@ object is then constructed with the Index as its parameter.</p>
 <div class="paragraph">
 <p>The UI will have to be constantly updated when we select to view a deck, and other decks might be selected afterward. As a result, an <code>ObservableValue&lt;Deck&gt;</code> variable will have to be updated constantly via the <code>ModelManager#setSelectedDeck()</code> method. Various event listeners are implemented in the UI classes (e.g <code>CardListPanel</code>, <code>DeckListPanel</code>) in order to instantly react if there is any changes to the selected deck.</p>
 </div>
+<div class="paragraph">
+<p><br></p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -468,10 +545,10 @@ object is then constructed with the Index as its parameter.</p>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>create</code> command allows user to create a new Deck in the current Library. The following syntax is accepted:</p>
+<p>The <code>create</code> command allows user to create a new Deck in the current Library.</p>
 </div>
 <div class="paragraph">
-<p><code>create DECK_NAME</code></p>
+<p>Accepted syntax: <code>create DECK_NAME</code></p>
 </div>
 <div class="paragraph">
 <p>This functionality is implemented by getting the Deck based on the index provided. Subsequently, the Card(s) that belongs to the selected Deck will be displayed on the right panel via a <code>TableView</code>.</p>
@@ -494,7 +571,39 @@ on the right panel. Lastly, the name of the selected Deck will be displayed toge
 </div>
 </div>
 <div class="sect3">
-<h4 id="Anchor-1"><a class="link" href="#Anchor-1">4.2.2. Design Considerations: Alternative</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-if-the-user-is-already-viewing-another-deck-and-decides-to-create-a-new-deck-there-was-a-consideration-whether-to-switch-the-ui-for-the-user-view-to-the-new-deck-or-continue-to-let-the-user-view-the-current-deck"><a class="link" href="#aspect-if-the-user-is-already-viewing-another-deck-and-decides-to-create-a-new-deck-there-was-a-consideration-whether-to-switch-the-ui-for-the-user-view-to-the-new-deck-or-continue-to-let-the-user-view-the-current-deck">Aspect: If the user is already viewing another deck and decides to create a new deck, there was a consideration whether to switch the UI for the user view to the new deck or continue to let the user view the current deck.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Switch the view to the new Deck</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Able to use the new Deck immediately without typing an additional command to select it.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Keep the view at the current Deck</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Don&#8217;t have to type in an additional command to return back to the current Deck if a new Deck is created</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We chose Alternative 1 in the end as we believed that it will be more likely for the user to want to use the new deck immediately after creating it.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="Four-Two-Two"><a class="link" href="#Four-Two-Two">Aspect: Naming convention of command key words.</a></h5>
 <div class="paragraph">
 <p>Initially, both <code>CreateDeckCommand</code> and <code>AddCardCommand</code> share the same keyword, which is the <code>add</code> keyword.
 In order to distinguish these two commands from each other,
@@ -520,19 +629,19 @@ This is certainly not the expected outcome that the user has expected.</p>
 </div>
 <div class="paragraph">
 <p>And so, our team has decided to implement the current approach,
-which is to assign different keywords to these two different feature.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="creating-a-card"><a class="link" href="#creating-a-card">4.3. Creating a Card</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
-<div class="paragraph">
-<p>The <code>add</code> command allows user to create a new Card in the current Deck. The following syntax is accepted:</p>
+which is to assign different keywords to these two different feature.
+<br></p>
 </div>
 <div class="paragraph">
-<p><code>add FRONT_VALUE:BACK_VALUE</code></p>
+<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; master
+=== Creating a Card
+==== Current Implementation</p>
+</div>
+<div class="paragraph">
+<p>The <code>add</code> command allows user to create a new Card in the current Deck.</p>
+</div>
+<div class="paragraph">
+<p>Accepted syntax: <code>add FRONT_VALUE:BACK_VALUE</code></p>
 </div>
 <div class="paragraph">
 <p>This functionality is implemented by getting the Deck based on the current deck selected.
@@ -560,28 +669,35 @@ on the right panel. Lastly, the name of the selected Deck will be displayed toge
 <code>MESSAGE_SUCCESS</code> on the <code>ResultDisplay</code> panel.</p>
 </div>
 </div>
+</div>
 <div class="sect3">
-<h4 id="design-considerations-alternative"><a class="link" href="#design-considerations-alternative">4.3.2. Design Considerations: Alternative</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.2.3. Design Considerations</a></h4>
 <div class="paragraph">
-<p>See <a href="#Anchor-1">3.2.2</a>.</p>
+<p>See <a href="#Four-Two-Two">4.2.2 - Design Considerations for creating a Deck - Aspect: Naming convention of command keywords</a>.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; master</p>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-card-shortcut-formats"><a class="link" href="#editing-a-card-shortcut-formats">4.4. Editing a Card: Shortcut Formats</a></h3>
+<h3 id="editing-a-card-shortcut-formats"><a class="link" href="#editing-a-card-shortcut-formats">4.3. Editing a Card: Shortcut Formats</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>edit</code> command allows for the values of a Card&#8217;s face(s) to be changed. There are 3 command formats
-accepted:</p>
+<p>The <code>edit</code> command allows for the values of a Card&#8217;s face(s) to be changed.</p>
+</div>
+<div class="paragraph">
+<p>Accepted syntax:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit INDEX FRONT:BACK</code><br></p>
+<p><code>edit INDEX FRONT:BACK</code></p>
 </li>
 <li>
-<p><code>edit INDEX :BACK</code><br></p>
+<p><code>edit INDEX :BACK</code></p>
 </li>
 <li>
 <p><code>edit INDEX FRONT:</code></p>
@@ -639,7 +755,7 @@ We can then perform the replacement using <code>ModelManager#replaceCard()</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-replacement-card-is-formed-during-the-start-of-execution"><a class="link" href="#aspect-how-the-replacement-card-is-formed-during-the-start-of-execution">Aspect: How the replacement Card is formed during the start of execution</a></h5>
 <div class="ulist">
@@ -672,16 +788,21 @@ We can then perform the replacement using <code>ModelManager#replaceCard()</code
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><br></p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="starting-a-play-session"><a class="link" href="#starting-a-play-session">4.5. Starting a play session</a></h3>
+<h3 id="starting-a-play-session"><a class="link" href="#starting-a-play-session">4.4. Starting a play session</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>play</code> command creates a new session to play with a specific deck. The format of the <code>play</code> command:
-<code>play INDEX</code></p>
+<p>The <code>play</code> command creates a new session to play with a specific deck.</p>
+</div>
+<div class="paragraph">
+<p>Accepted syntax: <code>play INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>The play command changes the mode of the application to <code>PLAY</code> mode and creates a new session with the Deck at the given <code>INDEX</code>.
@@ -711,16 +832,22 @@ The first card of the selected deck is obtained using <code>deck#asUnmodifiableO
 <div class="content">
 <img src="images/PlaySequenceDiagram.png" alt="PlaySequenceDiagram">
 </div>
+<div class="title">Figure 12. Interactions inside Logic and Model components when <code>play 1</code> is executed</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="flipping-a-card"><a class="link" href="#flipping-a-card">4.6. Flipping a Card</a></h3>
+<h3 id="flipping-a-card"><a class="link" href="#flipping-a-card">4.5. Flipping a Card</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The <code>flip</code> command flips a card in the selected deck to view the <code>BACK</code> face of the card. The format of the <code>flip</code> command:
-<code>flip</code></p>
+<p>The <code>flip</code> command flips a card in the selected deck to view the <code>BACK</code> face of the card.</p>
+</div>
+<div class="paragraph">
+<p>Accepted syntax: <code>flip</code></p>
 </div>
 <div class="paragraph">
 <p>The <code>flip</code> command displays the <code>BACK</code> face of the card that the user is currently playing with to the user so that user is able to check if his or her answer is correct.</p>
@@ -743,15 +870,22 @@ by checking if the returned <code>BACK</code> face of the card is empty since a 
 <div class="content">
 <img src="images/FlipSequenceDiagram.png" alt="FlipSequenceDiagram">
 </div>
+<div class="title">Figure 13. Interactions inside Logic and Model components when <code>flip</code> is executed</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="answering-in-a-play-session"><a class="link" href="#answering-in-a-play-session">4.7. Answering in a play session</a></h3>
+<h3 id="answering-in-a-play-session"><a class="link" href="#answering-in-a-play-session">4.6. Answering in a play session</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>User answers to the card that he or she is currently playing with using <code>yes</code> or <code>no</code> command. The formats of the commands are <code>yes</code> and <code>no</code> respectively.</p>
+<p>User answers to the card that he or she is currently playing with using <code>yes</code> or <code>no</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Accepted syntax: <code>yes</code> or <code>no</code></p>
 </div>
 <div class="paragraph">
 <p>After flipping the card, users indicates if he or she gets the correct answer by using <code>yes</code> and <code>no</code> command.</p>
@@ -776,23 +910,62 @@ if the returned card is empty.</p>
 <div class="content">
 <img src="images/AnswerYesSequenceDiagram.png" alt="AnswerYesSequenceDiagram">
 </div>
+<div class="title">Figure 14. Interactions inside Logic and Model components when <code>yes</code> is executed</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/AnswerNoSequenceDiagram.png" alt="AnswerNoSequenceDiagram">
 </div>
+<div class="title">Figure 15. Interactions inside Logic and Model components when <code>no</code> is executed</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.6.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-using-code-yes-code-and-code-no-code-instead-of-the-actual-answer"><a class="link" href="#aspect-using-code-yes-code-and-code-no-code-instead-of-the-actual-answer">Aspect: Using <code>yes</code> and <code>no</code> instead of the actual answer.</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Using a simple yes or no</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can definitively choose if their answer was correct or not. This leads to accurate evaluation and statistics calculation.</p>
+</li>
+<li>
+<p>Cons: Not as interactive as if the user were to type in the correct word/sentence itself.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Typing in the actual answer itself.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More interactive to the user.</p>
+</li>
+<li>
+<p>Cons: Typos or slightly incomplete (but correct) answers can be typed it by the user.
+As the answers typed in mush exactly match the one on the card, it may result in inaccurate evaluation and statistics calculation at the end of the game.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
+<h3 id="logging-2"><a class="link" href="#logging-2">4.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -820,12 +993,6 @@ if the returned card is empty.</p>
 <p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
-<div class="paragraph">
-<p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 </div>
@@ -1002,12 +1169,6 @@ if the returned card is empty.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">tag a deck</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">group decks together</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">be able to choose which side of the card to see first</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">have two ways of memorizing new words.</p></td>
 </tr>
@@ -1015,10 +1176,10 @@ if the returned card is empty.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">keep track of how many cards I have visited</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">so that I can see my progress of learning a deck</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">clone a deck of cards</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">so that I can create custom sets of decks from existing decks quickly</p></td>
@@ -1043,9 +1204,6 @@ if the returned card is empty.</p>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1070,6 +1228,9 @@ if the returned card is empty.</p>
 </div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 <h3 id="uc02-create-a-new-deck" class="discrete">UC02: Create a new deck</h3>
 <div class="paragraph">
@@ -1107,6 +1268,9 @@ if the returned card is empty.</p>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 <h3 id="uc03-delete-a-deck" class="discrete">UC03: Delete a deck</h3>
 <div class="paragraph">
@@ -1154,6 +1318,9 @@ if the returned card is empty.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><br></p>
+</div>
 <h3 id="uc04-view-a-deck" class="discrete">UC04: View a deck</h3>
 <div class="paragraph">
 <p><strong>MSS:</strong></p>
@@ -1199,6 +1366,9 @@ if the returned card is empty.</p>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 <h3 id="uc05-add-a-card-to-a-deck" class="discrete">UC05: Add a card to a deck</h3>
 <div class="paragraph">
@@ -1264,6 +1434,9 @@ if the returned card is empty.</p>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 <h3 id="uc06-delete-a-card-from-a-deck" class="discrete">UC06: Delete a card from a deck</h3>
 <div class="paragraph">
@@ -1344,6 +1517,9 @@ if the returned card is empty.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><br></p>
+</div>
 <h3 id="uc07-edit-a-card-in-a-deck" class="discrete">UC07: Edit a card in a deck</h3>
 <div class="paragraph">
 <p><strong>MSS:</strong></p>
@@ -1423,6 +1599,9 @@ if the returned card is empty.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><br></p>
+</div>
 <h3 id="uc08-delete-all-decks" class="discrete">UC08: Delete all decks</h3>
 <div class="paragraph">
 <p><strong>MSS:</strong></p>
@@ -1439,6 +1618,9 @@ if the returned card is empty.</p>
 </div>
 <div class="paragraph">
 <p>Use case ends.</p>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 <h3 id="uc09-exit" class="discrete">UC09: Exit</h3>
 <div class="paragraph">
@@ -1497,6 +1679,11 @@ if the returned card is empty.</p>
 <dd>
 <p>A Card has two faces. One side for prompting the user and the other side for the content the user wants to memorize</p>
 </dd>
+<dt class="hdlist1"><a id="smart-review-system"></a> Smarter Review System</dt>
+<dd>
+<p>The smarter review system is adopted from the well known <a href="#spaced-repetition-system">Space Repetition System</a>.
+Cards that are answered wrongly in Play Mode will be shown more frequently in this system.</p>
+</dd>
 <dt class="hdlist1"><a id="spaced-repetition-system"></a> Space Repetition System</dt>
 <dd>
 <p>Spaced repetition is an evidence-based learning technique that is usually performed with flashcards. Newly introduced and more difficult flashcards are shown more frequently while older and less difficult flashcards are shown less frequently in order to exploit the psychological spacing effect</p>
@@ -1528,7 +1715,7 @@ if the returned card is empty.</p>
 <div class="content">
 <img src="images/library.png" alt="library">
 </div>
-<div class="title">Figure 12. In Library view. No deck is selected.</div>
+<div class="title">Figure 16. In Library view. No deck is selected.</div>
 </div>
 <div class="dlist">
 <dl>
@@ -1542,13 +1729,13 @@ if the returned card is empty.</p>
 <div class="content">
 <img src="images/Ui.png" alt="Ui">
 </div>
-<div class="title">Figure 13. In Deck view. A deck has been selected.</div>
+<div class="title">Figure 17. In Deck view. A deck has been selected.</div>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><a id="play"></a> Play View (Play)</dt>
 <dd>
-<p>Enters the play view (mode) of FlashSpeed. In this mode, users will be able to take advantage of the SRS to revise/memorise their flashcards.</p>
+<p>Enters the play view (mode) of FlashSpeed. In this mode, users will be able to take advantage of the smarter review system to revise/memorise their flashcards.</p>
 </dd>
 </dl>
 </div>
@@ -1556,7 +1743,7 @@ if the returned card is empty.</p>
 <div class="content">
 <img src="images/Ui2.png" alt="Ui2">
 </div>
-<div class="title">Figure 14. In Play view. A deck is being studied.</div>
+<div class="title">Figure 18. In Play view. A deck is being studied.</div>
 </div>
 </div>
 </div>
@@ -1706,4 +1893,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 08:59:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 09:27:50 UTC</div></div></div></body></html>
