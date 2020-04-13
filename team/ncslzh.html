@@ -153,13 +153,12 @@ This was implemented to simplify how we got parameters especially for the shortc
 <li>
 <p>In-charge of document quality</p>
 </li>
-</ul>
-</div>
-</li>
 <li>
 <p>Reformatted the structure and layout for ease of readability and navigability (e.g. topic headings, section spacing, etc.)</p>
-<div class="ulist">
-<ul>
+</li>
+<li>
+<p>Wrote introduction</p>
+</li>
 <li>
 <p>Wrote the entire Appendix A-G</p>
 </li>
@@ -199,6 +198,113 @@ This was implemented to simplify how we got parameters especially for the shortc
 </div>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="renaming-a-deck-code-rename-code"><a class="link" href="#renaming-a-deck-code-rename-code">Renaming a deck : <code>rename</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>rename &lt;index&gt; &lt;deck&gt;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Formal definition</strong>: Renames the deck in the library at the specified <code>index</code>. The <code>index</code> refers to the index number shown in the displayed decks list. The <code>index</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You can rename a deck in the library using <code>rename</code> followed by the index number of the deck and the new name of the deck.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The deck name cannot by empty.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>rename 2 Japanese Verbs</code><br>
+Renames the 2nd deck in the library to "Japanese Verbs".</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/rename.png" alt="rename">
+</div>
+<div class="title">Figure 1. After renaming a deck from "Korean" to "Japanese Verbs". Wow, what a change.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="playDeck"><a class="link" href="#playDeck">Playing a deck : <code>play</code></a></h4>
+<div class="paragraph">
+<p>Format: <code>play &lt;index&gt;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Formal definition</strong>: Starts a study session with the deck in the library at the specified <code>index</code>. The <code>index</code> refers to the index number shown in the displayed decks list. The <code>index</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Alright, this is what you&#8217;ve been waiting for! In order to start a study session with a certain deck,
+type <code>play</code> followed by the deck&#8217;s index number and press <kbd>Enter</kbd>. Good luck on your learning journey.
+FYI: we "play" a deck because learning is fun!<br></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>play 1</code><br>
+Starts a study session with the 1st deck in the library.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui2.png" alt="Ui2">
+</div>
+<div class="title">Figure 2. Studying/Playing the Japanese deck.</div>
+</div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
@@ -290,9 +396,6 @@ This was implemented to simplify how we got parameters especially for the shortc
 </ul>
 </div>
 <hr>
-<div class="paragraph">
-<p><br></p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">Logic component</a></h3>
@@ -300,7 +403,7 @@ This was implemented to simplify how we got parameters especially for the shortc
 <div class="content">
 <img src="../images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
-<div class="title">Figure 1. Structure of the Logic Component</div>
+<div class="title">Figure 3. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -326,25 +429,7 @@ This was implemented to simplify how we got parameters especially for the shortc
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("remove 2")</code> API call.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
-</div>
-<div class="title">Figure 2. Interactions inside the Logic Component for the <code>remove 2</code> command</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>RemoveDeckCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
 </div>
 <hr>
 <div class="sect3">
@@ -376,275 +461,47 @@ The lifeline for <code>RemoveDeckCommandParser</code> should end at the destroy 
 </ul>
 </div>
 <div class="paragraph">
-<p>We chose Alternative 1 in the end as we believed that it will be more likely for the user to want to use the new deck immediately after creating it.
----
-==== Design Considerations
-===== Aspect: Using <code>yes</code> and <code>no</code> instead of the actual answer.
-* <strong>Alternative 1 (current choice):</strong> Using a simple yes or no
-<strong> Pros: User can definitively choose if their answer was correct or not. This leads to accurate evaluation and statistics calculation.
-</strong> Cons: Not as interactive as if the user were to type in the correct word/sentence itself.
-* <strong>Alternative 2:</strong> Typing in the actual answer itself.
-<strong> Pros: More interactive to the user.
-</strong> Cons: Typos or slightly incomplete (but correct) answers can be typed it by the user.
-As the answers typed in mush exactly match the one on the card, it may result in inaccurate evaluation and statistics calculation at the end of the game.
----</p>
+<p>We chose Alternative 1 in the end as we believed that it will be more likely for the user to want to use the new deck immediately after creating it.</p>
+</div>
+<hr>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="product-scope"><a class="link" href="#product-scope">Appendix A: Product Scope</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Target user profile</strong>:</p>
-</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-using-code-yes-code-and-code-no-code-instead-of-the-actual-answer"><a class="link" href="#aspect-using-code-yes-code-and-code-no-code-instead-of-the-actual-answer">Aspect: Using <code>yes</code> and <code>no</code> instead of the actual answer.</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p>has a need to memorize a large number of new vocabulary words in a foreign language</p>
+<p><strong>Alternative 1 (current choice):</strong> Using a simple yes or no</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can definitively choose if their answer was correct or not. This leads to accurate evaluation and statistics calculation.</p>
 </li>
 <li>
-<p>prefer desktop apps over other types</p>
-</li>
-<li>
-<p>can type fast</p>
-</li>
-<li>
-<p>prefers typing over mouse input</p>
-</li>
-<li>
-<p>is reasonably comfortable using CLI apps</p>
-</li>
-<li>
-<p>can accomplish most tasks faster via CLI, compared to a hypothetical GUI-version</p>
+<p>Cons: Not as interactive as if the user were to type in the correct word/sentence itself.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><strong>Value proposition</strong>: study new vocabulary words anytime and anywhere</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 59%;">
-<colgroup>
-<col style="width: 22%;">
-<col style="width: 23%;">
-<col style="width: 25%;">
-<col style="width: 30%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Priority</th>
-<th class="tableblock halign-left valign-top">As a &#8230;&#8203;</th>
-<th class="tableblock halign-left valign-top">I want to &#8230;&#8203;</th>
-<th class="tableblock halign-left valign-top">So that I can&#8230;&#8203;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">create a new <a href="#deck">deck</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a deck</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove decks that I no longer need</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">list all decks</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">check what decks I can choose from to use</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a <a href="#card">card</a> to a deck</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add words that I want to practice with</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a card from a deck</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove words that I no longer want to practice with</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">show both sides of a card</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">check the translation of a word</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">show all cards in a deck (view deck)</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">edit a card in a deck</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">update or enhance the content of a card</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete all decks</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">start afresh with a clean slate program</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete all cards in a deck</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">start afresh with a clean deck of the same name</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">exit the program by typing</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">exit the program without using the mouse</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">have a <a href="#spaced-repetition-system">spaced-repetition system</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">memorize new words even more effectively</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a deck by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate the deck without having to go through the entire list of decks</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a specific card by name in any language</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate the card without having to go through the entire list of decks and cards</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">be able to choose which side of the card to see first</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">have two ways of memorizing new words.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of how many cards I have visited</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">so that I can see my progress of learning a deck</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">clone a deck of cards</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">so that I can create custom sets of decks from existing decks quickly</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add audio files to cards</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add more information such as the correct pronunciation to the card</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">choose to have a card I appear more times</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">have cards that are harder to memorize appear more frequently</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">timer for going through a deck</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see how much time it took me to memorize a deck of cards</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>FlashSpeed</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
-</div>
-<h3 id="uc01-help" class="discrete">UC01: Help</h3>
-<div class="paragraph">
-<p><strong>MSS:</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests help.</p>
 </li>
 <li>
-<p>FlashSpeed pops up a new small window and shows all possible commands and their usage.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><br></p>
-</div>
-<h3 id="uc02-create-a-new-deck" class="discrete">UC02: Create a new deck</h3>
-<div class="paragraph">
-<p><strong>MSS:</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
+<p><strong>Alternative 2:</strong> Typing in the actual answer itself.</p>
+<div class="ulist">
+<ul>
 <li>
-<p>User requests to create a deck of a certain name.</p>
+<p>Pros: More interactive to the user.</p>
 </li>
 <li>
-<p>FlashSpeed creates a new deck and the deck shows up on the UI.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. The given name already exists.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. FlashSpeed shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 1.</p>
-</div>
+<p>Cons: Typos or slightly incomplete (but correct) answers can be typed it by the user.
+As the answers typed in mush exactly match the one on the card, it may result in inaccurate evaluation and statistics calculation at the end of the game.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><br></p>
-</div>
+<hr>
 <h3 id="uc03-delete-a-deck" class="discrete">UC03: Delete a deck</h3>
 <div class="paragraph">
 <p><strong>MSS:</strong></p>
@@ -741,450 +598,16 @@ As the answers typed in mush exactly match the one on the card, it may result in
 </ul>
 </div>
 <div class="paragraph">
-<p><br></p>
+<p>{more at Appendix C in DG}</p>
 </div>
-<h3 id="uc05-add-a-card-to-a-deck" class="discrete">UC05: Add a card to a deck</h3>
-<div class="paragraph">
-<p><strong>MSS:</strong></p>
+<hr>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>FlashSpeed shows a list of decks.</p>
-</li>
-<li>
-<p>User chooses a deck and requests to view that deck.</p>
-</li>
-<li>
-<p>FlashSpeed shows a list of all cards in the deck.</p>
-</li>
-<li>
-<p>User requests to add a specific card in the deck.</p>
-</li>
-<li>
-<p>FlashSpeed adds the card and the card shows up in the deck.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
 </div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. The list is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>2a. The given deck index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. FlashSpeed shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 1.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>4a. The deck already contains the same card the user requested to add.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>4a. FlashSpeed shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 3.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><br></p>
-</div>
-<h3 id="uc06-delete-a-card-from-a-deck" class="discrete">UC06: Delete a card from a deck</h3>
-<div class="paragraph">
-<p><strong>MSS:</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>FlashSpeed shows a list of decks.</p>
-</li>
-<li>
-<p>User chooses a deck and requests to list all cards in that deck.</p>
-</li>
-<li>
-<p>FlashSpeed shows a list of all cards in the deck.</p>
-</li>
-<li>
-<p>User requests to delete a specific card in the deck.</p>
-</li>
-<li>
-<p>FlashSpeed deletes the card and the card disappears from the deck.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. The list is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>2a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. FlashSpeed shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 1.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a. The deck is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>4a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>4a1. FlashSpeed shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 3.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><br></p>
-</div>
-<h3 id="uc07-edit-a-card-in-a-deck" class="discrete">UC07: Edit a card in a deck</h3>
-<div class="paragraph">
-<p><strong>MSS:</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>FlashSpeed shows a list of decks.</p>
-</li>
-<li>
-<p>User chooses a deck and requests to list all cards in that deck.</p>
-</li>
-<li>
-<p>FlashSpeed shows a list of all cards in the deck.</p>
-</li>
-<li>
-<p>User requests to edit a specific card in the deck.</p>
-</li>
-<li>
-<p>FlashSpeed edits the card.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. The list is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>2a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. FlashSpeed shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 1.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a. The deck is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>4a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>4a1. FlashSpeed shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 3.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><br></p>
-</div>
-<h3 id="uc08-delete-all-decks" class="discrete">UC08: Delete all decks</h3>
-<div class="paragraph">
-<p><strong>MSS:</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to delete all decks.</p>
-</li>
-<li>
-<p>FlashSpeed deletes all decks.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-<div class="paragraph">
-<p><br></p>
-</div>
-<h3 id="uc09-exit" class="discrete">UC09: Exit</h3>
-<div class="paragraph">
-<p><strong>MSS:</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to exit FlashSpeed.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>User case ends.</p>
-</div>
-<div class="paragraph">
-<p><br></p>
-</div>
-<h3 id="uc10-playing-a-deck" class="discrete">UC10: Playing a deck</h3>
-<div class="paragraph">
-<p><strong>MSS:</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>FlashSpeed shows a list of all decks.</p>
-</li>
-<li>
-<p>User chooses a deck and requests to play that deck.</p>
-</li>
-<li>
-<p>FlashSpeed changes into game view and starts the game.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1. The list is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>2a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. FlashSpeed shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 1.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><br></p>
-</div>
-<h3 id="uc10-playing-a-game" class="discrete">UC10: Playing a game.</h3>
-<div class="paragraph">
-<p><strong>MSS:</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>FlashSpeed shows a list of all decks.</p>
-</li>
-<li>
-<p>User chooses a deck and requests to play that deck.</p>
-</li>
-<li>
-<p>FlashSpeed changes into game view and starts the game.</p>
-</li>
-<li>
-<p>FlashSpeed shows a card.</p>
-</li>
-<li>
-<p>User flips the card.</p>
-</li>
-<li>
-<p>FlashSpeed shows the other side of the card.</p>
-</li>
-<li>
-<p>User types in yes or no to indicate the correctness of their answer.</p>
-</li>
-<li>
-<p>FlashSpeed goes to next card.</p>
-</li>
-<li>
-<p>Use case repeats from step 4 to step 7 until all cards are answered and the game ends.</p>
-</li>
-<li>
-<p>FlashSpeed shows the statistics of game.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. The list is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>2a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. FlashSpeed shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 1.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a. The deck is empty.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. FlashSpeed shows an error message.
-Use case ends.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>4a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>4a1. FlashSpeed shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 3.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>11</code> or above installed.</p>
-</li>
-<li>
-<p>Should be able to hold up to 1000 decks without a noticeable sluggishness in performance for typical usage.</p>
-</li>
-<li>
-<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
+<h2 id="glossary"><a class="link" href="#glossary">Appendix A: Glossary</a></h2>
 <div class="sectionbody">
 <div class="dlist">
 <dl>
@@ -1209,201 +632,12 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <dd>
 <p>Spaced repetition is an evidence-based learning technique that is usually performed with flashcards. Newly introduced and more difficult flashcards are shown more frequently while older and less difficult flashcards are shown less frequently in order to exploit the psychological spacing effect</p>
 </dd>
-<dt class="hdlist1"><a id="view"></a> View</dt>
-<dd>
-<p>There are three different views in FlashSpeed.</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#library-view">Library View</a></p>
-</li>
-<li>
-<p><a href="#deck-view">Deck View</a></p>
-</li>
-<li>
-<p><a href="#play">Play View</a></p>
-</li>
-</ul>
-</div>
-</dd>
-<dt class="hdlist1"><a id="library-view"></a> Library View</dt>
-<dd>
-<p>When no deck is selected and no cards are shown</p>
-</dd>
 </dl>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/library.png" alt="library">
-</div>
-<div class="title">Figure 3. In Library view. No deck is selected.</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a id="deck-view"></a> Deck View</dt>
-<dd>
-<p>When a deck is selected and its cards are shown</p>
-</dd>
-</dl>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/Ui.png" alt="Ui">
-</div>
-<div class="title">Figure 4. In Deck view. A deck has been selected.</div>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a id="play"></a> Play View</dt>
-<dd>
-<p>When in a study session of a deck</p>
-</dd>
-</dl>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/Ui2.png" alt="Ui2">
-</div>
-<div class="title">Figure 5. In Play view. A deck is being studied.</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p><strong>Anki</strong></p>
+<p>{Appendix naming is not correct here, more at Appendix E in DG}</p>
 </div>
-<div class="paragraph">
-<p>Author: Damien Elmes</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Study algorithm is useful for easily memorizing content.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Not as appealing UI.</p>
-</li>
-<li>
-<p>Not friendly for fast typist to execute commands/tasks.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Given below are instructions to test the app manually.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
-</td>
-</tr>
-</table>
-</div>
-<div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">Launch and Shutdown</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Initial launch</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Download the jar file and copy into an empty folder</p>
-</li>
-<li>
-<p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample decks and cards. The minimum optimum window size for the app is already set.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="help-functionality"><a class="link" href="#help-functionality">Help functionality</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Opening Help Window</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: None</p>
-</li>
-<li>
-<p>Test case: <code>help</code><br>
-Expected: Opens the help window</p>
-</li>
-<li>
-<p>Test case: Pressing the <code>F1</code> key on the keyboard.<br>
-Expected: Opens the help window</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Closing the Help Window</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: Help Window is opened</p>
-</li>
-<li>
-<p>Test case: Pressing the <code>Alt + F4</code> keys on the keyboard.<br>
-Expected: Closes the help window</p>
-</li>
-<li>
-<p>Test case: Pressing the <code>X</code> button on the help window.<br>
-Expected: Closes the help window</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Reading off from where you last left off.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Open the help window.</p>
-</li>
-<li>
-<p>Scroll down to any part of the User Guide to read.</p>
-</li>
-<li>
-<p>Close the help window.</p>
-</li>
-<li>
-<p>Re-launch the help window.<br>
-Expected: The help window opens to the page you last left off from.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
+<hr>
 <div class="sect2">
 <h3 id="deck-functionality"><a class="link" href="#deck-functionality">Deck functionality</a></h3>
 <div class="olist arabic">
@@ -1559,196 +793,9 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="game-play-functionality"><a class="link" href="#game-play-functionality">Game-play functionality</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Starting a game</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: Ensure that FlashSpeed contains at least 1 Deck, which can be seen on the left panel.</p>
-</li>
-<li>
-<p>Test case: <code>play 1</code><br>
-Expected: First deck is chosen and play mode starts.</p>
-</li>
-<li>
-<p>Test case: <code>play 0</code><br>
-Expected: No deck chosen and played. Error details shown in the status message.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>play</code>, <code>play x</code> (where x is larger than the list size)<br>
-Expected: Similar to previous.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Flipping a card in game</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: FlashSpeed is in a game session and the current card has not been flipped yet.</p>
-</li>
-<li>
-<p>Test case: <code>flip</code><br>
-Expected: The back side of the card is shown.</p>
-</li>
-<li>
-<p>Test case: <code>flip</code> when the back side of the card is already shown<br>
-Expected: Nothing happens. Error details shown in the status message.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Answering yes or no in game</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: FlashSpeed is in a game session and the current card has already been flipped.</p>
-</li>
-<li>
-<p>Test case: <code>yes</code> or <code>no</code><br>
-Expected: The next card is shown or the game ends.</p>
-</li>
-<li>
-<p>Test case: <code>yes</code> or <code>no</code> when the card is not yet flipped.<br>
-Expected: Nothing happens. Error details shown in the status message.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Ending a game</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: FlashSpeed is in a game session.</p>
-</li>
-<li>
-<p>Test case: <code>flip</code> + <code>yes</code> until the game ends<br>
-Expected: A statistics screen will popup showing the statistics of the game.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="game-statistics"><a class="link" href="#game-statistics">Game statistics</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Display game statistics</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: Ensure that FlashSpeed contains at least 1 Deck, which can be seen on the left panel.</p>
-</li>
-<li>
-<p>Test case:</p>
-<div class="olist upperalpha">
-<ol class="upperalpha" type="A">
-<li>
-<p>Start a game session with a deck.</p>
-</li>
-<li>
-<p>Cycle through <code>flip</code>, <code>yes</code> or <code>no</code>.</p>
-</li>
-<li>
-<p>Take note of the progress bar / counters / number of cards answered wrongly.</p>
-</li>
-<li>
-<p>When the game end, the statistics of your game will show up.</p>
-</li>
-<li>
-<p>Ensure that the numbers you have calculated / seen / taken note of tally up.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="effort"><a class="link" href="#effort">Appendix H: Effort</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p><strong>Overview</strong>
-FlashSpeed, a flashcard application, is aimed specifically at helping University students with learning a new language.
-FlashSpeed is significantly different from Address Book 3 (AB3) although it is based off it. In additional to the features from AB3,
-we needed to add additional features that would complete our flashcard application. For example, the Play feature is a new feature
-introduced in FlashSpeed</p>
-</div>
-<div class="paragraph">
-<p><strong>Challenges and Effort</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Card and Deck Model</strong><br>
-AB3 contained a <code>person</code> class, which we wanted to refactor into our <code>card</code> class since each card contained information that
-could be easily refactored from <code>person</code>. However, since we wanted it to be possible to have many cards in a deck and many decks in a library,
-there was a design consideration of how we should implement <code>deck</code>. After much discussion, we decided to implement it as what can
-be described as a "layered AB3" implementation, where in AB3, an addressbook contains persons, but now we have a bigger library that
-contains multiple addressbooks.</p>
-</li>
-<li>
-<p><strong>Play feature</strong><br>
-Since this was a brand new feature that was created from scratch, there were multiple suggestions from different members which was the
-best way to implement it. After much discussion and some compromise from each design, we came out with our final implementation. Additionally, since
-it was a new feature, even after we did the initial implementation, there were things that we did not foresee, such as how the UI would
-handle the different views depending on the state of the game and potentially how many bugs could have arose.</p>
-</li>
-<li>
-<p><strong>User Interface Design</strong><br>
-We were brainstorming for a good interface that could support the three views that we had: Library View, Deck View and Play View.
-We managed to create about 2-3 mock-ups that everyone thought looked really good. Then, we compared the User Experience (UX) advantages
-between the mock-ups and decided ultimately that the mock-up that was built on AB3&#8217;s design was the best for our flashcard purposes (in terms of UI/UX).</p>
-</li>
-<li>
-<p><strong>User Interface Implementation</strong><br>
-As none of our team were experienced with UI, our initial mock-up and vision of the UI proved too difficult for us to implement it at one go.
-However, Robert (our UI Lead) focused on building on the UI while the rest of the team focused on building the core functionality of FlashSpeed.
-Robert would ask us on input based off the UI that he had designed and improve it based on our suggestions.<br></p>
-</li>
-<li>
-<p><strong>Design Considerations</strong><br>
-For each major enhancement, there was always a few design alternatives to choose from. As each team member felt that their design was the best,
-in our first major enhancement meeting, we spent 2-3 hours deciding the final implementation. After that meeting, our team decided
-on a faster way to resolve such cases by spending a maximum of 30minutes discussion before casting a vote. It worked efficiently for the
-future meetings.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Achievements</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>We managed to create FlashSpeed to what we envisioned to be.</p>
-</li>
-<li>
-<p>Although we did not manage to implement all the user-stories that we brain-stormed, we implemented all the essential functionality of FlashSpeed</p>
-</li>
-<li>
-<p>FlashSpeed can safely support most available languages in the world, due to our stringent parser checks and language support from Java.</p>
-</li>
-<li>
-<p>We learnt what was important in software development (Good coding style, Github skills, Documentation Writing, Testing, etc&#8230;&#8203;)</p>
-</li>
-</ol>
+<p>{more at Appendix G in DG}</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 17:20:37 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:03:49 UTC</div></div></div></body></html>

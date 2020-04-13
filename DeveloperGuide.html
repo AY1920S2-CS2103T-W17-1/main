@@ -33,11 +33,12 @@
 <ul class="sectlevel2">
 <li><a href="#selecting-a-deck">4.1. Selecting a Deck</a></li>
 <li><a href="#creating-a-deck">4.2. Creating a Deck</a></li>
-<li><a href="#editing-a-card-shortcut-formats">4.3. Editing a Card: Shortcut Formats</a></li>
-<li><a href="#starting-a-play-session">4.4. Starting a play session</a></li>
-<li><a href="#flipping-a-card">4.5. Flipping a Card</a></li>
-<li><a href="#answering-in-a-play-session">4.6. Answering in a play session</a></li>
-<li><a href="#logging-2">4.7. Logging</a></li>
+<li><a href="#creating-a-card">4.3. Creating a Card</a></li>
+<li><a href="#editing-a-card-shortcut-formats">4.4. Editing a Card: Shortcut Formats</a></li>
+<li><a href="#starting-a-play-session">4.5. Starting a play session</a></li>
+<li><a href="#flipping-a-card">4.6. Flipping a Card</a></li>
+<li><a href="#answering-in-a-play-session">4.7. Answering in a play session</a></li>
+<li><a href="#logging-2">4.8. Logging</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -55,8 +56,7 @@
 <li><a href="#help-functionality">G.2. Help functionality</a></li>
 <li><a href="#deck-functionality">G.3. Deck functionality</a></li>
 <li><a href="#card-functionality">G.4. Card functionality</a></li>
-<li><a href="#game-play-functionality">G.5. Game-play functionality</a></li>
-<li><a href="#game-statistics">G.6. Game statistics</a></li>
+<li><a href="#game-statistics">G.5. Game statistics</a></li>
 </ul>
 </li>
 <li><a href="#effort">Appendix H: Effort</a></li>
@@ -334,13 +334,9 @@ The following classes plays an important role at the architecture level:</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("remove 2")</code> API call.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
-</div>
-<div class="title">Figure 6. Interactions inside the Logic Component for the <code>remove 2</code> command</div>
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.
+.Interactions inside the Logic Component for the <code>delete 1</code> command
+image::DeleteSequenceDiagram.png[]</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -364,7 +360,7 @@ The lifeline for <code>RemoveDeckCommandParser</code> should end at the destroy 
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of the Model Component</div>
+<div class="title">Figure 6. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -373,7 +369,7 @@ The lifeline for <code>RemoveDeckCommandParser</code> should end at the destroy 
 <div class="content">
 <img src="images/ModelClassDeckDiagram.png" alt="ModelClassDeckDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Deck Component within the Model Component</div>
+<div class="title">Figure 7. Structure of the Deck Component within the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/tree/master/src/main/java/com/flashspeed/model/Model.java"><code>Model.java</code></a></p>
@@ -417,9 +413,9 @@ The lifeline for <code>RemoveDeckCommandParser</code> should end at the destroy 
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="diagrams/StorageClassDiagram.png" alt="StorageClassDiagram">
+<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 9. Structure of the Storage Component</div>
+<div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/tree/master/src/main/java/com/flashspeed/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -543,7 +539,7 @@ object is then constructed with the Index as its parameter.</p>
 <div class="content">
 <img src="images/SelectDeckSequenceDiagram.png" alt="SelectDeckSequenceDiagram">
 </div>
-<div class="title">Figure 10. Interactions inside Model, Logic and UI components to reflect UI changes when selecting a deck</div>
+<div class="title">Figure 9. Interactions inside Model, Logic and UI components to reflect UI changes when selecting a deck</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -563,6 +559,8 @@ object is then constructed with the Index as its parameter.</p>
 <div class="paragraph">
 <p>This functionality is implemented by getting the Deck based on the index provided. Subsequently, the Card(s) that belongs to the selected Deck will be displayed on the right panel via a <code>TableView</code>.</p>
 </div>
+<div class="sect4">
+<h5 id="validation-and-extraction-of-input-in-parser"><a class="link" href="#validation-and-extraction-of-input-in-parser">Validation and extraction of input in parser</a></h5>
 <div class="paragraph">
 <p>The validation of the arguments in the <code>create</code> command is performed in <code>CreateDeckCommandParser#parse()</code>. It ensures
 that the user has entered a non-null deck name.</p>
@@ -572,12 +570,16 @@ that the user has entered a non-null deck name.</p>
 from the arguments in the <code>create</code> command. The <code>DECK_NAME</code> is converted to a Name object. An <code>CreateDeckCommand</code>
 object is then constructed with the Deck name as its parameter.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="execution-of-command-object"><a class="link" href="#execution-of-command-object">Execution of Command object</a></h5>
 <div class="paragraph">
 <p>When <code>CreateDeckCommand#execute()</code> is executed, an empty Deck with the Name parsed in the <code>CreateDeckCommand</code> will be
 created when the Model Manager invokes the <code>ModelManager#selectDeck()</code> command.
 After that, <code>ModelManager#setSelectedDeck()</code> method will be called to update the UI and display the Deck content
 on the right panel. Lastly, the name of the selected Deck will be displayed together with the
 <code>MESSAGE_SUCCESS</code> on the <code>ResultDisplay</code> panel.</p>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -642,11 +644,13 @@ This is certainly not the expected outcome that the user has expected.</p>
 which is to assign different keywords to these two different feature.
 <br></p>
 </div>
-<div class="paragraph">
-<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; master
-=== Creating a Card
-==== Current Implementation</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-a-card"><a class="link" href="#creating-a-card">4.3. Creating a Card</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>add</code> command allows user to create a new Card in the current Deck.</p>
 </div>
@@ -659,6 +663,8 @@ The Model Manager will be responsible of keeping track of the current deck.
 Subsequently, the Model Manager creates a new card  adds it to the current Deck.
 The display on the right panel will be updated via updating the <code>TableView</code>.</p>
 </div>
+<div class="sect4">
+<h5 id="validation-and-extraction-of-input-in-parser-2"><a class="link" href="#validation-and-extraction-of-input-in-parser-2">Validation and extraction of input in parser</a></h5>
 <div class="paragraph">
 <p>The validation of the arguments in the <code>add</code> command is performed in <code>AddCardCommandParser#parse()</code>. It ensures
 that the user has entered a non-null front value as well as a non-null back value.
@@ -670,6 +676,9 @@ from the arguments in the <code>add</code> command.
 Both values will be converted to a <code>FrontFace</code> object and a <code>BackFace</code> object respectively.
 A <code>AddCardCommand</code> object is then constructed with the 'FrontFace' and 'BackFace' objects as its parameters.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="execution-of-command-object-2"><a class="link" href="#execution-of-command-object-2">Execution of Command object</a></h5>
 <div class="paragraph">
 <p>When <code>AddCardCommand#execute()</code> is called, a <code>Card</code> object with the <code>FrontFace</code> and <code>BackFace</code>
 parsed in the <code>CreateDeckCommand</code> will be
@@ -681,10 +690,9 @@ on the right panel. Lastly, the name of the selected Deck will be displayed toge
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.2.3. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
 <div class="paragraph">
-<p>See <a href="#Four-Two-Two">4.2.2 - Design Considerations for creating a Deck - Aspect: Naming convention of command keywords</a>.
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; master</p>
+<p>See <a href="#Four-Two-Two">4.2.2 - Design Considerations for creating a Deck - Aspect: Naming convention of command keywords</a>.</p>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -692,9 +700,9 @@ on the right panel. Lastly, the name of the selected Deck will be displayed toge
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-card-shortcut-formats"><a class="link" href="#editing-a-card-shortcut-formats">4.3. Editing a Card: Shortcut Formats</a></h3>
+<h3 id="editing-a-card-shortcut-formats"><a class="link" href="#editing-a-card-shortcut-formats">4.4. Editing a Card: Shortcut Formats</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>edit</code> command allows for the values of a Card&#8217;s face(s) to be changed.</p>
 </div>
@@ -728,8 +736,10 @@ blank value will be replaced by the associated value in the Card to be replaced.
 <div class="content">
 <img src="images/EditCardActivityDiagram.png" alt="EditCardActivityDiagram">
 </div>
-<div class="title">Figure 11. Operations flow during an Edit command.</div>
+<div class="title">Figure 10. Operations flow during an Edit command.</div>
 </div>
+<div class="sect4">
+<h5 id="validation-and-extraction-of-input-in-parser-3"><a class="link" href="#validation-and-extraction-of-input-in-parser-3">Validation and extraction of input in parser</a></h5>
 <div class="paragraph">
 <p>The validation of the arguments in the <code>edit</code> command is performed in <code>EditCommandParser#parse()</code>. Note that
 the validation only checks that the command is well-formed, i.e. understandable by FlashSpeed. It does not check for the validity of the command
@@ -741,6 +751,9 @@ logic and model management logic.</p>
 from the arguments in the <code>edit</code> command. The <code>INDEX</code> is converted to an Index object. An <code>EditCardCommand</code>
 object is then constructed with the Index and the new Card as its parameters.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="execution-of-command-object-3"><a class="link" href="#execution-of-command-object-3">Execution of Command object</a></h5>
 <div class="paragraph">
 <p>When <code>EditCardCommand#execute()</code> is executed, the environment is then checked. The <code>edit</code> command is only valid when
 we are currently in a Deck, thus a check on the current view is performed using <code>ModelManager#getView()</code>. Then
@@ -761,11 +774,12 @@ We can then perform the replacement using <code>ModelManager#replaceCard()</code
 <div class="content">
 <img src="images/EditSequenceDiagram.png" alt="EditSequenceDiagram">
 </div>
-<div class="title">Figure 12. Operations performed for the <code>edit 1 fr:bk</code> command.</div>
+<div class="title">Figure 11. Operations performed for the <code>edit 1 fr:bk</code> command.</div>
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-replacement-card-is-formed-during-the-start-of-execution"><a class="link" href="#aspect-how-the-replacement-card-is-formed-during-the-start-of-execution">Aspect: How the replacement Card is formed during the start of execution</a></h5>
 <div class="ulist">
@@ -805,9 +819,9 @@ We can then perform the replacement using <code>ModelManager#replaceCard()</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="starting-a-play-session"><a class="link" href="#starting-a-play-session">4.4. Starting a play session</a></h3>
+<h3 id="starting-a-play-session"><a class="link" href="#starting-a-play-session">4.5. Starting a play session</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>play</code> command creates a new session to play with a specific deck.</p>
 </div>
@@ -818,6 +832,8 @@ We can then perform the replacement using <code>ModelManager#replaceCard()</code
 <p>The play command changes the mode of the application to <code>PLAY</code> mode and creates a new session with the Deck at the given <code>INDEX</code>.
 The value of the <code>FRONT</code> of the selected <code>Deck</code> will be displayed to the user.</p>
 </div>
+<div class="sect4">
+<h5 id="validation-and-extraction-of-input-in-parser-4"><a class="link" href="#validation-and-extraction-of-input-in-parser-4">Validation and extraction of input in parser</a></h5>
 <div class="paragraph">
 <p>The first validation of the <code>play</code> command is performed in <code>PlayCommandParser#parse()</code>.
 The validation only checks that the <code>play</code> command has the correct format as the <code>INDEX</code> argument is given by the user and it is performed on the login level.</p>
@@ -826,6 +842,9 @@ The validation only checks that the <code>play</code> command has the correct fo
 <p>In <code>PlayCommandParser#parse()</code>, the <code>INDEX</code> of the deck is extracted from the arguments in the <code>play</code> command. The <code>INDEX</code> is converted to an Index object. An <code>PlayCommand</code>
 object is then constructed with the Index.</p>
 </div>
+</div>
+<div class="sect4">
+<h5 id="execution-of-command-object-4"><a class="link" href="#execution-of-command-object-4">Execution of Command object</a></h5>
 <div class="paragraph">
 <p>After the object of the <code>PlayCommand' is constructed, `PlayCommand#execute()</code> will be executed and the second validation of the <code>play</code> command is performed.
 This validation firstly checks if the given <code>INDEX</code> argument is a non-negative integer and is within the number of cards in the selected Deck. Then the validation checks if
@@ -842,17 +861,18 @@ The first card of the selected deck is obtained using <code>deck#asUnmodifiableO
 <div class="content">
 <img src="images/PlaySequenceDiagram.png" alt="PlaySequenceDiagram">
 </div>
-<div class="title">Figure 13. Interactions inside Logic and Model components when <code>play 1</code> is executed</div>
+<div class="title">Figure 12. Interactions inside Logic and Model components when <code>play 1</code> is executed</div>
 </div>
 <div class="paragraph">
 <p><br></p>
 </div>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="flipping-a-card"><a class="link" href="#flipping-a-card">4.5. Flipping a Card</a></h3>
+<h3 id="flipping-a-card"><a class="link" href="#flipping-a-card">4.6. Flipping a Card</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>flip</code> command flips a card in the selected deck to view the <code>BACK</code> face of the card.</p>
 </div>
@@ -862,6 +882,14 @@ The first card of the selected deck is obtained using <code>deck#asUnmodifiableO
 <div class="paragraph">
 <p>The <code>flip</code> command displays the <code>BACK</code> face of the card that the user is currently playing with to the user so that user is able to check if his or her answer is correct.</p>
 </div>
+<div class="sect4">
+<h5 id="validation-and-extraction-of-input-in-parser-5"><a class="link" href="#validation-and-extraction-of-input-in-parser-5">Validation and extraction of input in parser</a></h5>
+<div class="paragraph">
+<p>No user parameter is required, hence a parser is not needed.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="execution-of-command-object-5"><a class="link" href="#execution-of-command-object-5">Execution of Command object</a></h5>
 <div class="paragraph">
 <p>An <code>FlipCommand</code> object is constructed and <code>FlipCommand#execute()</code> is executed. In <code>FlipCommand#execute()</code>, validation for the <code>flip</code> command is performed.
 The validation will check if <code>ModelManager</code> is in <code>PLAY</code> mode using <code>ModelManager#getMode()</code>. if <code>ModelManager</code> is in <code>PLAY</code> mode, then the validation will check if the card has been flipped
@@ -880,17 +908,18 @@ by checking if the returned <code>BACK</code> face of the card is empty since a 
 <div class="content">
 <img src="images/FlipSequenceDiagram.png" alt="FlipSequenceDiagram">
 </div>
-<div class="title">Figure 14. Interactions inside Logic and Model components when <code>flip</code> is executed</div>
+<div class="title">Figure 13. Interactions inside Logic and Model components when <code>flip</code> is executed</div>
 </div>
 <div class="paragraph">
 <p><br></p>
 </div>
 </div>
 </div>
+</div>
 <div class="sect2">
-<h3 id="answering-in-a-play-session"><a class="link" href="#answering-in-a-play-session">4.6. Answering in a play session</a></h3>
+<h3 id="answering-in-a-play-session"><a class="link" href="#answering-in-a-play-session">4.7. Answering in a play session</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>User answers to the card that he or she is currently playing with using <code>yes</code> or <code>no</code> command.</p>
 </div>
@@ -900,6 +929,14 @@ by checking if the returned <code>BACK</code> face of the card is empty since a 
 <div class="paragraph">
 <p>After flipping the card, users indicates if he or she gets the correct answer by using <code>yes</code> and <code>no</code> command.</p>
 </div>
+<div class="sect4">
+<h5 id="validation-and-extraction-of-input-in-parser-6"><a class="link" href="#validation-and-extraction-of-input-in-parser-6">Validation and extraction of input in parser</a></h5>
+<div class="paragraph">
+<p>No user parameter is required, hence a parser is not needed.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="execution-of-command-object-6"><a class="link" href="#execution-of-command-object-6">Execution of Command object</a></h5>
 <div class="paragraph">
 <p>An <code>AnswerYesCommand</code> or <code>AnswerNoCommand</code> object is constructed and <code>AnswerYesCommand#execute()</code> or <code>AnswerNoCommand#execute()</code> is executed accordingly. Validation for the <code>yes</code> and <code>no</code> command is performed to check
 if if <code>ModelManager</code> is in <code>PLAY</code> mode using <code>ModelManager#getMode()</code>. if <code>ModelManager</code> is in <code>PLAY</code> mode, then the validation will check if the card has been flipped
@@ -920,17 +957,18 @@ if the returned card is empty.</p>
 <div class="content">
 <img src="images/AnswerYesSequenceDiagram.png" alt="AnswerYesSequenceDiagram">
 </div>
-<div class="title">Figure 15. Interactions inside Logic and Model components when <code>yes</code> is executed</div>
+<div class="title">Figure 14. Interactions inside Logic and Model components when <code>yes</code> is executed</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/AnswerNoSequenceDiagram.png" alt="AnswerNoSequenceDiagram">
 </div>
-<div class="title">Figure 16. Interactions inside Logic and Model components when <code>no</code> is executed</div>
+<div class="title">Figure 15. Interactions inside Logic and Model components when <code>no</code> is executed</div>
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-using-code-yes-code-and-code-no-code-instead-of-the-actual-answer"><a class="link" href="#aspect-using-code-yes-code-and-code-no-code-instead-of-the-actual-answer">Aspect: Using <code>yes</code> and <code>no</code> instead of the actual answer.</a></h5>
 <div class="ulist">
@@ -968,7 +1006,7 @@ As the answers typed in mush exactly match the one on the card, it may result in
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging-2"><a class="link" href="#logging-2">4.7. Logging</a></h3>
+<h3 id="logging-2"><a class="link" href="#logging-2">4.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
@@ -1369,16 +1407,14 @@ As the answers typed in mush exactly match the one on the card, it may result in
 <li>
 <p>2a1. FlashSpeed shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 1.</p>
+<p>Use case resumes at step 1.
+<br></p>
 </div>
 </li>
 </ul>
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><br></p>
 </div>
 <h3 id="uc05-add-a-card-to-a-deck" class="discrete">UC05: Add a card to a deck</h3>
 <div class="paragraph">
@@ -1877,7 +1913,7 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <div class="content">
 <img src="images/library.png" alt="library">
 </div>
-<div class="title">Figure 17. In Library view. No deck is selected.</div>
+<div class="title">Figure 16. In Library view. No deck is selected.</div>
 </div>
 <div class="dlist">
 <dl>
@@ -1891,7 +1927,7 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <div class="content">
 <img src="images/Ui.png" alt="Ui">
 </div>
-<div class="title">Figure 18. In Deck view. A deck has been selected.</div>
+<div class="title">Figure 17. In Deck view. A deck has been selected.</div>
 </div>
 <div class="dlist">
 <dl>
@@ -1905,7 +1941,7 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <div class="content">
 <img src="images/Ui2.png" alt="Ui2">
 </div>
-<div class="title">Figure 19. In Play view. A deck is being studied.</div>
+<div class="title">Figure 18. In Play view. A deck is being studied.</div>
 </div>
 </div>
 </div>
@@ -1926,6 +1962,9 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <li>
 <p>Study algorithm is useful for easily memorizing content.</p>
 </li>
+<li>
+<p>Extensive card browser</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -1937,7 +1976,7 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <p>Not as appealing UI.</p>
 </li>
 <li>
-<p>Not friendly for fast typist to execute commands/tasks.</p>
+<p>Not friendly for fast typist to execute commands/tasks (no CLI).</p>
 </li>
 </ul>
 </div>
@@ -2192,19 +2231,13 @@ Expected: No card is edited. Error details shown in the status message. Status b
 </li>
 <li>
 <p>Other incorrect create commands to try: <code>edit</code>, <code>edit test : test test</code>, <code>edit x Russian : 러시안어</code> (where x is larger than the list size),
-<code>rename 1 y</code> (where y is a card that already exists)<br>
-Expected: Similar to previous.</p>
+   <code>rename 1 y</code> (where y is a card that already exists)<br>
+   Expected: Similar to previous.
+=== Game-play functionality</p>
 </li>
 </ol>
 </div>
 </li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="game-play-functionality"><a class="link" href="#game-play-functionality">G.5. Game-play functionality</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
 <li>
 <p>Starting a game</p>
 <div class="olist loweralpha">
@@ -2281,7 +2314,7 @@ Expected: A statistics screen will popup showing the statistics of the game.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="game-statistics"><a class="link" href="#game-statistics">G.6. Game statistics</a></h3>
+<h3 id="game-statistics"><a class="link" href="#game-statistics">G.5. Game statistics</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2392,4 +2425,4 @@ future meetings.</p>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 17:20:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:03:49 UTC</div></div></div></body></html>
