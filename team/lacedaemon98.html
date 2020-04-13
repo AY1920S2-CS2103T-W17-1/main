@@ -340,6 +340,18 @@ Alternatively, you can contact us <a href="https://ay1920s2-cs2103t-w17-1.github
 </div>
 <div class="sect2">
 <h3 id="selecting-a-deck"><a class="link" href="#selecting-a-deck">Selecting a Deck</a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+UI implementation will be discussed in detail only in this section. In other sections, detailed UI implementation will be omitted.
+</td>
+</tr>
+</table>
+</div>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
@@ -349,7 +361,7 @@ Alternatively, you can contact us <a href="https://ay1920s2-cs2103t-w17-1.github
 <p>Accepted syntax: <code>select INDEX</code></p>
 </div>
 <div class="paragraph">
-<p>This functionality is implemented by getting the Deck based on the index provided. Subsequently, the Card(s) that belongs to the selected Deck will be displayed on the right panel via a <code>TableView</code>.</p>
+<p>This functionality is implemented by getting the Deck based on the index provided. Subsequently, the selected Deck will be highlighted on <code>DeckListPanel</code> and the Card(s) that belongs to it will be displayed on <code>CardListPanel</code> via a <code>TableView</code>.</p>
 </div>
 <div class="paragraph">
 <p>The validation of the arguments in the <code>select</code> command is performed in <code>SelectDeckCommandParser#parse()</code>. It ensures that the user has entered a valid index (valid data type and range). This is also used for separation of parsing
@@ -361,13 +373,13 @@ from the arguments in the <code>select</code> command. The <code>INDEX</code> is
 object is then constructed with the Index as its parameter.</p>
 </div>
 <div class="paragraph">
-<p>When <code>SelectDeckCommand#execute()</code> is executed a list of currently available Deck is requested from the <code>ModelManager#getFilteredDeckList()</code> method. The <code>ModelManager#selectDeck()</code> command will be invoked to update the variable that keeps track of the current Deck. After that, <code>ModelManager#setSelectedDeck()</code> method will be called to update the UI and display the Deck content on the right panel. Lastly, the name of the selected Deck will be displayed together with the <code>MESSAGE_SUCCESS</code> on the <code>ResultDisplay</code> panel.</p>
+<p>When <code>SelectDeckCommand#execute()</code> is executed a list of currently available Deck is requested from the <code>ModelManager#getFilteredDeckList()</code> method. The <code>ModelManager#selectDeck()</code> command will be invoked to update the variable that keeps track of the current Deck. After that, <code>ModelManager#setSelectedDeck()</code> method will be called to update the UI by highlighting the selected Deck on <code>DeckListPanel</code> and displaying its content on <code>CardListPanel</code>. Lastly, the name of the selected Deck will be displayed together with the <code>MESSAGE_SUCCESS</code> on the <code>ResultDisplay</code> panel.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="paragraph">
-<p>The UI will have to be constantly updated when we select to view a deck, and other decks might be selected afterward. As a result, an <code>ObservableValue&lt;Deck&gt;</code> variable will have to be updated constantly via the <code>ModelManager#setSelectedDeck()</code> method. Various event listeners are implemented in the UI classes (e.g <code>CardListPanel</code>, <code>DeckListPanel</code>) in order to instantly react if there is any changes to the selected deck.</p>
+<p>The UI will have to be constantly updated when we select to view a Deck, and other Decks might be selected afterward. As a result, an <code>ObservableValue&lt;Deck&gt;</code> variable will have to be updated constantly via the <code>ModelManager#setSelectedDeck()</code> method. Various event listeners are implemented in the UI classes (e.g <code>CardListPanel</code>, <code>DeckListPanel</code>) in order to instantly react if there is any changes to the selected Deck.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -441,4 +453,4 @@ There are three different views in FlashSpeed.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:26:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:23:37 UTC</div></div></div></body></html>
