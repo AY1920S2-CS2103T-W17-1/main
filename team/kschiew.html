@@ -16,6 +16,12 @@ University students often have hectic schedules.
 With this in mind,
 FlashSpeed was created to allow students to be able to study and revise foreign vocabulary on the fly.</p>
 </div>
+<div class="paragraph">
+<p>FlashSpeed was developed as a team project for the CS2103T Software Engineering module in the National University of Singapore
+(NUS). It is considered a brownfield project as it was built on top of the AddressBook-Level3 project created by the <a href="https://se-education.org">SE-EDU initiative</a>.
+FlashSpeed is written in Java and has a GUI created using <a href="https://openjfx.io/">JavaFX</a>, with a storage system implemented using
+<a href="https://github.com/FasterXML/jackson">Jackson</a>.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -47,7 +53,26 @@ The implementation too was challenging as it required making high-level design c
 </div>
 </li>
 <li>
-<p><strong>Major enhancement 2</strong>: added the ability to <strong>generate statistics</strong> after every game session.</p>
+<p><strong>Major enhancement 2</strong>: added the <strong>storage function</strong> to the app.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to save and load the decks of cards created by the user to/from a local directory.</p>
+</li>
+<li>
+<p>Justification: This feature improves the usability of the product significantly
+because a user needs to be able to retrieve the decks of cards that he/she has created in the past.</p>
+</li>
+<li>
+<p>Highlights: This enhancement requires an deep understanding of how JSON files and the Jackson library.
+The implementation was quite challenging as there are quite a few layers of abstraction in the storage system
+implemented by the original project that FlashSpeed is built upon.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement 3</strong>: added the ability to <strong>generate statistics</strong> after every game session.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -68,28 +93,8 @@ as most of the enhancement was essentially arithmetic manipulation.</p>
 </div>
 </li>
 <li>
-<p><strong>Major enhancement 3</strong>: added the <strong>storage function</strong> to the app.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: allows the user to save and load the decks of cards created by the user to a local directory.
-Preceding undo commands can be reversed by using the redo command.</p>
-</li>
-<li>
-<p>Justification: This feature improves the usability of the product significantly
-because a user needs to be able to retrieve the decks of cards that he/she has created in the past.</p>
-</li>
-<li>
-<p>Highlights: This enhancement requires an deep understanding of how JSON files and the Jackson library.
-The implementation was quite challenging as there are quite a few layers of abstraction in the storage system
-implemented by the original project that FlashSpeed is built upon.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
 <p><strong>Minor enhancement</strong>: Implemented the library class that contains the decks of cards along with another teammate,
-LiXin.</p>
+LiXin. Built and enhanced the Model and Logic Component with Amirul and LiXin.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=kschiew&amp;tabRepo=AY1920S2-CS2103T-W17-1%2Fmain%5Bmaster%5D">Functional and Test code</a>]</p>
@@ -116,7 +121,9 @@ LiXin.</p>
 <p>Created test utilities for teammates to utilize during testing (Pull requests <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/300">#300</a>, <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/285">#285</a>)</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage (Pull requests <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/315">#36</a>)</p>
+<p>Wrote additional tests for existing features to increase coverage
+(Pull requests <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/315">#36</a>
+<a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/377">#377</a>)</p>
 </li>
 </ul>
 </div>
@@ -137,11 +144,13 @@ LiXin.</p>
 <ul>
 <li>
 <p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/295">#295</a>
-<a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/84">#84</a></p>
+<a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/84">#84</a>
+<a href="https://github.com/AY1920S2-CS2103T-W17-1/main/pull/347">#347</a></p>
 </li>
 <li>
 <p>Reported bugs and suggestions for other teams in the class (examples:
-<a href="https://github.com/kschiew/ped/issues/1">#1</a> <a href="https://github.com/kschiew/ped/issues/2">#2</a> <a href="https://github.com/kschiew/ped/issues/3">#3</a> <a href="https://github.com/kschiew/ped/issues/4">$#4</a></p>
+<a href="https://github.com/kschiew/ped/issues/1">#1</a> <a href="https://github.com/kschiew/ped/issues/2">#2</a>
+<a href="https://github.com/kschiew/ped/issues/3">#3</a> <a href="https://github.com/kschiew/ped/issues/4">#4</a></p>
 </li>
 </ul>
 </div>
@@ -467,10 +476,15 @@ This is certainly not the expected outcome that the user has expected.</p>
 </div>
 <div class="paragraph">
 <p>And so, our team has decided to implement the current approach,
-which is to assign different keywords to these two different feature.
-=== Adding a Card
-==== Current Implementation</p>
+which is to assign different keywords to these two different feature.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-card"><a class="link" href="#adding-a-card">Adding a Card</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
 <div class="paragraph">
 <p>The <code>add</code> command allows user to create a new Card in the current Deck.</p>
 </div>
@@ -482,7 +496,6 @@ which is to assign different keywords to these two different feature.
 The Model Manager will be responsible of keeping track of the current deck.
 Subsequently, the Model Manager creates a new card  adds it to the current Deck.
 The display on the right panel will be updated via updating the <code>TableView</code>.</p>
-</div>
 </div>
 <div class="sect4">
 <h5 id="validation-and-extraction-of-input-in-parser-2"><a class="link" href="#validation-and-extraction-of-input-in-parser-2">Validation and extraction of input in parser</a></h5>
@@ -528,4 +541,4 @@ on the right panel. Lastly, the name of the selected Deck will be displayed toge
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:57:44 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:27:01 UTC</div></div></div></body></html>

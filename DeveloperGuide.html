@@ -73,22 +73,22 @@
 <p>FlashSpeed enhances the revision process by implementing a <a href="#smart-review-system">smarter review system</a> in its design. Users will be tested more frequently on words that they have gotten wrong in a game session.</p>
 </div>
 <div class="paragraph">
-<p>The main features of FlashSpeed allows users to</p>
+<p>The main features of FlashSpeed allows users to:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>create their own <a href="#deck">decks</a> of flashcards (or <a href="#card">cards</a>)</p>
+<p>create their own <a href="#deck">decks</a> of <a href="#card">cards</a> (flashcards)</p>
 </li>
 <li>
-<p>choose a deck to revise (or <a href="#play">play</a>) which uses the SRS design mentioned above.</p>
+<p>choose a deck to <a href="#play">play</a> (review) which uses the SRS design mentioned above.</p>
 </li>
 </ul>
 </div>
 <div class="sect2">
 <h3 id="Purpose"><a class="link" href="#Purpose">1.1. Purpose</a></h3>
 <div class="paragraph">
-<p>This document specifies architecture, software design decisions and implementation for the flashcard app, FlashSpeed.</p>
+<p>This document specifies architecture, software design decisions and implementation for the FlashSpeed application.</p>
 </div>
 </div>
 <div class="sect2">
@@ -97,7 +97,7 @@
 <p>This document is intended for anyone who wants to understand the system architecture, design and implementation of FlashSpeed.</p>
 </div>
 <div class="paragraph">
-<p>The following groups are in particular the intended audience of this document.</p>
+<p>The following groups are in particular are the intended audience of this document.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -119,19 +119,19 @@
 <div class="ulist">
 <ul>
 <li>
-<p>First, refer to <a href="#Design-Architecture">3.1 Architecture</a> section to learn more about the overall architecture.</p>
+<p>Firstly, refer to <a href="#Design-Architecture">3.1 Architecture</a> section to learn more about the overall architecture.</p>
 </li>
 <li>
-<p>Then proceed to further sections 3.2 - 3.6 to learn more about each individual components of the architecture.</p>
+<p>Then proceed to sections 3.2 - 3.6 to learn more about each individual component in the architecture.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Section 4 - Implementation contains information about the main commands and the implementation of each command used in FlashSpeed.</p>
+<p>Section 4 - Implementation contains information about the main commands and the implementations of each command used in FlashSpeed.</p>
 </li>
 <li>
-<p>Appendix Section - Any miscellaneous information that is not essential for the implementation of FlashSpeed but is good to know.</p>
+<p>Appendix - Information related to the development process and design choices of FlashSpeed.</p>
 </li>
 </ul>
 </div>
@@ -1878,9 +1878,6 @@ Use case ends.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1890,15 +1887,15 @@ Use case ends.</p>
 <dl>
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
 <dd>
-<p>Windows, Linux, Unix, OS-X</p>
+<p>Windows, Linux, Unix, macOS.</p>
 </dd>
 <dt class="hdlist1"><a id="deck"></a> Deck</dt>
 <dd>
-<p>A Deck holds cards</p>
+<p>A Deck is a group of Cards.</p>
 </dd>
 <dt class="hdlist1"><a id="card"></a> Card</dt>
 <dd>
-<p>A Card has two faces. One side for prompting the user and the other side for the content the user wants to memorize</p>
+<p>A Card mimics a physical flashcard. It has two faces. One side for prompting the user and the other side for the content the user wants to memorize.</p>
 </dd>
 <dt class="hdlist1"><a id="smart-review-system"></a> Smarter Review System</dt>
 <dd>
@@ -1907,7 +1904,7 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 </dd>
 <dt class="hdlist1"><a id="spaced-repetition-system"></a> Space Repetition System</dt>
 <dd>
-<p>Spaced repetition is an evidence-based learning technique that is usually performed with flashcards. Newly introduced and more difficult flashcards are shown more frequently while older and less difficult flashcards are shown less frequently in order to exploit the psychological spacing effect</p>
+<p>Spaced repetition is an evidence-based learning technique that is usually performed with flashcards. Newly introduced and more difficult flashcards are shown more frequently while older and less difficult flashcards are shown less frequently in order to exploit the psychological spacing effect.</p>
 </dd>
 </dl>
 </div>
@@ -1915,7 +1912,8 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <dl>
 <dt class="hdlist1"><a id="view"></a> View</dt>
 <dd>
-<p>There are three different views in FlashSpeed.</p>
+<p>The state or mode which FlashSpeed is in.
+There are three different views in FlashSpeed.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1932,7 +1930,7 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 </dd>
 <dt class="hdlist1"><a id="library-view"></a> Library View</dt>
 <dd>
-<p>When no deck is selected and no cards are shown</p>
+<p>When no deck is selected and no cards are shown.</p>
 </dd>
 </dl>
 </div>
@@ -1946,7 +1944,7 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <dl>
 <dt class="hdlist1"><a id="deck-view"></a> Deck View</dt>
 <dd>
-<p>When a deck is selected and its cards are shown</p>
+<p>When a deck is selected and its cards are shown.</p>
 </dd>
 </dl>
 </div>
@@ -1960,7 +1958,7 @@ Cards that are answered wrongly in Play Mode will be shown more frequently in th
 <dl>
 <dt class="hdlist1"><a id="play"></a> Play View</dt>
 <dd>
-<p>When in a study session of a deck</p>
+<p>When in a study session of a deck.</p>
 </dd>
 </dl>
 </div>
@@ -2387,9 +2385,9 @@ Expected: A statistics screen will popup showing the statistics of the game.</p>
 <div class="paragraph">
 <p><strong>Overview</strong>
 FlashSpeed, a flashcard application, is aimed specifically at helping University students with learning a new language.
-FlashSpeed is significantly different from Address Book 3 (AB3) although it is based off it. In additional to the features from AB3,
-we needed to add additional features that would complete our flashcard application. For example, the Play feature is a new feature
-introduced in FlashSpeed</p>
+FlashSpeed is significantly different from Address Book 3 (AB3) although it is based off of it.
+In addition to changing existing features in AB3, we needed to add additional features that would complete our flashcard application. For example, the Play feature is a new feature
+introduced in FlashSpeed.</p>
 </div>
 <div class="paragraph">
 <p><strong>Challenges and Effort</strong></p>
@@ -2406,28 +2404,30 @@ contains multiple addressbooks.</p>
 </li>
 <li>
 <p><strong>Play feature</strong><br>
-Since this was a brand new feature that was created from scratch, there were multiple suggestions from different members which was the
+Since this was a brand new feature that was created from scratch,
+there were multiple suggestions from different members for
 best way to implement it. After much discussion and some compromise from each design, we came out with our final implementation. Additionally, since
 it was a new feature, even after we did the initial implementation, there were things that we did not foresee, such as how the UI would
-handle the different views depending on the state of the game and potentially how many bugs could have arose.</p>
+handle the different views depending on the state of the game and the defensive code to implement to prevent bugs.</p>
 </li>
 <li>
 <p><strong>User Interface Design</strong><br>
 We were brainstorming for a good interface that could support the three views that we had: Library View, Deck View and Play View.
-We managed to create about 2-3 mock-ups that everyone thought looked really good. Then, we compared the User Experience (UX) advantages
-between the mock-ups and decided ultimately that the mock-up that was built on AB3&#8217;s design was the best for our flashcard purposes (in terms of UI/UX).</p>
+We managed to create about 2-3 mock-ups that everyone thought looked really good.
+We then examined the User Experience (UX) advantages
+between the mock-ups and decided ultimately that an enhanced AB3 layout was the best for our flashcard purposes.</p>
 </li>
 <li>
 <p><strong>User Interface Implementation</strong><br>
-As none of our team were experienced with UI, our initial mock-up and vision of the UI proved too difficult for us to implement it at one go.
-However, Robert (our UI Lead) focused on building on the UI while the rest of the team focused on building the core functionality of FlashSpeed.
-Robert would ask us on input based off the UI that he had designed and improve it based on our suggestions.<br></p>
+As none of the members in our team were experienced with UI design, our initial mock-up and vision of the UI proved too difficult for us to implement within our time frame.
+However, Robert (our UI Lead) focused on building and designing the UI while the rest of the team focused on the functional components of FlashSpeed.
+Robert would ask us for input based on the experimental UIs that he had designed and improve it based on our suggestions.<br></p>
 </li>
 <li>
 <p><strong>Design Considerations</strong><br>
-For each major enhancement, there was always a few design alternatives to choose from. As each team member felt that their design was the best,
-in our first major enhancement meeting, we spent 2-3 hours deciding the final implementation. After that meeting, our team decided
-on a faster way to resolve such cases by spending a maximum of 30minutes discussion before casting a vote. It worked efficiently for the
+For each major enhancement, there were always a few design alternatives to choose from. As each team member felt that their design considerations had merit,
+in our first major enhancement meeting, we spent 2 hours deciding on the initial design implementation. After that meeting, our team decided
+on a faster way to resolve such cases by spending a maximum of 30 minutes discussing before casting a vote. It worked well for the
 future meetings.</p>
 </li>
 </ul>
@@ -2438,18 +2438,18 @@ future meetings.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>We managed to create FlashSpeed to what we envisioned to be.</p>
+<p>We managed to create FlashSpeed to what we envisioned it to be with the features we wanted.</p>
 </li>
 <li>
-<p>Although we did not manage to implement all the user-stories that we brain-stormed, we implemented all the essential functionality of FlashSpeed</p>
+<p>Although we did not manage to implement all the user-stories that we brain-stormed, we implemented all the essential functionality of FlashSpeed plus a few more nice features.</p>
 </li>
 <li>
-<p>FlashSpeed can safely support most available languages in the world, due to our stringent parser checks and language support from Java.</p>
+<p>FlashSpeed can safely support most digitized written languages in the world, due to our stringent parser checks and language support from Java.</p>
 </li>
 <li>
-<p>We learnt what was important in software development (Good coding style, Github skills, Documentation Writing, Testing, etc&#8230;&#8203;)</p>
+<p>We learnt a lot about important processes and considerations in software development, e.g consistent coding style, version control skills, documentation writing, extensive testing, etc.</p>
 </li>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:57:44 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:27:01 UTC</div></div></div></body></html>
