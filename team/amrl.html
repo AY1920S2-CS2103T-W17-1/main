@@ -16,8 +16,8 @@ foreign language or reading a language module.</p>
 </div>
 <div class="paragraph">
 <p>It was developed as a team project for the CS2103T Software Engineering module in the National University of Singapore
-(NUS). FlashSpeed was built on top of the AddressBook-Level3 project created by SE-EDU initiative at
-<a href="https://se-education.org" class="bare">https://se-education.org</a>. FlashSpeed is written in Java and has a GUI created using JavaFX. Users interact with FlashSpeed using textual commands.</p>
+(NUS). FlashSpeed was built on top of the AddressBook-Level3 project created by the <a href="https://se-education.org">SE-EDU initiative</a>.
+FlashSpeed is written in Java and has a GUI created using JavaFX. Users interact with FlashSpeed mainly using textual commands.</p>
 </div>
 </div>
 </div>
@@ -41,7 +41,7 @@ As technical leader my responsibilities include ensuring the establishment of th
 <p>Justification: This feature improves the product significantly because a user will be able to perform the editing of only the values they want to change, rather than having to retype the same value. This provides convenience and overall efficiency to the user. This functionality had the possibility to require a change in the entire logical chain but I decided that a reuse of existing functionality (e.g. add, delete, etc. to perform a Card replacement) would both reduce the possibility of logical bugs and code rewrite.</p>
 </li>
 <li>
-<p>Highlights: This is the only command in the application which can take in multiple formats. The implementation of this feature required design considerations across the entire model of the application (e.g. overwrite values in the Card or do a full replacement with a new Card, where should the new Card interface with the Deck to retrieve the unchanged values if any, etc.) In the end, the edit functionality fulfilled its responsibilities while being able to be treated as another standard command.</p>
+<p>Highlights: This is the only command in the application which can take in multiple formats. The implementation of this feature required design considerations across the entire model of the application (e.g. overwrite values in the Card or do a full replacement with a new Card, where should the new Card interface with the Deck to retrieve the unchanged values if any, etc.) The edit functionality fulfilled its extended goals while being able to be treated as another standard command by the user and other developers.</p>
 </li>
 </ul>
 </div>
@@ -578,32 +578,7 @@ The following classes plays an important role at the architecture level:</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Each of the four components</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Defines its <em>API</em> in an <code>interface</code> with the same name as the Component.</p>
-</li>
-<li>
-<p>Exposes its functionality using a <code>{Component Name}Manager</code> class.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For example, the <code>Logic</code> component (see the class diagram given below) defines it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/LogicClassDiagram.png" alt="LogicClassDiagram">
-</div>
-<div class="title">Figure 4. Class Diagram of the Logic Component</div>
-</div>
 <hr>
-<div class="paragraph">
-<p><br></p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="editing-a-card-shortcut-formats"><a class="link" href="#editing-a-card-shortcut-formats">Editing a Card: Shortcut Formats</a></h3>
@@ -642,7 +617,7 @@ blank value will be replaced by the associated value in the Card to be replaced.
 <div class="content">
 <img src="../images/EditCardActivityDiagram.png" alt="EditCardActivityDiagram">
 </div>
-<div class="title">Figure 5. Operations flow during an Edit command.</div>
+<div class="title">Figure 4. Operations flow during an Edit command.</div>
 </div>
 <div class="sect4">
 <h5 id="validation-and-extraction-of-input-in-parser"><a class="link" href="#validation-and-extraction-of-input-in-parser">Validation and extraction of input in parser</a></h5>
@@ -680,7 +655,7 @@ We can then perform the replacement using <code>ModelManager#replaceCard()</code
 <div class="content">
 <img src="../images/EditSequenceDiagram.png" alt="EditSequenceDiagram">
 </div>
-<div class="title">Figure 6. Operations performed for the <code>edit 1 fr:bk</code> command.</div>
+<div class="title">Figure 5. Operations performed for the <code>edit 1 fr:bk</code> command.</div>
 </div>
 </div>
 </div>
@@ -722,4 +697,4 @@ We can then perform the replacement using <code>ModelManager#replaceCard()</code
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:38:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:49:30 UTC</div></div></div></body></html>
